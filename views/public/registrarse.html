@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/resources/css/tailwind.css" rel="stylesheet">
-  <link rel="stylesheet" href="/resources/css/public.css">
+  <link rel="stylesheet" href="/resources/css/registrarse.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -20,9 +20,11 @@
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
         <div class="flex md:order-2">
-          <button type="submit"
-          class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors" id="navbar" ><img src="/resources/img/user.png" alt="user" id="usericon"><a href="/views/public/registrarse.html">Registrarse</a>.</button>
-          
+            
+            <button type="submit"
+          class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors" id="navbar" ><img src="/resources/img/login.png" alt="user" id="usericon"><a href="index.html">Iniciar Sesión</a>.</button>
+      </div>
+        
         </div>
       </div>
       <br>
@@ -30,21 +32,28 @@
   </header>
 
   <main class="container flex flex-wrap items-center justify-between mx-9 h-screen">
-    <p class="font-medium rounded-xl text-5xl " id="texto-main">Busca, Escoje, Compra facil y <br> rapido</p>
+    <p class="font-medium rounded-xl text-5xl " id="texto-main">AQUI VA EL LOGO</p>
     <form>
       <div class="flex items-center justify-center mb-3">
-        <p class="font-medium rounded-xl text-xl">PROHAW</p>
+        <p class="font-medium rounded-xl text-4xl">Registrarse</p>
       </div>
       <div class="bg-white w-96 p-6 rounded shadow-sm">
         
+        <label class="text-gray-700 ">Nombre</label>
+        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded shadow-sm" type="email" />
+        <label class="text-gray-700 ">DUI</label>
+        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded shadow-sm" type="email" />
         <label class="text-gray-700 ">Correo</label>
+        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded shadow-sm" type="email" />
+        <label class="text-gray-700 ">Direccion</label>
+        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded shadow-sm" type="email" />
+        <label class="text-gray-700 ">Usuario</label>
         <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded shadow-sm" type="email" />
         <label class="text-gray-700">Contraseña</label>
         <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded shadow-sm" type="password" />
-        <input id="remember" class="mb-4" type="checkbox" />
-        <label for="remember" class="text-gray-700">Recordarme</label>
+        
         <button type="submit"
-          class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors" id="btnIniciar"><a href="/views/public/registrarse.html">Iniciar sesión</a>.</button>
+          class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors" id="btnIniciar" >Registrarme</button>
       </div>
     </form>
   </main>

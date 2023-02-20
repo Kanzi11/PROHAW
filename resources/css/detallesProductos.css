@@ -1,0 +1,55 @@
+#usericon{
+    margin-left: 10px;
+    height: 32px;
+}
+
+#carrito{
+    width: 40px;
+    height: 32px;
+    margin-left: 3px;
+}
+
+.division{
+    margin-right: 60px;
+}
+
+#logo{
+    width: 110px;
+    height: 70px;
+    margin-right: 70px;
+}
+
+#texto-main{
+    padding-left: 200px;
+}
+
+#btnIniciar{
+    background-color: #A8A0E4;
+    margin-top: 25px;
+}
+
+#navbar{
+    background-color: #6F83C3;
+}
+
+#btnRegistrar{
+    background-color: #6F83C3;
+}
+
+#buscar{
+    background-color: #FFFFFF;
+    width: 850px;
+    height: 40px;
+    margin-left: 25px;
+}
+
+#lupa{    
+    width: 30px;
+    height: 30px;   
+    margin-right: 250px; 
+}
+
+.fondo{
+    height: 15px;
+    width: 35px;
+}

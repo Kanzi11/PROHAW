@@ -10,41 +10,43 @@
 </head>
 
 <body>
-  <header>
-    <nav
-      class=" fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600" id="navbar">
+  <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
+    <nav class=" fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600" id="navbar">
       <br>
       <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="https://flowbite.com/" class="flex items-center">
           <img src="/resources/img/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
+
         <div class="flex md:order-2">
-          <button type="submit"
-          class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors" id="navbar" ><img src="/resources/img/user.png" alt="user" id="usericon"><a href="/views/public/registrarse.html">Registrarse</a>.</button>
-          
+          <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
+            id="navbar"><img src="/resources/img/user.png" alt="user" id="usericon"><a
+              href="/views/public/registrarse.html">Registrarse</a>.</button>
+
         </div>
       </div>
       <br>
     </nav>
   </header>
 
-  <main class="container flex flex-wrap items-center justify-between mx-9 h-screen">
+  <main class="container flex flex-wrap items-center justify-between mx-9 h-screen font-semibold">
     <p class="font-medium rounded-xl text-5xl " id="texto-main">Busca, Escoje, Compra facil y <br> rapido</p>
     <form>
       <div class="flex items-center justify-center mb-3">
-        <p class="font-medium rounded-xl text-xl">PROHAW</p>
+        <p class="font-medium rounded-xl text-3xl">PROHAW</p>
       </div>
-      <div class="bg-white w-96 p-6 rounded shadow-sm">
-        
-        <label class="text-gray-700 ">Correo</label>
-        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded shadow-sm" type="email" />
+      <div class="bg-white w-96 h-80 p-6 rounded shadow-lg">
+        <label class="text-gray-700">Correo</label>
+        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm" type="email"
+          id="campos" />
         <label class="text-gray-700">Contraseña</label>
-        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded shadow-sm" type="password" />
+        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm" type="password"
+          id="campos" />
         <input id="remember" class="mb-4" type="checkbox" />
         <label for="remember" class="text-gray-700">Recordarme</label>
-        <button type="submit"
-          class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors" id="btnIniciar"><a href="/views/public/registrarse.html">Iniciar sesión</a>.</button>
+        <button type="submit" class=" w-full text-gray-100  rounded-xl hover:bg-blue-600 transition-colors h-8"
+          id="btnIniciar"><a href="/views/public/productos.html">Iniciar sesión</a>.</button>
       </div>
     </form>
   </main>

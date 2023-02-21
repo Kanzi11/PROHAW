@@ -30,6 +30,7 @@
 
 #navbar{
     background-color: #6F83C3;
+    margin-bottom: 0px;
 }
 
 #btnRegistrar{
@@ -52,4 +53,33 @@
 .fondo{
     height: 15px;
     width: 35px;
+}
+
+#tabla{
+    background-color: #FFFFFF;
+    margin-top: 150px;
+    margin-left: 100px;
+
+}
+
+#tablita{
+    padding: 30px;
+    background-color: #FFFFFF;
+    margin-top: 60px;
+    margin-left: 65px;
+}
+
+#texto-tabla{
+    margin-bottom: 15px;
+}
+
+#imagenes{
+    margin-top: 10px;
+    width: 1000px;
+    margin-right: 100px;
+}
+
+#ofertas{
+    margin-left: 900px;
+    align-items: center;
 }

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/resources/css/productsp.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a0105665eb.js" crossorigin="anonymous"></script>
     <title>Productos</title>
 </head>
 
@@ -107,25 +108,25 @@
 
         <div class="seccion" id="table">
             <div class="relative overflow-x-auto">
-                <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-sm text-center text-black dark:text-black">
+                    <thead class=" text-black uppercase bg-gray-50 dark:bg-white dark:text-gray-700 font-medium">
                         <tr>
-                            <th scope="col" class="px-6 py-3">Producto</th>
-                            <th scope="col" class="px-6 py-3">Descripcion</th>
-                            <th scope="col" class="px-6 py-3">Precio</th>
-                            <th scope="col" class="px-6 py-3">Estado</th>
-                            <th scope="col" class="px-6 py-3">Imagen</th>
-                            <th scope="col" class="px-6 py-3">Marca</th>
-                            <th scope="col" class="px-6 py-3">Categoria</th>
-                            <th scope="col" class="px-6 py-3">Calificacion</th>
-                            <th scope="col" class="px-20 py-3">Acciones</th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Producto</span></th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Descripcion</span></th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Precio</span></th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Estado</span></th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Imagen</span></th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Marca</span></th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Categoria</span></th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Calificacion</span></th>
+                            <th scope="col" class="px-6 py-3"><span class="th1">Acciones</span></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <tr class="bg-white border-b dark:bg-white dark:border-black">
                             <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Mouse
+                            class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
+                                1
                             </th>
                             <td class="px-6 py-4">Silver</td>
                             <td class="px-6 py-4">Silver</td>
@@ -134,18 +135,51 @@
                             <td class="px-6 py-4">Silver</td>
                             <td class="px-6 py-4">Silver</td>
                             <td class="px-6 py-4">Silver</td>
-                            <td class="px-6 py-4"> <button id="editar" type="button"
-                                    class="flex mr-3 text-sm bg-gray-800 ">
-                                    <img class="w-8 h-8 " src="../../resources/img/iconos/editar.png" alt="">
-                                </button><button type="button" id="eliminar" class="flex mr-3 text-sm bg-gray-800">
-                                    <img class="w-8 h-8 " src="../../resources/img/iconos/eliminar.png" alt="">
-                                </button><button type="button" id="reporte" class="flex mr-3 text-sm bg-gray-800 ">
-                                    <img class="w-8 h-8 " src="../../resources/img/iconos/reporte.png" alt="">
-                                </button></td>
+                            <td>
+                                <a></a><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                <a></a><i class="fa-sharp fa-solid fa-trash"></i></a> 
+                                <a></a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b dark:bg-white dark:border-black">
+                            <th scope="row"
+                            class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
+                               2
+                            </th>
+                            <td class="px-6 py-4">hola1</td>
+                            <td class="px-6 py-4">hola2</td>
+                            <td class="px-6 py-4">hola3</td>
+                            <td class="px-6 py-4">hola4</td>
+                            <td class="px-6 py-4">hola5</td>
+                            <td class="px-6 py-4">hola6</td>
+                            <td class="px-6 py-4">hola7 a</td>
+                            <td>
+                                <a></a><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                <a></a><i class="fa-sharp fa-solid fa-trash"></i></a> 
+                                <a></a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b dark:bg-white dark:border-black">
+                            <th scope="row"
+                            class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
+                               3
+                            </th>
+                            <td class="px-6 py-4">Silver</td>
+                            <td class="px-6 py-4">Silver</td>
+                            <td class="px-6 py-4">Silver</td>
+                            <td class="px-6 py-4">Silver</td>
+                            <td class="px-6 py-4">Silver</td>
+                            <td class="px-6 py-4">Silver</td>
+                            <td class="px-6 py-4">Silver</td>
+                            <td>
+                                <a></a><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                <a></a><i class="fa-sharp fa-solid fa-trash"></i></a> 
+                                <a></a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
+                                           
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table>    
             </div>
         </div>
     </main>

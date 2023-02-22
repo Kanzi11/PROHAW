@@ -4,10 +4,6 @@
     margin-top: 50px;
 } 
 
-body{
-    background-color: gray;
-}
-
-#editar{
-    
+.th1{
+    font-weight: bolder !important;
 }

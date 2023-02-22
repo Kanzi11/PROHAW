@@ -67,7 +67,6 @@
     background-color: #FFFFFF;
     margin-top: 60px;
     margin-left: 65px;
-    height: 400px;
 }
 
 #texto-tabla{
@@ -94,6 +93,37 @@
     align-items: center;
 }
 
+#chek{
+
+    margin-left: 50px;
+}
+
+#default-checkbox{
+    padding-bottom: 10px;
+    margin-left: 12px;
+}
+
+#marco{
+    height: 400px;
+    margin-top: 100px;
+}
+
+#text{
+    margin-left: 40px;
+}
+
+#card2{
+    margin-top: 35px;
+}
+
 #footer{
-    background-color: #6F83C3;
+    background-color:#6F83C3 ;
+}
+
+#grande{
+    height: 100px;
+}
+
+#coments{
+    margin-left: 250px;
 }

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/resources/css/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/viewProducts.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://flowbite.com/docs/getting-started/introduction/"></script>
+    <title>Ver productos</title>
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
+        <nav class="  w-full z-20 top-0 left-0 border-b static " id="navbar">
+            <br>
+            <div class="container flex flex-wrap items-center justify-around mx-28">
+                <a href="/views/public/products.html">
+                <img src="/resources/img/logos/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+            </a>
+                <div>
+                    <input type="text" placeholder="   Ingrese su búsqueda..."
+                        class="focus:ring-1 focus:ring-indigo-500 outline-none rounded-lg" id="buscar">
+                </div>
+                <div>
+                    <img src="/resources/img/iconos/buscar.png" alt="lupa" id="lupa">
+                </div>
+                <div class="division">
+                    <a
+                            href="/views/public/register.html">
+                    <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
+                        id="navbar"><img src="/resources/img/iconos/contact.png" alt="user" id="usericon"><a
+                            href="/views/public/register.html">Cuenta</a></button>
+                </div>
+                <div>
+                    <a
+              href="/views/public/shopcart.html">
+                    <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
+                        id="navbar"><img src="/resources/img/iconos/cart.png" alt="user" id="carrito">Carrito</a></button>
+                </div>
+            </div>
+            <br>
+        </nav>
+    </header>
+
+    <main>
+        <div class="bg-white">
+            <div class="pt-6">
+                <nav aria-label="Breadcrumb">
+
+                </nav>
+
+                <!-- Image gallery -->
+                <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+                    <div class="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
+                        <img src="/resources/img/productos/proce.jpg"
+                            alt="Two each of gray, white, and black shirts laying flat."
+                            class="h-full w-full object-cover object-center">
+                    </div>
+                    <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+                        <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+                            <img src="/resources/img/productos/gtx.png" alt="Model wearing plain black basic tee."
+                                class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+                            <img src="/resources/img/productos/1366_2000.jpeg" alt="Model wearing plain gray basic tee."
+                                class="h-full w-full object-cover object-center">
+                        </div>
+                    </div>
+                    <div class="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
+                        <img src="/resources/img/productos/cases.jpg" alt="Model wearing plain white basic tee."
+                            class="h-full w-full object-cover object-center">
+                    </div>
+                </div>
+
+                <!-- Product info -->
+                <div
+                    class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
+                    <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+                        <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Nombre del producto</h1>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="mt-4 lg:row-span-3 lg:mt-0">
+                        <h2 class="sr-only">Product information</h2>
+                        <p class="text-3xl tracking-tight text-gray-900">$192</p>
+
+                        <!-- Reviews -->
+                        <div class="mt-6">
+                            <h3 class="sr-only">Reviews</h3>
+                            <div class="flex items-center">
+                                <div class="flex items-center">
+                                    <!-- Active: "text-gray-900", Default: "text-gray-200" -->
+                                    <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                    <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                    <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                    <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                    <svg class="text-gray-200 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <p class="sr-only">4 out of 5 stars</p>
+                                <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117
+                                    reviews</a>
+                            </div>
+                        </div>
+
+                        <form class="mt-10">
+                            <button type="submit"
+                                class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add
+                                to bag</button>
+                        </form>
+                    </div>
+
+                    <div
+                        class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
+                        <!-- Description and details -->
+                        <div>
+                            <h3 class="sr-only">Description</h3>
+
+                            <div class="space-y-6">
+                                <p class="text-base text-gray-900">The Basic Tee 6-Pack allows you to fully express your
+                                    vibrant personality with three grayscale options. Feeling adventurous? Put on a
+                                    heather gray tee. Want to be a trendsetter? Try our exclusive colorway:
+                                    &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee
+                                    has you covered.</p>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <h2 class="text-sm font-medium text-gray-900">Details</h2>
+
+                            <div class="mt-4 space-y-6">
+                                <p class="text-sm text-gray-600">The 6-Pack includes two black, two white, and two
+                                    heather gray Basic Tees. Sign up for our subscription service and be the first to
+                                    get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited
+                                    release.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="2xl:container 2xl:mx-auto">
+            <div class="lg:px-20 md:px-6 px-4 md:py-12 py-8">
+                <div>
+                    <h1
+                        class="text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white text-center dark:text-gray-50">
+                        Productos recomendados
+                    </h1>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8 md:mt-10">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8">
+                        <div class="">
+                            <h2 class="text-xl text-gray-600 dark:text-white">
+                                Nombre del producto
+                            </h2>
+                            <p class="text-xl font-semibold text-gray-800 dark:text-white mt-2">
+                                $1200
+                            </p>
+                        </div>
+                        <div class="flex justify-center items-center mt-8 md:mt-24">
+                            <img class="" src="/resources/img/productos/1366_2000.jpeg" alt="A chair with designed back"
+                                role="img" />
+                        </div>
+
+
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8">
+                        <div class="">
+                            <h2 class="text-xl text-gray-600 dark:text-white">
+                                Nombre del producto
+                            </h2>
+                            <p class="text-xl font-semibold text-gray-800 dark:text-white mt-2">
+                                $1200
+                            </p>
+                        </div>
+                        <div class="flex justify-center items-center mt-8 md:mt-24">
+                            <img class="" src="/resources/img/productos/proce.jpg" alt="A chair with wooden legs"
+                                role="img" />
+                        </div>
+
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8">
+                        <div class="">
+                            <h2 class="text-xl text-gray-600 dark:text-white">
+                                Nombre del producto
+                            </h2>
+                            <p class="text-xl font-semibold text-gray-800 dark:text-white mt-2">
+                                $1200
+                            </p>
+                        </div>
+                        <div class="flex justify-center items-center mt-8 md:mt-24">
+                            <img class="" src="/resources/img/productos/cases.jpg" alt="A sofa chair with wooden legs"
+                                role="img" />
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <br><br>
+        <div class="max-w-2xl  px-4" id="coments">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
+            </div>
+            <form class="mb-6">
+                <div
+                    class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                    <label for="comment" class="sr-only">Your comment</label>
+                    <textarea id="comment" rows="6"
+                        class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                        placeholder="Write a comment..." required></textarea>
+                </div>
+                <button type="submit"
+                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    Post comment
+                </button>
+            </form>
+            <article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
+                <footer class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
+                                class="mr-2 w-6 h-6 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                                alt="Michael Gough">Michael Gough</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
+                                title="February 8th, 2022">Feb. 8, 2022</time></p>
+                    </div>
+                    <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
+                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        type="button">
+                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+                            </path>
+                        </svg>
+                        <span class="sr-only">Comment settings</span>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownComment1"
+                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownMenuIconHorizontalButton">
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+                <p class="text-gray-500 dark:text-gray-400">Very straight-to-point article. Really worth time reading.
+                    Thank you! But tools are just the
+                    instruments for the UX designers. The knowledge of the design tools are as important as the
+                    creation of the design strategy.</p>
+                <div class="flex items-center mt-4 space-x-4">
+                    <button type="button"
+                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+                        <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                            </path>
+                        </svg>
+                        Reply
+                    </button>
+                </div>
+            </article>
+            
+            <article class="p-6 mb-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                <footer class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
+                                class="mr-2 w-6 h-6 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                                alt="Bonnie Green">Bonnie Green</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-03-12"
+                                title="March 12th, 2022">Mar. 12, 2022</time></p>
+                    </div>
+                    <button id="dropdownComment3Button" data-dropdown-toggle="dropdownComment3"
+                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        type="button">
+                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+                            </path>
+                        </svg>
+                        <span class="sr-only">Comment settings</span>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownComment3"
+                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownMenuIconHorizontalButton">
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+                <p class="text-gray-500 dark:text-gray-400">The article covers the essentials, challenges, myths and
+                    stages the UX designer should consider while creating the design strategy.</p>
+                <div class="flex items-center mt-4 space-x-4">
+                    <button type="button"
+                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+                        <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                            </path>
+                        </svg>
+                        Reply
+                    </button>
+                </div>
+            </article>
+            <article class="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                <footer class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
+                                class="mr-2 w-6 h-6 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+                                alt="Helene Engels">Helene Engels</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-06-23"
+                                title="June 23rd, 2022">Jun. 23, 2022</time></p>
+                    </div>
+                    <button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4"
+                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        type="button">
+                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+                            </path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownComment4"
+                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownMenuIconHorizontalButton">
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+                <p class="text-gray-500 dark:text-gray-400">Thanks for sharing this. I do came from the Backend
+                    development and explored some of the tools to design my Side Projects.</p>
+                <div class="flex items-center mt-4 space-x-4">
+                    <button type="button"
+                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+                        <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                            </path>
+                        </svg>
+                        Reply
+                    </button>
+                </div>
+            </article>
+        </div>
+<br><br>
+    </main>
+
+    <footer class=" p-10  shadow md:px-6 md:py-8 dark:bg-gray-900 " id="footer">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a class="flex items-center mb-4 sm:mb-0">
+                <img src="/resources/img/logos/logo-no-background.png" class="h-8 mr-3" />
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm text-white sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre nosotros</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Politica privada</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencia </a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contactanos</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-white sm:text-center dark:text-gray-400"> <a
+                class="hover:underline">PROHAW™</a>.
+            Todos los derechos reservados.
+        </span>
+    </footer>
+
+
+</body>
+
+</html>

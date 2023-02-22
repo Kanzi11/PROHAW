@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/resources/css/tailwind.css" rel="stylesheet">
-    <link rel="stylesheet" href="/resources/css/Vproduct.css">
+    <link rel="stylesheet" href="/resources/css/Fproduct.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://flowbite.com/docs/getting-started/introduction/"></script>
     <title>Ver Productos</title>
@@ -16,8 +16,10 @@
         <nav class="  w-full z-20 top-0 left-0 border-b static " id="navbar">
             <br>
             <div class="container flex flex-wrap items-center justify-around mx-28">
+              <a href="/views/public/products.html">
                 <img src="/resources/img/logos/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+              </a>
                 <div>
                     <input type="text" placeholder="   Ingrese su búsqueda..."
                         class="focus:ring-1 focus:ring-indigo-500 outline-none rounded-lg" id="buscar">
@@ -26,14 +28,16 @@
                     <img src="/resources/img/iconos/buscar.png" alt="lupa" id="lupa">
                 </div>
                 <div class="division">
+                  <a
+                            href="/views/public/register.html">
                     <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
-                        id="navbar"><img src="/resources/img/iconos/contact.png" alt="user" id="usericon"><a
-                            href="/views/public/registrarse.html">Cuenta</a></button>
+                        id="navbar"><img src="/resources/img/iconos/contact.png" alt="user" id="usericon">Cuenta</a></button>
                 </div>
                 <div>
+                  <a
+                  href="/views/public/shopcart.html">
                     <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
-                        id="navbar"><img src="/resources/img/iconos/cart.png" alt="user" id="carrito"><a
-                            href="/views/public/registrarse.html">Carrito</a></button>
+                        id="navbar"><img src="/resources/img/iconos/cart.png" alt="user" id="carrito">Carrito</a></button>
                 </div>
             </div>
             <br>
@@ -259,31 +263,30 @@
               
     </main>
     <br>
-    <footer class=" p-10 bg-white shadow md:px-6 md:py-8 dark:bg-gray-900 ">
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <a class="flex items-center mb-4 sm:mb-0">
-                <img src="/resources/img/logos/logo-no-background.png" class="h-8 mr-3" />
-            </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre nosotros</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">Politica privada</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencia </a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline">Contactanos</a>
-                </li>
-            </ul>
-        </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400"> <a
-                class="hover:underline">PROHAW™</a>.
-            Todos los derechos reservados.
-        </span>
+    <footer class=" p-10  shadow md:px-6 md:py-8 dark:bg-gray-900 " id="footer">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <a class="flex items-center mb-4 sm:mb-0">
+          <img src="/resources/img/logos/logo-no-background.png" class="h-8 mr-3" />
+        </a>
+        <ul class="flex flex-wrap items-center mb-6 text-sm text-white sm:mb-0 dark:text-gray-400">
+          <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre nosotros</a>
+          </li>
+          <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6">Politica privada</a>
+          </li>
+          <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencia </a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline">Contactanos</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <span class="block text-sm text-white sm:text-center dark:text-gray-400"> <a class="hover:underline">PROHAW™</a>.
+        Todos los derechos reservados.
+      </span>
     </footer>
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 </body>

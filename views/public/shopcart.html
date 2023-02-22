@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/resources/css/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/viewProducts.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://flowbite.com/docs/getting-started/introduction/"></script>
+    <title>Carrito de compras</title>
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
+        <nav class="  w-full z-20 top-0 left-0 border-b static " id="navbar">
+            <br>
+            <div class="container flex flex-wrap items-center justify-around mx-28">
+                <a href="/views/public/products.html">
+                    <img src="/resources/img/logos/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+                </a>
+                <div>
+                    <input type="text" placeholder="   Ingrese su búsqueda..."
+                        class="focus:ring-1 focus:ring-indigo-500 outline-none rounded-lg" id="buscar">
+                </div>
+                <div>
+                    <img src="/resources/img/iconos/buscar.png" alt="lupa" id="lupa">
+                </div>
+                <div class="division">
+                    <a
+                            href="/views/public/register.html">
+                    <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
+                        id="navbar"><img src="/resources/img/iconos/contact.png" alt="user" id="usericon">Cuenta</a></button>
+                </div>
+                
+            </div>
+            <br>
+        </nav>
+    </header>
+    <main>
+        <div class="container mx-auto mt-10">
+            <div class="flex shadow-md my-10">
+              <div class="w-3/4 bg-white px-10 py-10">
+                <div class="flex justify-between border-b pb-8">
+                  <h1 class="font-semibold text-2xl">Shopping Cart</h1>
+                  <h2 class="font-semibold text-2xl">3 Items</h2>
+                </div>
+                <div class="flex mt-10 mb-5">
+                  <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
+                  <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
+                  <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+                  <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+                </div>
+                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                  <div class="flex w-2/5"> <!-- product -->
+                    <div class="w-28">
+                      <img class="h-24" src="/resources/img/productos/proce.jpg" alt="">
+                    </div>
+                    <div class="flex flex-col justify-between ml-4 flex-grow">
+                      <span class="font-bold text-sm">Nombre del producto</span>
+                      <span class="text-red-500 text-xs">Apple</span>
+                      <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                    </div>
+                  </div>
+                  <div class="flex justify-center w-1/5">
+                    <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                    </svg>
+        
+                    <input class="mx-2 border text-center w-8" type="text" value="1">
+        
+                    <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                      <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                    </svg>
+                  </div>
+                  <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
+                  <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
+                </div>
+        
+                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                  <div class="flex w-2/5"> <!-- product -->
+                    <div class="w-28">
+                      <img class="h-24" src="/resources/img/productos/cases.jpg" alt="">
+                    </div>
+                    <div class="flex flex-col justify-between ml-4 flex-grow">
+                      <span class="font-bold text-sm">Nombre del producto</span>
+                      <span class="text-red-500 text-xs">Xiaomi</span>
+                      <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                    </div>
+                  </div>
+                  <div class="flex justify-center w-1/5">
+                    <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                    </svg>
+        
+                    <input class="mx-2 border text-center w-8" type="text" value="1">
+        
+                    <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                      <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                    </svg>
+                  </div>
+                  <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
+                  <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
+                </div>
+        
+                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                  <div class="flex w-2/5"> <!-- product -->
+                    <div class="w-28">
+                      <img class="h-24" src="/resources/img/productos/cases.jpg" alt="">
+                    </div>
+                    <div class="flex flex-col justify-between ml-4 flex-grow">
+                      <span class="font-bold text-sm">Nombre del producto</span>
+                      <span class="text-red-500 text-xs">Apple</span>
+                      <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                    </div>
+                  </div>
+                  <div class="flex justify-center w-1/5">
+                    <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                    </svg>
+                    <input class="mx-2 border text-center w-8" type="text" value="1">
+        
+                    <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+                      <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                    </svg>
+                  </div>
+                  <span class="text-center w-1/5 font-semibold text-sm">$150.00</span>
+                  <span class="text-center w-1/5 font-semibold text-sm">$150.00</span>
+                </div>
+        
+                <a href="/views/public/products.html" class="flex font-semibold text-indigo-600 text-sm mt-10">
+              
+                  <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
+                  Continuar comprando
+                </a>
+              </div>
+        
+              <div id="summary" class="w-1/4 px-8 py-10">
+                <h1 class="font-semibold text-2xl border-b pb-8">Orden</h1>
+                <div class="flex justify-between mt-10 mb-5">
+                  <span class="font-semibold text-sm uppercase">Items 3</span>
+                  <span class="font-semibold text-sm">590$</span>
+                </div>
+               
+               
+                
+                <div class="border-t mt-8">
+                  <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                    <span>Total cost</span>
+                    <span>$600</span>
+                  </div>
+                  <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Comprar</button>
+                </div>
+              </div>
+        
+            </div>
+          </div>
+    </main>
+
+
+    <footer class=" p-10  shadow md:px-6 md:py-8 dark:bg-gray-900 " id="footer">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a class="flex items-center mb-4 sm:mb-0">
+                <img src="/resources/img/logos/logo-no-background.png" class="h-8 mr-3" />
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm text-white sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="/views/public/aboutus.html" class="mr-4 hover:underline md:mr-6 ">Sobre nosotros</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Politica privada</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencia </a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contactanos</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-white sm:text-center dark:text-gray-400"> <a
+                class="hover:underline">PROHAW™</a>.
+            Todos los derechos reservados.
+        </span>
+    </footer>
+
+
+</body>
+
+</html>

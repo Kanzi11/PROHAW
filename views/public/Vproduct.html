@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/resources/css/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/Vproduct.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://flowbite.com/docs/getting-started/introduction/"></script>
+    <title>Ver Productos</title>
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
+        <nav class="  w-full z-20 top-0 left-0 border-b static " id="navbar">
+            <br>
+            <div class="container flex flex-wrap items-center justify-around mx-28">
+                <img src="/resources/img/logos/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+                <div>
+                    <input type="text" placeholder="   Ingrese su búsqueda..."
+                        class="focus:ring-1 focus:ring-indigo-500 outline-none rounded-lg" id="buscar">
+                </div>
+                <div>
+                    <img src="/resources/img/iconos/buscar.png" alt="lupa" id="lupa">
+                </div>
+                <div class="division">
+                    <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
+                        id="navbar"><img src="/resources/img/iconos/contact.png" alt="user" id="usericon"><a
+                            href="/views/public/registrarse.html">Cuenta</a></button>
+                </div>
+                <div>
+                    <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
+                        id="navbar"><img src="/resources/img/iconos/cart.png" alt="user" id="carrito"><a
+                            href="/views/public/registrarse.html">Carrito</a></button>
+                </div>
+            </div>
+            <br>
+        </nav>
+    </header>
+
+    <main id="chek" class="container flex flex-wrap  justify-between mx-9  font-semibold">
+        <div class="w-72   font-semibold   bg-white border border-gray-300 rounded-lg shadow-xl text-xl  text-black" id="marco">
+            <p  class="block w-full px-4 py-2 text-black  border-b  dark:hover:bg-gray-200 rounded-t-lg cursor-pointer  dark:border-gray-300">
+                Marca
+            </p>
+            <br>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Corsair
+                    </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">MSI
+                    </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">ASUS
+                    </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">AORUS
+                    </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cooler Master
+                    </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Razer
+                    </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alienware
+                    </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nvidia
+                    </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Intel
+                    </label>
+            </div>
+           
+                </div>
+            
+            <div class="p-10 grid grid-cols-1">
+                <p class="font-semibold text-3xl" id="text">Productos disponibles</p>
+            <div class="p-10" id="card1">  
+                <!--Card 1-->
+                <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                  <img class="w-full h-60" src="/resources/img/productos/proce.jpg" alt="Mountain">
+                  <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">Mountain</div>
+                    <p class="text-gray-700 text-base">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                    </p>
+                  </div>
+                  <div class="px-6 pt-4 pb-2">
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                  </div>
+                </div>
+              </div>
+              <div class="p-10" >  
+                <!--Card 1-->
+                <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                  <img class="w-full h-60" src="/resources/img/productos/1366_2000.jpeg" alt="Mountain">
+                  <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">Mountain</div>
+                    <p class="text-gray-700 text-base">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                    </p>
+                  </div>
+                  <div class="px-6 pt-4 pb-2">
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-10 grid grid-cols-1">
+                <div class="p-10" id="card2">  
+                    <!--Card 1-->
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                      <img class="w-full h-60" src="/resources/img/productos/cases.jpg" alt="Mountain">
+                      <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2">Mountain</div>
+                        <p class="text-gray-700 text-base">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                        </p>
+                      </div>
+                      <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-10" >  
+                    <!--Card 1-->
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                      <img class="w-full h-60" src="/resources/img/productos/gtx.png" alt="Mountain">
+                      <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2">Mountain</div>
+                        <p class="text-gray-700 text-base">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                        </p>
+                      </div>
+                      <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                    <br> <br>
+                    <div>
+                      <p class="justify-between font-semibold text-2xl " id="popu">
+                        MÁS POPULARES
+                      </p>
+                    </div>
+                    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"
+                      id="grupocard">
+                      <!--Card 1-->
+                      <div class="rounded overflow-hidden shadow-lg">
+                        <img class="w-full h-60" src="/resources/img/productos/cases.jpg" alt="Mountain">
+                        <div class="px-6 py-4">
+                          <div class="font-bold text-xl mb-2">Nombre del producto</div>
+                          <p class="text-gray-700 text-base">
+                            $12.99
+                          </p>
+                          <p class="text-gray-700 text-base">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+                            eaque, exercitationem praesentium nihil.
+                          </p>
+                        </div>
+                        <div class="px-6 pt-4 pb-2">
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                        </div>
+              
+                      </div>
+                      <!--Card 2-->
+                      <div class="rounded overflow-hidden shadow-lg">
+                        <img class="w-full h-60" src="/resources/img/productos/1366_2000.jpeg" alt="River">
+                        <div class="px-6 py-4">
+                          <div class="font-bold text-xl mb-2">Nombre del producto</div>
+                          <p class="text-gray-700 text-base">
+                            $12.99
+                          </p>
+                          <p class="text-gray-700 text-base">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+                            eaque, exercitationem praesentium nihil.
+                          </p>
+                        </div>
+                        <div class="px-6 pt-4 pb-2">
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+                        </div>
+                      </div>
+              
+                      <!--Card 3-->
+                      <div class="rounded overflow-hidden shadow-lg">
+                        <img class="w-full h-60" src="/resources/img/productos/proce.jpg" alt="Forest">
+                        <div class="px-6 py-4">
+                          <div class="font-bold text-xl mb-2">Nombre del producto</div>
+                          <p class="text-gray-700 text-base">
+                            $12.99
+                          </p>
+                          <p class="text-gray-700 text-base">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+                            eaque, exercitationem praesentium nihil.
+                          </p>
+                        </div>
+                        <div class="px-6 pt-4 pb-2">
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                          <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              
+    </main>
+    <br>
+    <footer class=" p-10 bg-white shadow md:px-6 md:py-8 dark:bg-gray-900 ">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a class="flex items-center mb-4 sm:mb-0">
+                <img src="/resources/img/logos/logo-no-background.png" class="h-8 mr-3" />
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre nosotros</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Politica privada</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencia </a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contactanos</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400"> <a
+                class="hover:underline">PROHAW™</a>.
+            Todos los derechos reservados.
+        </span>
+    </footer>
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+</body>
+
+</html>

@@ -1,10 +1,15 @@
 #table{
-    margin-left: 200px;
+    margin-left: 300px;
     margin-right: 200px;
     margin-top: 50px;
     margin-bottom: 50px;
 
 } 
+
+.tbimg{
+    display: flex;
+    justify-content: center;
+}
 
 .imgra1{
     width: 50px;

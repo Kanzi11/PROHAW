@@ -24,3 +24,66 @@
 #btnRegistrar{
     background-color: #6F83C3;
 }
+
+#carrito{
+    width: 40px;
+    height: 32px;
+    margin-left: 3px;
+}
+
+.division{
+    margin-right: 60px;
+}
+
+#buscar{
+    background-color: #FFFFFF;
+    width: 850px;
+    height: 40px;
+    margin-left: 25px;
+}
+
+#lupa{    
+    width: 30px;
+    height: 30px;   
+    margin-right: 250px; 
+}
+
+.fondo{
+    height: 15px;
+    width: 35px;
+}
+
+#tabla{
+    background-color: #FFFFFF;
+    margin-top: 150px;
+    margin-left: 100px;
+
+}
+
+#texto-tabla{
+    margin-bottom: 15px;
+}
+
+#imagenes{
+    margin-top: 10px;
+    width: 1000px;
+    margin-right: 100px;
+}
+
+#ofertas{
+    margin-left: 900px;
+    align-items: center;
+}
+
+#grupocard{
+    margin-left: 250px;
+}
+
+#popu{
+    margin-left: 870px;
+    align-items: center;
+}
+
+#footer{
+    background-color: #6F83C3;
+}

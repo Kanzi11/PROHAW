@@ -6,24 +6,6 @@
 
 } 
 
-.tbimg{
-    text-align: center;
-}
-
-#navbar{
-    background-color: #6F83C3;
-}
-
-#table{
-    margin-left: 250px;
-    margin-right: 250px;
-    margin-top: 50px;
-} 
-
-.th1{
-    font-weight: bolder !important;
-}
-
 .imgra{
     width: 50px;
 } 
@@ -48,7 +30,10 @@
     width: 50px;
 }
 
-#footer{
+#nav{
     background-color: #6F83C3 !important;
 }
 
+#footer{
+    background-color: #6F83C3 !important;
+}

@@ -1,38 +1,34 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../resources/css/tailwind.css" rel="stylesheet">
+    <link href="../../resources/css/tailwind.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../resources/css/public.css">
+    <title>Login</title>
 </head>
 
 <body>
-    <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
-        <nav class=" fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600" id="navbar">
-            <br>
+    <header>
+        <nav class="nav1 border-gray-200 px-2 sm:px-4 py-2.5 ">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="" class="flex items-center">
-                    <img src="../../resources/img/logos/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
-                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+                <a class="flex items-center">
+                    <img src="../../resources/img/logos/logo-no-background.png" class="h-6 mr-3 sm:h-11" />
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">PROHAW™</span>
                 </a>
-
-                <div class="flex md:order-2">
-                    <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
-                        id="navbar"><img src="../../resources/img/iconos/user.png" alt="user" id="usericon"><a
-                            href="registerp.html">Registrarse</a></button>
-
+                <div class="flex items-center md:order-2">
                 </div>
             </div>
-            <br>
         </nav>
+
     </header>
 
-    <mainmain class="container flex flex-wrap justify-around items-center mx-5 h-screen font-semibold">
+    <main class="container flex flex-wrap justify-around items-center mx-5 h-screen font-semibold">
         <p class="font-medium rounded-xl text-3xl " id="texto-main">Bienvenido<br>a PROHAW™</p>
         <form>
-            <div class="flex items-center justify-center mt-9">
+            <div class="flex items-center justify-center -mt-16">
             </div>
             <div class="bg-white w-96 h-80 p-6 rounded shadow-lg">
                 <label class="text-gray-700">Correo</label>
@@ -41,21 +37,22 @@
                 <label class="text-gray-700">Contraseña</label>
                 <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
                     type="password" id="campos" />
-                <input id="remember" class="mb-4" type="checkbox" />
-                <label for="remember" class="text-gray-700">Recordarme</label>
+                <input id="remember" class="  mb-4" type="checkbox" />
+                <label for="remember" class="text-gray-700 mg">Recordarme</label>
                 <button type="submit" class=" w-full text-gray-100  rounded-xl hover:bg-blue-600 transition-colors h-8"
                     id="btnIniciar"><a href="main.html">Iniciar sesión</a></button>
             </div>
         </form>
+    </main>
 
+    <footer>
 
-        </main>
+    </footer>
 
-        <footer>
+    <!-- importacion de los archivos de js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        </footer>
-        <!--Scripts de JS-->
-        <script src="https://cdn.tailwindcss.com"></script>
 </body>
 
 </html>

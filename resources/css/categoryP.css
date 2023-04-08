@@ -1,10 +1,15 @@
 #table{
-    margin-left: 300px;
+    margin-left: 200px;
     margin-right: 200px;
     margin-top: 50px;
     margin-bottom: 50px;
 
 } 
+
+
+.search{
+
+}
 
 .tbimg{
     display: flex;

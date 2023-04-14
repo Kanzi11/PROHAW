@@ -1,4 +1,15 @@
+#table{
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: 'Varela Round', sans-serif; 
 
+} 
+.titulo{
+
+    font-family: 'Varela Round', sans-serif;
+}
 .tbimg{
     display: flex;
     justify-content: center;

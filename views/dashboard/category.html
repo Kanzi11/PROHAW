@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../../resources/css/tailwind.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../resources/css/categoryP.css" />
+    <link rel="stylesheet" href="../../resources/css/category.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,15 +15,7 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-
     <header>
-
-
-
-
-
-
         <!-- Encabezado del documento!-->
         <nav class="nav1 bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
@@ -121,13 +113,13 @@
                 <!-- Main modal -->
                 <div id="defaultModal" tabindex="-1" aria-hidden="true"
                     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                    <div class="relative w-full max-w-2xl max-h-full">
+                    <div class="relative w-80 max-w-2xl max-h-full">
                         <!-- Modal content -->
                         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                             <!-- Modal header -->
                             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                    Terms of Service
+                                Categoria
                                 </h3>
                                 <button type="button"
                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -143,26 +135,19 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-6 space-y-6">
-                                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                    With less than a month to go before the European Union enacts new consumer privacy
-                                    laws for its citizens, companies around the world are updating their terms of
-                                    service agreements to comply.
-                                </p>
-                                <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                    The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect
-                                    on May 25 and is meant to ensure a common set of data rights in the European Union.
-                                    It requires organizations to notify users as soon as possible of high-risk data
-                                    breaches that could personally affect them.
-                                </p>
+                                <div class="relative z-0 w-52 mb-6 group">
+                                    <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                    <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre de la categoria</label>
+                                </div>
                             </div>
                             <!-- Modal footer -->
                             <div
                                 class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                                 <button data-modal-hide="defaultModal" type="button"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-                                    accept</button>
-                                <button data-modal-hide="defaultModal" type="button"
-                                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+                                    class="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    Guardar</button>
+                                <button  type="button"
+                                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Reiniciar</button>
                             </div>
                         </div>
                     </div>
@@ -198,7 +183,7 @@
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nombre categira
+                                Nombre categoria
                             </th>
                             <th scope="col" class="px-5  py-3">
                                 Mantenimientos
@@ -217,19 +202,16 @@
                             </td>
                             <th scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Apple MacBook Pro 17"
+                                RAM
                             </th>
                             <td class="px-10 py-3">
-                                <a><i class="fa-sharp fa-solid fa-pen"></i></a>
-                                <a><i class="fa-sharp fa-solid fa-trash"></i></a>
                                 <a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
+                                <a><i class="fa-sharp fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-        </div>
         </div>
     </main>
 
@@ -263,6 +245,7 @@
     </footer>
 
     <!--  linkeo del archivo de js para una carga optimizada  !-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     <script src="https://kit.fontawesome.com/a0105665eb.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </body>

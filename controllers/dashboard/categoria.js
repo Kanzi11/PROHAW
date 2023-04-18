@@ -24,7 +24,7 @@ async function cargarTabla (form=null){
     const JSON=await dataFetch(CATEGORIA_API, action, form);
     if(JSON.status){
         JSON.dataset.forEach(row=> {
-            TBODY_ROWS.innerHTML+=`
+            TBODY_ROWS.innerHTML=`
             <tr>
             <td class="w-4 p-4">
                 <div class="flex items-center">

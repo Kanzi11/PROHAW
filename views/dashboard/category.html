@@ -103,7 +103,8 @@
         </div>
         <div id="table">
             <div class="flex justify-end px-9 mt-5 mb-6 ">
-                <button class="flex justify-end " data-modal-target="defaultModal"  data-modal-toggle="defaultModal"  type="button">
+                <button class="flex justify-end " data-modal-target="defaultModal" data-modal-toggle="defaultModal"
+                    type="button">
                     <a href="#_"
                         class="px-5 py-2.5 font-medium bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm">
                         Añadir categoria
@@ -119,7 +120,7 @@
                             <!-- Modal header -->
                             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                Categoria
+                                    Categoria
                                 </h3>
                                 <button type="button"
                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -136,17 +137,21 @@
                             <!-- Modal body -->
                             <div class="p-6 space-y-6">
                                 <div class="relative z-0 w-52 mb-6 group">
-                                    <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                                    <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre de la categoria</label>
+                                    <input type="text" name="floating_last_name" id="floating_last_name"
+                                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                        placeholder=" " required />
+                                    <label for="floating_last_name"
+                                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre
+                                        de la categoria</label>
                                 </div>
                             </div>
                             <!-- Modal footer -->
                             <div
                                 class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                <button data-modal-hide="defaultModal" type="button"
+                                <button type="button"
                                     class="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Guardar</button>
-                                <button  type="button"
+                                <button type="button"
                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Reiniciar</button>
                             </div>
                         </div>
@@ -183,6 +188,9 @@
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                ID
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Nombre categoria
                             </th>
                             <th scope="col" class="px-5  py-3">
@@ -190,25 +198,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr
-                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td class="w-4 p-4">
-                                <div class="flex items-center">
-                                    <input id="checkbox-table-search-1" type="checkbox"
-                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                                </div>
-                            </td>
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                RAM
-                            </th>
-                            <td class="px-10 py-3">
-                                <a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
-                                <a><i class="fa-sharp fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
+                    <tbody id="tbody-rows">
                     </tbody>
                 </table>
             </div>
@@ -248,6 +238,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     <script src="https://kit.fontawesome.com/a0105665eb.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../controllers/dashboard/categoria.js"></script>
+    <script src="../../controllers/components.js"></script>
 </body>
 
 </html>

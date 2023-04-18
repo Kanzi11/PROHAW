@@ -36,7 +36,6 @@ class CategoriaQueries
                 ORDER BY id_categoria';
         return Database::getRows($sql);
     }
-
     // Metodo para leer un registro si no mal entiendo
     public function readOne()
     {

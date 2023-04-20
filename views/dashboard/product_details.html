@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <title>Categorias</title>
+    <title>Detalle del producto</title>
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -99,7 +99,7 @@
     <main>
         <!-- Contenido del documento!-->
         <div class=" titulo text-center mt-7 text-4xl ">
-            <h1>Categoria</h1>
+            <h1>Detalle del producto</h1>
         </div>
         <div id="table">
             <div class="flex justify-end px-9 mt-5 mb-6 ">
@@ -107,7 +107,7 @@
                     type="button">
                     <a href="#_"
                         class="px-5 py-2.5 font-medium bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm">
-                        Añadir categoria
+                        Añadir Detalle del producto
                     </a>
                 </button>
 
@@ -121,7 +121,7 @@
                             <!-- Modal header -->
                             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                    Categoria
+                                    Detalle  del producto
                                 </h3>
                                 <button type="button"
                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -194,14 +194,23 @@
                                 ID
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nombre categoria
+                                Cantidad
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Precio
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Pedido
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Nombre del producto
                             </th>
                             <th scope="col" class="px-5  py-3">
                                 Mantenimientos
                             </th>
                         </tr>
                     </thead>
-                    <tbody id="tbody-rows">
+                    <tbody id="tbody-rows-">
                     </tbody>
                 </table>
             </div>

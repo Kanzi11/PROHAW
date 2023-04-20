@@ -1,10 +1,10 @@
-<?php
+!--><?php
 require_once('../../helpers/validator.php');
-require_once('../../entities/dao/cliente_queries.php');
+require_once('../../entities/dao/detalle_pedido_queries.php');
 /*
 *	Clase para manejar la transferencia de datos de la entidad CLIENTE.
 */
-class Detalle_Producto extends DetallesProductosQuery
+class Detalle_Pedido extends DetallePedidoQuery
 {
     protected $id_detalle_pedido = null;
     protected $cantidad = null;

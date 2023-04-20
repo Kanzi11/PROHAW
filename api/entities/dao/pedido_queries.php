@@ -11,10 +11,10 @@ class PedidoQueries
     // Metodo del buscador 
     public function searchRows($value)
     {
-        $sql = 'SELECT id_categoria, nombre_categoria
-                FROM categorias
-                WHERE nombre_categoria ILIKE ?
-                ORDER BY nombre_categoria';
+        $sql = 'SELECT id_pedido, estado_pedido, fecha_pedido, id_cliente
+                FROM pedidoos
+                WHERE id_cliente ILIKE ?
+                ORDER BY id_cliente';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }

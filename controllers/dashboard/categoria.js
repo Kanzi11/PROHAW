@@ -4,17 +4,31 @@ const CATEGORIA_API = 'business/dashboard/categoria.php';
 const SEARCH_FORM = document.getElementById('search-form');
 // Constante para establecer el formulario de guardar.
 const SAVE_FORM = document.getElementById('save-form');
-// Constante para establecer el título de la modal No lo vamos  utilizar.
-
-// const SAVE_MODAL = document.getElementById('agregarcategoria');
+//constrante para establecerle el titulo de el modal al momento de cambiarlo
 const MODAL_TITLE = document.getElementById('titulo-modal');
+// constante para darle un id para todos los metodos insert update delete guardar el modal
+const options = {
+    placement: 'bottom-right',
+    backdrop: 'dynamic',
+    backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+    closable: true,
+    onHide: () => {
+        console.log('modal is hidden');
+    },
+    onShow: () => {
+        console.log('modal is shown');
+    },
+    onToggle: () => {
+        console.log('modal has been toggled');
+    }
+  };
+const SAVE_MODAL = new Modal(document.getElementById('agregarcategoria'),options);
 // Constantes para establecer el contenido de la tabla.
 const TBODY_ROWS = document.getElementById('tbody-rows');
 const RECORDS = document.getElementById('records');
-const $targetEl = document.getElementById('modalEl');
 
 
-const SAVE_MODAL = new Modal(document.getElementById('agregarcategoria'));
+
 
 // Método manejador de eventos para cuando se envía el formulario de guardar.
 SAVE_FORM.addEventListener('submit', async (event) => {
@@ -46,6 +60,7 @@ SAVE_FORM.addEventListener('submit', async (event) => {
 *   Retorno: ninguno.
 */
 function openCreate() {
+    SAVE_MODAL.show();
     // Se restauran los elementos del formulario.
     SAVE_FORM.reset();
     // Se asigna título a la caja de diálogo.

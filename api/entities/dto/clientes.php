@@ -53,7 +53,7 @@ class Clientes extends ClientesQueris
     //Set Dui del cliente
     public function setDuiCliente($value)
     {
-        if (Validator::validateAlphanumeric($value,1,10)) {
+        if (Validator::validateDUI($value)) {
             $this->dui_cliente = $value;
             return true;
         }else{
@@ -63,7 +63,7 @@ class Clientes extends ClientesQueris
     //Set Correo Cliente
     public function setCorreoCliente($value)
     {
-        if (Validator::validateAlphanumeric($value,1,100)) {
+        if (Validator::validateEmail($value,1,100)) {
             $this->correo_cliente = $value;
             return true;
         }else{
@@ -73,7 +73,7 @@ class Clientes extends ClientesQueris
     //Set telefono cliente
     public function setTelefonoCliente($value)
     {
-        if (Validator::validateAlphanumeric($value,1,9)) {
+        if (Validator::validatePhone($value,1,9)) {
             $this->telefono_cliente = $value;
             return true;
         }else{
@@ -83,7 +83,7 @@ class Clientes extends ClientesQueris
     // set direccion cliente
     public function setDireccionCliente($value)
     {
-        if (Validator::validateAlphanumeric($value,1,200)) {
+        if (Validator::validateString($value,1,200)) {
             $this->direccion_cliente = $value;
             return true;
         }else{
@@ -113,7 +113,7 @@ class Clientes extends ClientesQueris
     // set clave cliente
     public function setClaveCliente($value) 
     {
-        if (Validator::validateAlphanumeric($value,1,100)) {
+        if (Validator::validatePassword($value,1,100)) {
             $this->clave = $value;
             return true;
         }else{

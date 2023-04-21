@@ -40,6 +40,28 @@ function openCreate(){
   MODAL_TITLE.textContent = 'Crear cliente';
 }
 
+  async function openUpdate(id_cliente){
+    const FORM = new FormData();
+    FORM.append('id_cliente',id_cliente);
+    const JSON = await dataFetch(CLIENTE_API, 'readOne', FORM);
+    if (JSON.status) {
+      SAVE_MODAL.show();
+      MODAL_TITLE.textContent ='Actualizar Cliente';
+      document.getElementById('id').value = JSON.dataset.id_cliente;
+      document.getElementById('nombre').value = JSON.dataset.nombre_cliente;
+      document.getElementById('apellido').value = JSON.dataset.apellido_cliente;
+      document.getElementById('dui').value = JSON.dataset.dui_cliente;
+      document.getElementById('correo').value = JSON.dataset.correo_cliente;
+      document.getElementById('telefono').value = JSON.dataset.telefono_cliente;
+      document.getElementById('direccion').value = JSON.dataset.direccion_cliente;
+      document.getElementById('estado').value = JSON.dataset.estado_cliente;
+      document.getElementById('usuario').value = JSON.dataset.usuario;
+      document.getElementById('clave').value = JSON.dataset.clave;
+    } else {
+      sweetAlert(2, JSON.exception, false)
+    }
+  }
+
 document.addEventListener('DOMContentLoaded',()=>{
 cargarTabla();
 })
@@ -69,7 +91,7 @@ async function cargarTabla (form=null){
             <td class="px-6 py-3">${row.estado_cliente}</td>  
             <td class="px-6 py-3">${row.usuario}</td>      
             <td class=" px-5  py-3">
-              <a><i class="fa-sharp fa-solid fa-pen"></i></a>
+              <a onclick="openUpdate(${row.id_cliente})"><i class="fa-sharp fa-solid fa-pen"></i></a>
               <a onclick="BorrarCliente(${row.id_cliente})" "><i class="fa-sharp fa-solid fa-trash"></i></a>
               <a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
             </td>

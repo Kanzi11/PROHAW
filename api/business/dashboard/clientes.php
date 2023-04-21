@@ -80,10 +80,26 @@ if(isset($_GET['action'])){
                 } elseif (!$cliente->readOne()) {
                     $result['exception'] = 'Cliente inexistente';
                 } elseif (!$cliente->setNombreCliente($_POST['nombre'])) {
-                    $result['exception'] = 'Cliente incorrectos';
+                    $result['exception'] = 'Nombre incorrecto';
+                } elseif (!$cliente->setApellidoCliente($_POST['apellido'])) {
+                    $result['exception'] = 'Apellido incorrecto';
+                } elseif (!$cliente->setDuiCliente($_POST['dui'])) {
+                    $result['exception'] = 'DUI incorrecto';
+                } elseif (!$cliente->setCorreoCliente($_POST['correo'])) {
+                    $result['exception'] = 'Correo incorrecto';
+                } elseif (!$cliente->setTelefonoCliente($_POST['telefono'])) {
+                    $result['exception'] = 'Telefono incorrecto';
+                } elseif (!$cliente->setDireccionCliente($_POST['direccion'])) {
+                    $result['exception'] = 'Direccion incorrecto';
+                } elseif (!$cliente->setEstadoCliente(isset($_POST['estado']) ? 1 : 0)) {
+                    $result['exception'] = 'Estado incorrecto';
+                } elseif (!$cliente->setUsuarioCliente($_POST['usuario'])) {
+                    $result['exception'] = 'Usuario incorrecto';
+                } elseif (!$cliente->setClaveCliente($_POST['clave'])) {
+                    $result['exception'] = 'Clave incorrectos';
                 } elseif ($cliente->updateRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Marca modificada correctamente';
+                    $result['message'] = 'Cliente modificado correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }

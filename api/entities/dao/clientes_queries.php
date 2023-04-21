@@ -53,7 +53,7 @@ class ClientesQueris
         $sql = 'UPDATE clientes
                 SET  nombre_cliente = ?,apellido_cliente = ?,dui_cliente = ?,correo_cliente = ?,telefono_cliente = ?,direccion_cliente = ?,estado_cliente = ?,usuario = ?,clave = ?
                 WHERE id_cliente = ?';
-        $params = array($this->nombre_cliente, $this->apellido_cliente, $this->dui_cliente, $this->correo_cliente, $this->telefono_cliente, $this->direccion_cliente, $this->estado_cliente, $this->usuario, $this->clave
+        $params = array($this->nombre_cliente, $this->apellido_cliente, $this->dui_cliente, $this->correo_cliente, $this->telefono_cliente, $this->direccion_cliente, $this->estado_cliente, $this->usuario, $this->clave, $this->id_cliente
     );
         return Database::executeRow($sql, $params);
     }

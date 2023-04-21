@@ -23,7 +23,7 @@ class CategoriaQueries
 
     public function createRow()
     {
-        $sql = 'INSERT INTO categorias(nombre_cateogria)
+        $sql = 'INSERT INTO categorias(nombre_categoria)
                 VALUES(?)';
         $params = array($this->nombre_categoria);
         return Database::executeRow($sql, $params);

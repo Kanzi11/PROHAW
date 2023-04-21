@@ -37,7 +37,7 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = Validator::validateForm($_POST);
-                if (!$ $categoria->setNombreCategoria($_POST['nombre'])) {
+                if (!$categoria->setNombreCategoria($_POST['categoria'])) {
                     $result['exception'] = 'Nombre incorrectos';
                 } elseif ($categoria->createRow()) {
                     $result['status'] = 1;
@@ -63,7 +63,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Categoria incorrecto';
                 } elseif (!$categoria->readOne()) {
                     $result['exception'] = 'Categoria inexistente';
-                } elseif (!$categoria->setNombreCategoria($_POST['nombre'])) {
+                } elseif (!$categoria->setNombreCategoria($_POST['categoria'])) {
                     $result['exception'] = 'Nombre incorrectos';
                 } elseif ($categoria->updateRow()) {
                     $result['status'] = 1;

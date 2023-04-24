@@ -74,16 +74,17 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'update':
-                $_POST = Validator::validateForm($_POST);
-                if (!$categoria->setIdCategoria($_POST['id_pedido'])) {
-                    $result['exception'] = 'Categoria incorrecto';
-                } elseif (!$categoria->readOne()) {
-                    $result['exception'] = 'Categoria inexistente';
-                } elseif (!$categoria->setNombreCategoria($_POST['categoria'])) {
-                    $result['exception'] = 'Nombre incorrectos';
-                } elseif ($categoria->updateRow()) {
+                if (!$pedido->setEstadoPedido(isset($_POST['estado']) ? 1 : 0 )) {
+                    $result['exception'] = 'Estado incorrecto';
+                }elseif(!$pedido->setFechaPedido($_POST['fecha'])) {
+                    $result['exception'] = 'Fecha incorrecta';
+                }elseif (!isset($_POST['cliente'])) {
+                    $result['exception'] = 'Seleccione un cliente';
+                } elseif (!$pedido->setIdCliente($_POST['cliente'])) {
+                    $result['exception'] = 'Cliente incorrecto';
+                }elseif ($pedido->updateRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Categoria modificada correctamente';
+                    $result['message'] = 'Pedido creado correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }

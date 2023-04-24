@@ -31,6 +31,53 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
                 }
+                break;
+            case 'readAll':
+                if ($result['dataset'] = $usuario->readAll()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen' . count($result['dataset']) . ' registros';
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay datos registrados';
+                }
+                break;
+            case 'search':
+                $_POST = Validator::validateForm($_POST);
+                if ($_POST['search'] == '') {
+                    $result['exception'] = 'Ingrese un valor para buscar';
+                } elseif ($result['dataset'] =  $usuario->searchRows($_POST['search'])) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+                break;
+            case 'readOne':
+                if (!$usuario->setId_Usuario($_POST['id_usuario'])) {
+                    $result['exception'] = 'Usuario incorrecto';
+                } elseif ($result['dataset'] = $usuario->readOne()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Usuario inexistente';
+                }
+                break;
+                case 'delete':
+                    if (!$usuario->setId_Usuario($_POST['id_usuario'])) {
+                        $result['exception'] = 'Usuario incorrecto';
+                    } elseif (!$data = $usuario->readOne()) {
+                        $result['exception'] = 'Usuario inexistente';
+                    } elseif ($usuario->deleteRow()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Usuario eliminado correctamente';
+                    } else {
+                        $result['exception'] = Database::getException();
+                    }
+                    break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

@@ -11,7 +11,7 @@ class Usuarios extends UsuarioQueries
     protected $apellido_usuario = null;
     protected $alias_usuario = null;
     protected $clave_usuario = null;
-
+    protected $id_tipo_usuario = null;
 
     //Sett
     public function setId_Usuario($value)
@@ -66,6 +66,16 @@ class Usuarios extends UsuarioQueries
         }
     }
 
+    public function setIdTipoUsuario($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->id_tipo_usuario = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     //gett
     public function getId()
@@ -91,5 +101,10 @@ class Usuarios extends UsuarioQueries
     public function getClave()
     {
         return $this->clave_usuario;
+    }
+
+    public function getTipoUsuario()
+    {
+        return $this->id_tipo_usuario;
     }
 }

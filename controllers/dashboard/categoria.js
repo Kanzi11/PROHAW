@@ -21,7 +21,7 @@ const options = {
     onToggle: () => {
         console.log('modal has been toggled');
     }
-  };
+};
 const SAVE_MODAL = new Modal(document.getElementById('agregarcategoria'),options);
 // Constantes para establecer el contenido de la tabla.
 const TBODY_ROWS = document.getElementById('tbody-rows');

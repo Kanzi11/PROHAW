@@ -37,29 +37,45 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = Validator::validateForm($_POST);
-                if (!$categoria->setNombreCategoria($_POST['categoria'])) {
-                    $result['exception'] = 'Nombre incorrectos';
-                } elseif ($categoria->createRow()) {
+                if (!$pedido->setEstadoPedido(isset($_POST['estado']) ? 1 : 0 )) {
+                    $result['exception'] = 'Estado incorrecto';
+                }elseif(!$pedido->setFechaPedido($_POST['fecha'])) {
+                    $result['exception'] = 'Fecha incorrecta';
+                }elseif (!isset($_POST['cliente'])) {
+                    $result['exception'] = 'Seleccione un cliente';
+                } elseif (!$pedido->setIdCliente($_POST['cliente'])) {
+                    $result['exception'] = 'Cliente incorrecto';
+                }elseif ($pedido->createRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Categoria creada correctamente';
+                    $result['message'] = 'Pedido creado correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            // case 'ReadCliente':
+            //     if ($result['dataset'] = $pedido->readCliente()) {
+            //         $result['status'] = 1;
+            //         $result['message'] = 'Existen registros ';
+            //     } elseif (Database::getException()) {
+            //         $result['exception'] = Database::getException();
+            //     } else {
+            //         $result['exception'] = 'No hay datos registrados';
+            //     }
+            //     break;
             case 'readOne':
-                if (!$categoria->setIdCategoria($_POST['id_categoria'])) {
-                    $result['exception'] = 'Categoría incorrecta';
-                } elseif ($result['dataset'] = $categoria->readOne()) {
+                if (!$pedido->setIdPedido($_POST['id_pedido'])) {
+                    $result['exception'] = 'Pedido incorrecta';
+                } elseif ($result['dataset'] = $pedido->readOne()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'Categoria inexistente';
+                    $result['exception'] = 'Pedido inexistente';
                 }
                 break;
             case 'update':
                 $_POST = Validator::validateForm($_POST);
-                if (!$categoria->setIdCategoria($_POST['id'])) {
+                if (!$categoria->setIdCategoria($_POST['id_pedido'])) {
                     $result['exception'] = 'Categoria incorrecto';
                 } elseif (!$categoria->readOne()) {
                     $result['exception'] = 'Categoria inexistente';
@@ -73,13 +89,13 @@ if (isset($_GET['action'])) {
                 }
                 break;
                 case 'delete':
-                    if (!$categoria->setIdCategoria($_POST['id_categoria'])) {
-                        $result['exception'] = 'Categoría incorrecta';
-                    } elseif (!$data = $categoria->readOne()) {
-                        $result['exception'] = 'Categoría inexistente';
-                    } elseif ($categoria->deleteRow()) {
+                    if (!$pedido->setIdPedido($_POST['id_pedido'])) {
+                        $result['exception'] = 'Pedido incorrecto';
+                    } elseif (!$data = $pedido->readOne()) {
+                        $result['exception'] = 'Pedido inexistente';
+                    } elseif ($pedido->deleteRow()) {
                         $result['status'] = 1;
-                        $result['message'] = 'Categoria eliminada correctamente';
+                        $result['message'] = 'Pedido eliminado correctamente';
                     } else {
                         $result['exception'] = Database::getException();
                     }

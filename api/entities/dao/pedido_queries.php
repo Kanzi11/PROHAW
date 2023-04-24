@@ -5,14 +5,14 @@ require_once('../../helpers/database.php');
 */
 class PedidoQueries 
 {
-     /*
+    /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
     // Metodo del buscador 
     public function searchRows($value)
     {
         $sql = 'SELECT id_pedido, estado_pedido, fecha_pedido, id_cliente
-                FROM pedidoos
+                FROM pedidos
                 WHERE id_cliente ILIKE ?
                 ORDER BY id_cliente';
         $params = array("%$value%");
@@ -22,9 +22,9 @@ class PedidoQueries
 
     public function createRow()
     {
-        $sql = 'INSERT INTO categorias(nombre_categoria)
-                VALUES(?)';
-        $params = array($this->nombre_categoria);
+        $sql = 'INSERT INTO pedidos(estado_pedido, fecha_pedido, id_cliente)
+                VALUES(?,?,?)';
+        $params = array($this->estado_pedido,$this->fecha_pedido,$this->id_cliente);
         return Database::executeRow($sql, $params);
     }
     // Metodo para leer todos los registros actuales creo
@@ -38,29 +38,37 @@ class PedidoQueries
     // Metodo para leer un registro si no mal entiendo
     public function readOne()
     {
-        $sql = 'SELECT id_categoria, nombre_categoria
-                FROM categorias
-                WHERE id_categoria = ?';
-        $params = array($this->id_categoria);
+        $sql = 'SELECT id_pedido, estado_pedido, fecha_pedido, id_cliente
+                FROM pedidos
+                WHERE id_pedido = ?';
+        $params = array($this->id_pedido);
         return Database::getRow($sql, $params);
     }
 
-    // Metodo para actualizar un registro
+     // metodo para leer cliente mandar a llamar a los clientes por medio de un 
+     // de un cmb
+    // public function readCliente(){
+    //     $sql='SELECT id cliente, nombre_cliente FROM clientes';
+    //     return Database::getRow($sql);
+    // }
+
+
+    // Metodo para actualizar un pedido
     public function updateRow()
     {
-        // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
-        $sql = 'UPDATE categorias
-                SET  nombre_categoria = ?
-                WHERE id_categoria = ?';
-        $params = array( $this->nombre_categoria, $this->id_categoria);
-        return Database::executeRow($sql, $params);
+        $sql = 'UPDATE pedidos
+                SET  estado_pedido = ?,fecha_pedido = ?,id_cliente = ?
+                WHERE id_pedido = ?';
+        $params = array($this->estado_pedido, $this->fecha_pedido, $this->id_cliente, $this->id_pedido
+    );
+    return Database::executeRow($sql, $params);
     }
     // Metodo para eliminar un registro
     public function deleteRow()
     {
-        $sql = 'DELETE FROM categorias
-                WHERE id_categoria = ?';
-        $params = array($this->id_categoria);
+        $sql = 'DELETE FROM pedidos
+                WHERE id_pedido = ?';
+        $params = array($this->id_pedido);
         return Database::executeRow($sql, $params);
     }
 }

@@ -37,17 +37,25 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = Validator::validateForm($_POST);
-                if (!$ $marca->setNombreMarca($_POST['nombre'])) {
+                if (!$marca->setNombreMarca($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrectos';
-                } elseif ($marca->createRow()) {
+                } elseif(!is_uploaded_file($_FILES['archivo']['tmp_name'])){
+                    $result['exception'] = 'Seleccione una  imagen';
+                } elseif (!$marca->setLogoMarca($_FILES['archivo'])){
+                    $result['exception'] = Validator::getFileError();
+                }elseif ($marca->createRow()) {
                     $result['status'] = 1;
+                 if(Validator::saveFile($_FILES['archivo'], $marca->getRuta(), $marca->getLogoMarca())){
                     $result['message'] = 'Marca creada correctamente';
-                } else {
-                    $result['exception'] = Database::getException();
+                 } else{
+                    $result['message'] = 'Marca creada correctamente pero no se guardo imagen';
+                 }
+            }else{
+                $result['exception'] = Database::getException();
                 }
                 break;
             case 'readOne':
-                if (!$marca->setIdMarca($_POST['id_marca'])) {
+                if (!$marca->setIdMarca($_POST['id'])) {
                     $result['exception'] = 'Marca incorrecta';
                 } elseif ($result['dataset'] = $marca->readOne()) {
                     $result['status'] = 1;
@@ -65,12 +73,25 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Marca inexistente';
                 } elseif (!$marca->setNombreMarca($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrectos';
-                } elseif ($marca->updateRow()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Marca modificada correctamente';
-                } else {
+                }elseif (!is_uploaded_file($_FILES['archivo'] ['tmp_name']) ){
+                    if($marca->updateRow($data['logo_marca'])){
+                        $result['status'] = 1;
+                        $result['message'] = 'Marca actualizada correctamente';
+                        
+                    }else{
+                        $result['exception'] = Database::getException();
+                   } }elseif(!$marca->setLogoMarca($_FILES['archivo'])){
+                        $result['exception'] = Validator::getFileError();
+                    }elseif($marca->updateRow($data['logo_marca'])){
+                        $result['status'] = 1;
+                    if(Validator::saveFile($_FILES['archivo'], $marca->getRuta(), $marca->getLogoMarca())){
+                        $result['message'] = 'Marca actualizada correctamente';
+                    }else{
+                        $result['message'] = 'Marca actualizada correctamente pero no se guardo la imagen';
+                    }}else{
                     $result['exception'] = Database::getException();
                 }
+            
                 break;
                 case 'delete':
                     if (!$marca->setIdMarca($_POST['id_marca'])) {
@@ -79,8 +100,12 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Marca inexistente';
                     } elseif ($marca->deleteRow()) {
                         $result['status'] = 1;
-                        $result['message'] = 'Marca eliminada correctamente';
-                    } else {
+                        if(Validator::deleteFile($marca->getRuta(), $data['logo_marca'])){
+                            $result['message'] = 'Marca eliminada';
+                        }else{
+                            $result['message'] = 'Marca eliminada pero no se borro la imagen';
+                        }
+                    } else{
                         $result['exception'] = Database::getException();
                     }
                     break;

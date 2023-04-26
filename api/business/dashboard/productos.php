@@ -37,7 +37,9 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = Validator::validateForm($_POST);
-                if(!$producto->set){
+                if(!$producto->setNombreProducto($_POST ['nombre'])){
+                    $result['exception'] = 'Nombre incorrectos';
+                }elseif(!$producto->setDetalleProducto($_POST{})){
 
                 }
                 break;

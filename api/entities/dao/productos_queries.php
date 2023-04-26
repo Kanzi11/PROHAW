@@ -12,9 +12,9 @@ class ProductoQueries
     // Metodo del buscador 
     public function searchRows($value)
     {
-        $sql = 'SELECT id_producto, nombre_producto, detalle_producto, precio_producto, estado_producto, existencias, imagen_producto, id_marca, id_categoria, id_usuario
+        $sql = 'SELECT id_producto, nombre_producto, estado_producto, id_categoria 
                 FROM productos
-                WHERE nombre_producto ILIKE  ?
+                WHERE nombre_producto ILIKE  ? , estado_producto ILIKE  ?
                 ORDER BY nombre_producto';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
@@ -23,9 +23,9 @@ class ProductoQueries
 
     public function createRow()
     {
-        $sql = 'INSERT INTO productos(nombre_producto)
-                VALUES(?)';
-        $params = array($this->nombre_producto);
+        $sql = 'INSERT INTO productos(nombre_producto, detalle_producto, precio_producto, estado_producto, existencias, imagen_producto, id_marca, id_categoria, id_usuario)
+                VALUES(?,?,?,?,?,?,?,?,?)';
+        $params = array($this->nombre_producto, $this->detalle_producto,$this->precio_producto, $this->estado_producto, $this->existencias,$this->imagen_producto, $this->id_marca, $this->id_categoria, $this->id_usuario);
         return Database::executeRow($sql, $params);
     }
     // Metodo para leer todos los registros actuales creo
@@ -47,13 +47,14 @@ class ProductoQueries
     }
 
     // Metodo para actualizar un registro
-    public function updateRow()
+    public function updateRow($current_image)
     {
+        ($this ->imagen_producto ) ? Validator::deleteFile($this->getRuta(), $current_image ) : $this->imagen_producto = $current_image;
         // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
         $sql = 'UPDATE productos
-                SET  nombre_producto = ?
+                SET  nombre_producto = ? , detalle_producto = ? , precio_producto = ? , estado_producto = ? , existencias = ? , imagen_producto = ? , id_marca = ? , id_categoria = ? , id_usuario= ? 
                 WHERE id_producto = ?';
-        $params = array( $this->nombre_producto, $this->id_producto);
+        $params = array( $this->nombre_producto, $this->detalle_producto,$this->precio_producto, $this->estado_producto, $this->existencias,$this->imagen_producto, $this->id_marca, $this->id_categoria, $this->id_usuario,$this->id_producto);
         return Database::executeRow($sql, $params);
     }
     // Metodo para eliminar un registro

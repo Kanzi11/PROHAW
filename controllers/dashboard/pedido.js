@@ -59,9 +59,15 @@ async function openUpdate(id_pedido) {
         SAVE_MODAL.show();
         MODAL_TITLE.textContent = 'Actualizar pedido';
         document.getElementById('id_pedido').value = JSON.dataset.id_pedido;
-        document.getElementById('estado').value = JSON.dataset.estado_cliente;
         document.getElementById('fecha').value = JSON.dataset.fecha_pedido;
-        fillSelect(CLIENTE_API, 'readAll', 'cliente', JSON.dataset.id_cliente)
+        document.getElementById('fecha').disabled = true;
+        fillSelect(CLIENTE_API, 'readAll', 'cliente', JSON.dataset.id_cliente);
+        document.getElementById('cliente').disabled = true;
+        if(JSON.dataset.estado_pedido){
+            document.getElementById('estado').checked = true;  
+        }else{
+            document.getElementById('estado').checked = false; 
+        }
     } else {
         sweetAlert(2, JSON.exception, false)
     }
@@ -77,6 +83,7 @@ async function cargarTabla(form = null) {
     const JSON = await dataFetch(PEDIDO_API, action, form);
     if (JSON.status) {
         JSON.dataset.forEach(row => {
+            (row.estado_pedido) ? estado = 'Activo' : estado = 'Inactivo';
             TBODY_ROWS.innerHTML += `
             <tr>
                 <td class="w-4 p-4">
@@ -86,7 +93,7 @@ async function cargarTabla(form = null) {
                         <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                     </div>
                 <td>${row.id_pedido}</td>
-                <td>${row.estado_pedido}</td>
+                <td>${estado}</td>
                 <td>${row.fecha_pedido}</td>
                 <td>${row.id_cliente}</td>
                 <td class="px-10 py-3">

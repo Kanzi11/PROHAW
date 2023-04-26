@@ -64,7 +64,7 @@ if (isset($_GET['action'])) {
                 //     break;
             case 'readOne':
                 if (!$pedido->setIdPedido($_POST['id_pedido'])) {
-                    $result['exception'] = 'Pedido incorrecta';
+                    $result['exception'] = 'Pedido incorrecto';
                 } elseif ($result['dataset'] = $pedido->readOne()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
@@ -74,17 +74,13 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'update':
-                if (!$pedido->setEstadoPedido(isset($_POST['estado']) ? 0 : 1)) {
+                if (!$pedido->setIdPedido($_POST['id_pedido'])) {
+                    $result['exception'] = 'Pedido incorrecto';
+                } elseif (!$pedido->setEstadoPedido(isset($_POST['estado']) ? 1 : 0)) {
                     $result['exception'] = 'Estado incorrecto';
-                } elseif (!$pedido->setFechaPedido($_POST['fecha'])) {
-                    $result['exception'] = 'Fecha incorrecta';
-                } elseif (!isset($_POST['cliente'])) {
-                    $result['exception'] = 'Seleccione un cliente';
-                } elseif (!$pedido->setIdCliente($_POST['cliente'])) {
-                    $result['exception'] = 'Cliente incorrecto';
-                } elseif ($pedido->updateRow()) {
+                } elseif ($pedido->changeStatus()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Pedido actualizado';
+                    $result['message'] = 'Estado del pedido actualizado';
                 } else {
                     $result['exception'] = Database::getException();
                 }

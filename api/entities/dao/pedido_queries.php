@@ -59,16 +59,26 @@ class PedidoQueries
         $sql = 'UPDATE pedidos
                 SET  estado_pedido = ?,fecha_pedido = ?,id_cliente = ?
                 WHERE id_pedido = ?';
-        $params = array($this->estado_pedido, $this->fecha_pedido, $this->id_cliente, $this->id_pedido
-    );
-    return Database::executeRow($sql, $params);
+        $params = array($this->estado_pedido, $this->fecha_pedido, $this->id_cliente, $this->id_pedido);
+        return Database::executeRow($sql, $params);
     }
+    
     // Metodo para eliminar un registro
     public function deleteRow()
     {
         $sql = 'DELETE FROM pedidos
                 WHERE id_pedido = ?';
         $params = array($this->id_pedido);
+        return Database::executeRow($sql, $params);
+    }
+
+    // Metodo para cambiar el estado de un pedido
+    public function changeStatus()
+    {
+        $sql = 'UPDATE pedidos
+                SET  estado_pedido = ?
+                WHERE id_pedido = ?';
+        $params = array($this->estado_pedido, $this->id_pedido);
         return Database::executeRow($sql, $params);
     }
 }

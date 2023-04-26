@@ -37,13 +37,8 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = Validator::validateForm($_POST);
-                if (!$ $producto->setNombreProducto($_POST['nombre'])) {
-                    $result['exception'] = 'Nombre incorrectos';
-                } elseif ($producto->createRow()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Marca creada correctamente';
-                } else {
-                    $result['exception'] = Database::getException();
+                if(!$producto->set){
+
                 }
                 break;
             case 'readOne':
@@ -58,19 +53,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'update':
-                $_POST = Validator::validateForm($_POST);
-                if (!$producto->setIdProducto($_POST['id'])) {
-                    $result['exception'] = 'Producto incorrecto';
-                } elseif (!$producto->readOne()) {
-                    $result['exception'] = 'Producto inexistente';
-                } elseif (!$producto->setNombreProducto($_POST['nombre'])) {
-                    $result['exception'] = 'Nombre incorrectos';
-                } elseif ($producto->updateRow()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Marca modificada correctamente';
-                } else {
-                    $result['exception'] = Database::getException();
-                }
+                
                 break;
                 case 'delete':
                     if (!$producto->setIdProducto($_POST['id_marca'])) {

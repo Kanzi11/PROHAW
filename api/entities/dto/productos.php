@@ -17,6 +17,7 @@ class Producto extends ProductoQueries
     protected $id_marca = null;
     protected $id_categoria = null;
     protected $id_usuario = null;
+    protected $ruta = '../../img/productos/';
 
 
     // Metodos para validar y asignar valores de los atributos.
@@ -43,7 +44,7 @@ class Producto extends ProductoQueries
     }
     public function setDetalleProducto($value)
     {
-        if (Validator::validateAlphanumeric($value, 1, 100)) {
+        if (Validator::validateAlphanumeric($value, 1, 1000)) {
             $this->detalle_producto = $value;
             return true;
         } else {
@@ -53,7 +54,7 @@ class Producto extends ProductoQueries
 
     public function setPrecioProducto($value)
     {
-        if (Validator::validateAlphanumeric($value, 1, 100)) {
+        if (Validator::validateMoney($value)) {
             $this->precio_producto = $value;
             return true;
         } else {
@@ -62,16 +63,17 @@ class Producto extends ProductoQueries
     }
     public function setEstadoProducto($value)
     {
-        if (Validator::validateAlphanumeric($value, 1, 100)) {
+        if (Validator::validateBoolean($value)) {
             $this->estado_producto = $value;
             return true;
         } else {
             return false;
         }
     }
+    //preguntarle  al profe
     public function setExistenciasProducto($value)
     {
-        if (Validator::validateAlphanumeric($value, 1, 100)) {
+        if (Validator::validateNaturalNumber($value)) {
             $this->existencias = $value;
             return true;
         } else {
@@ -79,7 +81,7 @@ class Producto extends ProductoQueries
         }
     }
 
-    public function setLogoProducto($value)
+    public function setImagenProducto($value)
     {
         if (Validator::validateImageFile($value, 1, 50)) {
             $this->imagen_producto = $value;
@@ -118,19 +120,7 @@ class Producto extends ProductoQueries
     }
     // Metodo para obtener los valores de los atributos.
     // Get
-    public function getIdmarca()
-    {
-        return $this->id_marca;
-    }
-    public function getIdusuario()
-    {
-        return $this->id_usuario;
-    }
-    public function getIdcategoria()
-    {
-        return $this->id_categoria;
-    }
-
+ 
     public function getIdProducto()
     {
         return $this->id_producto;
@@ -160,6 +150,24 @@ class Producto extends ProductoQueries
     public function getImagenProducto()
     {
         return $this->imagen_producto;
+    }
+ 
+    public function getIdmarca()
+    {
+        return $this->id_marca;
+    }
+    public function getIdusuario()
+    {
+        return $this->id_usuario;
+    }
+    public function getIdcategoria()
+    {
+        return $this->id_categoria;
+    }
+
+    public function getRuta()
+    {
+        return $this->ruta;
     }
 
 }

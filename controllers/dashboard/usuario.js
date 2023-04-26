@@ -5,10 +5,60 @@ const SEARCH_FORM = document.getElementById('search-form');
 // Constante para establecer el formulario de guardar.
 const SAVE_FORM = document.getElementById('save-form');
 // Constante para establecer el título de la modal.
-const MODAL_TITLE = document.getElementById('modal-title');
+const MODAL_TITLE = document.getElementById('titulo-modal');
 // Constantes para establecer el contenido de la tabla.
 const TBODY_ROWS = document.getElementById('tbody-usuarios');
 const RECORDS = document.getElementById('records');
+//Constante para guardar el modal
+const SAVE_MODAL = new Modal(document.getElementById('agregarusuario'));
+
+//Evento al guardar el formulario
+SAVE_FORM.addEventListener('submit',async (event) => {
+  //se evita recargar la pagina
+  event.preventDefault();
+  //Se verifica la accion a realizar
+  (document.getElementById('id').value) ? action = 'update':action = 'create';
+  //Constante que contiene los datos del form
+  const FORM = new FormData(SAVE_FORM);
+  //peticion para guardar los datos del form
+  const JSON = await dataFetch(USUARIO_API, action, FORM);
+  //se comprueba si la respuesta es satisfactoria, si no se muestra un exception
+  if (JSON.status) {
+    SAVE_MODAL.hide();
+    cargarTablaUsers();
+    sweetAlert(1, JSON.message, true);
+  }else{
+    
+    sweetAlert(2, JSON.exception, false);
+  }
+});
+
+function openCreate(){
+  SAVE_MODAL.show();
+  //Se restaura los elementos del modal
+  SAVE_FORM.reset();
+  //Se asigna un titulo al modal
+  MODAL_TITLE.textContent = 'Crear usuario';
+  fillSelect(USUARIO_API,'cargarTipoUsuario','tipousuario');
+}
+
+async function openUpdate(id_usuario){
+  const FORM = new FormData();
+  FORM.append('id',id_usuario);
+  const JSON = await dataFetch(USUARIO_API, 'readOne', FORM);
+  if (JSON.status) {
+    SAVE_MODAL.show();
+    MODAL_TITLE.textContent ='Actualizar Usuario';  
+    document.getElementById('id').value = JSON.dataset.id_usuario;
+    document.getElementById('nombre').value = JSON.dataset.nombre_usuario;
+    document.getElementById('apellido').value = JSON.dataset.apellido_usuario;
+    document.getElementById('Alias').value = JSON.dataset.alias_usuario;
+    document.getElementById('clave').value = JSON.dataset.clave_usuario;
+    fillSelect(USUARIO_API, 'cargarTipoUsuario','tipousuario',JSON.dataset.id_tipo_usuario);
+  } else {
+    sweetAlert(2, JSON.exception, false)
+  }
+}
 
 document.addEventListener('DOMContentLoaded',()=>{
     cargarTablaUsers();
@@ -35,8 +85,8 @@ async function cargarTablaUsers(form=null){
             <td class="px-6 py-3">${row.alias_usuario}</td> 
             <td class="px-6 py-3">${row.tipo_usuario}</td>      
             <td class=" px-5  py-3">
-              <a onclick=""><i class="fa-sharp fa-solid fa-pen"></i></a>
-              <a onclick="BorrarUsuario(${row.id_usuario})" "><i class="fa-sharp fa-solid fa-trash"></i></a>
+              <a onclick="openUpdate(${row.id_usuario})"><i class="fa-sharp fa-solid fa-pen"></i></a>
+              <a onclick="BorrarUsuario(${row.id_usuario})"><i class="fa-sharp fa-solid fa-trash"></i></a>
               <a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
             </td>
           </tr>

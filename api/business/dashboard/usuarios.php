@@ -56,7 +56,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'readOne':
-                if (!$usuario->setId_Usuario($_POST['id_usuario'])) {
+                if (!$usuario->setId_Usuario($_POST['id'])) {
                     $result['exception'] = 'Usuario incorrecto';
                 } elseif ($result['dataset'] = $usuario->readOne()) {
                     $result['status'] = 1;
@@ -66,18 +66,70 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Usuario inexistente';
                 }
                 break;
-                case 'delete':
-                    if (!$usuario->setId_Usuario($_POST['id_usuario'])) {
-                        $result['exception'] = 'Usuario incorrecto';
-                    } elseif (!$data = $usuario->readOne()) {
-                        $result['exception'] = 'Usuario inexistente';
-                    } elseif ($usuario->deleteRow()) {
-                        $result['status'] = 1;
-                        $result['message'] = 'Usuario eliminado correctamente';
-                    } else {
-                        $result['exception'] = Database::getException();
-                    }
-                    break;
+            case 'create':
+                $_POST = Validator::validateForm($_POST);
+                if (!$usuario->setNombre($_POST['nombre'])) {
+                    $result['exception'] = 'Nombre incorrectos';
+                } elseif (!$usuario->setApellidos($_POST['apellido'])) {
+                    $result['exception'] = 'Apellidos incorrectos';
+                } elseif (!$usuario->setAlias_Usuario($_POST['Alias'])) {
+                    $result['exception'] = 'Alias incorrecto';
+                } elseif (!$usuario->setIdTipoUsuario($_POST['tipousuario'])) {
+                    $result['exception'] = 'Tipo de usuario incorrecto';
+                } elseif (!$usuario->setClave_Usuario($_POST['clave'])) {
+                    $result['exception'] = 'Clave incorrecto';
+                } elseif ($usuario->createRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Usuario agregado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'update':
+                $_POST = Validator::validateForm($_POST);
+                if (!$usuario->setId_Usuario($_POST['id'])) {
+                    $result['exception'] = 'Usuario incorrecto';
+                } elseif (!$data = $usuario->readOne()) {
+                    $result['exception'] = 'Usuario inexistente';
+                } elseif (!$usuario->setNombre($_POST['nombre'])) {
+                    $result['exception'] = 'Nombres incorrectos';
+                } elseif (!$usuario->setApellidos($_POST['apellido'])) {
+                    $result['exception'] = 'Apellidos incorrectos';
+                } elseif (!$usuario->setAlias_Usuario($_POST['Alias'])) {
+                    $result['exception'] = 'Alias incorrecto';
+                } elseif (!$usuario->setIdTipoUsuario($_POST['tipousuario'])) {
+                    $result['exception'] = 'Tipo de usuario incorrecto';
+                } elseif (!$usuario->setClave_Usuario($_POST['clave'])) {
+                    $result['exception'] = 'Clave incorrecto';
+                } elseif ($usuario->updateRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Usuario modificado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'cargarTipoUsuario':
+                if ($result['dataset'] = $usuario->CargarCmbTipoUsuario()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen registros';
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay datos registrados';
+                }
+                break;
+            case 'delete':
+                if (!$usuario->setId_Usuario($_POST['id_usuario'])) {
+                    $result['exception'] = 'Usuario incorrecto';
+                } elseif (!$data = $usuario->readOne()) {
+                    $result['exception'] = 'Usuario inexistente';
+                } elseif ($usuario->deleteRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Usuario eliminado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

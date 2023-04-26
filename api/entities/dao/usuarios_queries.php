@@ -42,10 +42,26 @@ class UsuarioQueries
     }
     public function createRow()
     {
-        $sql = 'INSERT INTO usuarios(nombres_usuario, apellidos_usuario,  alias_usuario, clave_usuario,id_tipo_usuario)
+        $sql = 'INSERT INTO usuarios(nombre_usuario, apellido_usuario,  alias_usuario, clave_usuario, id_tipo_usuario)
                 VALUES(?, ?, ?, ?, ?)';
         $params = array($this->nombre_usuario, $this->apellido_usuario,  $this->alias_usuario, $this->clave_usuario, $this->id_tipo_usuario);
         return Database::executeRow($sql, $params);
+    }
+
+    public function updateRow()
+    {
+        // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
+        $sql = 'UPDATE usuarios 
+                SET  nombre_usuario = ?, apellido_usuario = ?, alias_usuario = ?, clave_usuario = ?, id_tipo_usuario = ?
+                WHERE id_usuario = ?';
+        $params = array($this->nombre_usuario, $this->apellido_usuario,  $this->alias_usuario, $this->clave_usuario, $this->id_tipo_usuario, $this->id_usuario);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function CargarCmbTipoUsuario(){
+        $sql = 'SELECT id_tipo_usuario, tipo_usuario 
+        FROM tipos_usuarios';
+        return Database::getRows($sql);
     }
 
     public function readAll()

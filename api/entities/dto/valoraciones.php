@@ -25,7 +25,7 @@ class Valoraciones extends ValoracionesQueries
         }
     } 
 
-    public function setIdValoracionProducto($value)
+    public function setValoracionProducto($value)
     {
         if (Validator::validateNaturalNumber($value)) {
             $this->valoracion_producto = $value;
@@ -80,7 +80,7 @@ class Valoraciones extends ValoracionesQueries
         return $this->id_valoracion;
     }
 
-    public function getIdValoracionProducto()
+    public function getValoracionProducto()
     {
         return $this->valoracion_producto;
     }

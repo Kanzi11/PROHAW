@@ -86,12 +86,22 @@ async function openUpdate(id) {
         // Se asigna título para la caja de diálogo.
         MODAL_TITLE.textContent = 'Actualizar marca';
         // Se inicializan los campos del formulario.
-        document.getElementById('archivo').required = false;
-        document.getElementById('id').value = JSON.dataset.id_marca;
-        document.getElementById('nombre').value = JSON.dataset.nombre_marca;
+        document.getElementById('id').value = JSON.dataset.id_valoracion;
+        document.getElementById('nombre').value = JSON.dataset.valoracion_producto;
+        document.getElementById('comentario').value = JSON.dataset.comentario_prodcuto;
+        document.getElementById('fecha').value = JSON.dataset.fecha_comentario;
+        
+        if (JSON.dataset.estado_comentario) {
+            document.getElementById('estado').checked = true;
+        } else {
+            document.getElementById('estado').checked = false;
+        }
+        document.getElementById('detalle').value = JSON.dataset.id_detalle_pedido;
+
     } else {
         sweetAlert(2, JSON.exception, false);
     }
+    
 }
 
 
@@ -132,6 +142,7 @@ async function cargarTabla (form=null){
     const JSON=await dataFetch(VALORACIONES_API, action, form);
     if(JSON.status){
         JSON.dataset.forEach(row=> {
+            (row.estado_comentario) ? icon = '../../resources/img/iconos/visibleIcon.ico' : icon = '../../resources/img/iconos/invisibleIcon.ico';
             TBODY_ROWS.innerHTML+=`
             <tr>
                 <td class="w-4 p-4">
@@ -144,7 +155,7 @@ async function cargarTabla (form=null){
                     <td>${row.valoracion_producto} </td>
                     <td>${row.comentario_prodcuto} </td>
                     <td>${row.fecha_comentario} </td>
-                    <td>${row.estado_comentario} </td>
+                    <td><img src = ${icon}></td>
                     <td>${row.id_detalle_pedido}</td>
                 <td class="px-10 py-3">
                     <a onclick="openUpdate(${row.id_valoracion})"><i class="fa-sharp fa-solid fa-edit"></i></a>

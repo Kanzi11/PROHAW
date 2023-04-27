@@ -55,41 +55,35 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'readOne':
-                if (!$valoracion->setIdMarca($_POST['id'])) {
-                    $result['exception'] = 'Marca incorrecta';
+                if (!$valoracion->setIdValoracion($_POST['id'])) {
+                    $result['exception'] = 'incorrecto';
                 } elseif ($result['dataset'] = $valoracion->readOne()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'Marca inexistente';
+                    $result['exception'] = 'inexistente';
                 }
                 break;
             case 'update':
                 $_POST = Validator::validateForm($_POST);
-                if (!$valoracion->setIdMarca($_POST['id'])) {
-                    $result['exception'] = 'Marca incorrecto';
+                if (!$valoracion->setIdValoracion($_POST['id'])) {
+                    $result['exception'] = 'estado incorrecto';
                 } elseif (!$data=$valoracion->readOne()) {
-                    $result['exception'] = 'Marca inexistente';
-                } elseif (!$valoracion->setNombreMarca($_POST['nombre'])) {
-                    $result['exception'] = 'Nombre incorrectos';
-                }elseif (!is_uploaded_file($_FILES['archivo'] ['tmp_name']) ){
-                    if($valoracion->updateRow($data['logo_marca'])){
+                    $result['exception'] = 'estado inexistente';
+                }elseif (!$valoracion->setValoracionProducto($_POST['nombre'])) {
+                    $result['exception'] = 'algo incorrecto';
+                }elseif (!$valoracion->setComentarioProducto($_POST['comentario'])) {
+                    $result['exception'] = 'algo incorrecto';
+                } elseif (!$valoracion->setFechaComentario($_POST['fecha'])) {
+                    $result['exception'] = 'algo incorrecto';
+                }elseif (!$valoracion->setEstadoComentario(isset($_POST['estado']) ? 1 : 0)) {
+                    $result['exception'] = 'algo incorrecto';
+                }elseif (!$valoracion->setIdDetallePedido($_POST['detalle'])) {
+                    $result['exception'] = 'algo incorrecto';
+                } if($valoracion->updateRow()){
                         $result['status'] = 1;
-                        $result['message'] = 'Marca actualizada correctamente';
-                        
-                    }else{
-                        $result['exception'] = Database::getException();
-                   } }elseif(!$valoracion->setLogoMarca($_FILES['archivo'])){
-                        $result['exception'] = Validator::getFileError();
-                    }elseif($valoracion->updateRow($data['logo_marca'])){
-                        $result['status'] = 1;
-                    if(Validator::saveFile($_FILES['archivo'], $valoracion->getRuta(), $valoracion->getLogoMarca())){
-                        $result['message'] = 'Marca actualizada correctamente';
-                    }else{
-                        $result['message'] = 'Marca actualizada correctamente pero no se guardo la imagen';
-                    }}else{
-                    $result['exception'] = Database::getException();
+                        $result['message'] = 'Estado actualizado correctamente';
                 }
             
                 break;

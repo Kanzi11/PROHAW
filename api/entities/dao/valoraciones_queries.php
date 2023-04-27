@@ -46,7 +46,7 @@ class ValoracionesQueries
     {
        $sql = 'SELECT id_valoracion, valoracion_producto, comentario_prodcuto, fecha_comentario, estado_comentario, id_detalle_pedido
        FROM valoraciones
-       WHERE id_valoraciones = ?';
+       WHERE id_valoracion = ?';
         $params = array($this->id_valoracion);
         return Database::getRow($sql, $params);
     }

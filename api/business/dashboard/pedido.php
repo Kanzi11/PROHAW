@@ -22,6 +22,20 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            case 'showDetail':
+                if (!$pedido->setIdPedido($_POST['id_pedido'])) {
+                    $result['exception'] = 'Pedido incorrecto';
+                } elseif (!$data = $pedido->readOne()) {
+                    $result['exception'] = 'Pedido inexistente';
+                } elseif ($result['dataset'] = $pedido->showdetail()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay datos registrados';
+                }
+                break;
             case 'search':
                 $_POST = Validator::validateForm($_POST);
                 if ($_POST['search'] == '') {
@@ -91,6 +105,18 @@ if (isset($_GET['action'])) {
                 } elseif (!$data = $pedido->readOne()) {
                     $result['exception'] = 'Pedido inexistente';
                 } elseif ($pedido->deleteRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Pedido eliminado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'deleteDT':
+                if (!$pedido->setIdDetalle($_POST['id_detalle_pedido'])) {
+                    $result['exception'] = 'Detalle incorrecto';
+                } elseif (!$data = $pedido->readDetalle()) {
+                    $result['exception'] = 'Detalle inexistente';
+                } elseif ($pedido->BorrarDetalle()) {
                     $result['status'] = 1;
                     $result['message'] = 'Pedido eliminado correctamente';
                 } else {

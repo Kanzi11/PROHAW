@@ -10,6 +10,8 @@ class Pedido extends PedidoQueries
     protected $fecha_pedido = null;
     protected $id_cliente = null;
 
+    protected $id_detalle_pedido = null;
+
     
     // Metodos para validar y asignar valores de los atributos.
     // set
@@ -53,6 +55,16 @@ class Pedido extends PedidoQueries
         }
     }
 
+      public function setIdDetalle($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->id_detalle_pedido = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // GET 
     public function getIdPedido()
     {
@@ -72,5 +84,10 @@ class Pedido extends PedidoQueries
     public function getIdCliente()
     {
         return $this->id_cliente;
+    }
+
+    public function getIdDetallePedido()
+    {
+        return $this->id_detalle_pedido;
     }
 }

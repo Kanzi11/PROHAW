@@ -3,7 +3,7 @@ require_once('../../helpers/database.php');
 /*
 *	Clase para manejar el acceso a datos de la entidad CATEGORIA.
 */
-class PedidoQueries 
+class PedidoQueries
 {
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
@@ -18,13 +18,32 @@ class PedidoQueries
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
+
+    // metodo para mostrar el detalle
+    public function showdetail()
+    {
+        $sql = 'SELECT a.id_detalle_pedido,a.cantidad,a.precio,a.id_pedido,b.nombre_producto
+                FROM detalles_pedidos a INNER JOIN productos b ON a.id_producto = b.id_producto
+                WHERE id_pedido = ?';
+        $params = array($this->id_pedido);
+        return Database::getRows($sql, $params);
+    }
+
+    public function BorrarDetalle()
+    {
+        $sql = 'DELETE FROM detalles_pedidos
+                WHERE id_detalle_pedido = ?';
+        $params = array($this->id_detalle_pedido);
+        return Database::executeRow($sql, $params);
+    }
+
     // metodo para crear un registro
 
     public function createRow()
     {
         $sql = 'INSERT INTO pedidos(estado_pedido, fecha_pedido, id_cliente)
                 VALUES(?,?,?)';
-        $params = array($this->estado_pedido,$this->fecha_pedido,$this->id_cliente);
+        $params = array($this->estado_pedido, $this->fecha_pedido, $this->id_cliente);
         return Database::executeRow($sql, $params);
     }
     // Metodo para leer todos los registros actuales creo
@@ -44,9 +63,17 @@ class PedidoQueries
         $params = array($this->id_pedido);
         return Database::getRow($sql, $params);
     }
+    public function readDetalle()
+    {
+        $sql = 'SELECT id_detalle_pedido, cantidad, precio, id_pedido, id_producto
+                FROM detalles_productos
+                WHERE id_detalle_pedido = ?';
+        $params = array($this->id_detalle_pedido);
+        return Database::getRow($sql, $params);
+    }
 
-     // metodo para leer cliente mandar a llamar a los clientes por medio de un 
-     // de un cmb
+    // metodo para leer cliente mandar a llamar a los clientes por medio de un 
+    // de un cmb
     // public function readCliente(){
     //     $sql='SELECT id cliente, nombre_cliente FROM clientes';
     //     return Database::getRow($sql);
@@ -62,7 +89,7 @@ class PedidoQueries
         $params = array($this->estado_pedido, $this->fecha_pedido, $this->id_cliente, $this->id_pedido);
         return Database::executeRow($sql, $params);
     }
-    
+
     // Metodo para eliminar un registro
     public function deleteRow()
     {

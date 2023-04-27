@@ -11,8 +11,50 @@ const SAVE_MODAL = new Modal(document.getElementById('agregarpedido'));
 const MODAL_TITLE = document.getElementById('titulo-modal');
 // Constantes para establecer el contenido de la tabla.
 const TBODY_ROWS = document.getElementById('tbody-rows');
+// Constante para abrir el detalle del pedido
+const TROWS_DP = document.getElementById('tbody-detalle');
+// Constante para darle id a detalle
+const SAVE_DT = new Modal(document.getElementById('abrirdetalle'));
+const TBODY_DT = document.getElementById('tbody-detalle');
 
 
+
+function openDetalle(id_pedido) {
+    SAVE_DT.show()
+    filltableDetalle(id_pedido);
+}
+
+async function filltableDetalle(id_pedido) {
+    const FORM = new FormData();
+    FORM.append('id_pedido', id_pedido);
+    const JSON = await dataFetch(PEDIDO_API, 'showDetail', FORM);
+    if (JSON.status) {
+        JSON.dataset.forEach(row => {
+            TBODY_DT.innerHTML += `
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <td class="w-4 ">
+              <div class="px-6 py-3">
+                <input id="checkbox-table-search-1" type="checkbox"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+              </div>
+            </td>
+            <td class="px-6 py-3">${row.id_detalle_pedido} </td>
+            <td class="px-6 py-3">${row.cantidad}</td> 
+            <td class="px-6 py-3">${row.precio}</td> 
+            <td class="px-6 py-3">${row.id_pedido}</td> 
+            <td class="px-6 py-3">${row.nombre_producto}</td>      
+            <td class=" px-5  py-3">
+              <a onclick="ActDetalle(${row.id_detalle_pedido})"><i class="fa-sharp fa-solid fa-pen"></i></a>
+              <a onclick="BorrarDetalle(${row.id_detalle_pedido})" "><i class="fa-sharp fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
+          `;
+        })
+    } else {
+        sweetAlert(4, JSON.exception, true)
+    }
+};
 
 function openCreate() {
     SAVE_MODAL.show();
@@ -63,10 +105,10 @@ async function openUpdate(id_pedido) {
         document.getElementById('fecha').disabled = true;
         fillSelect(CLIENTE_API, 'readAll', 'cliente', JSON.dataset.id_cliente);
         document.getElementById('cliente').disabled = true;
-        if(JSON.dataset.estado_pedido){
-            document.getElementById('estado').checked = true;  
-        }else{
-            document.getElementById('estado').checked = false; 
+        if (JSON.dataset.estado_pedido) {
+            document.getElementById('estado').checked = true;
+        } else {
+            document.getElementById('estado').checked = false;
         }
     } else {
         sweetAlert(2, JSON.exception, false)
@@ -99,6 +141,7 @@ async function cargarTabla(form = null) {
                 <td class="px-10 py-3">
                     <a onclick="openUpdate(${row.id_pedido})"><i class="fa-sharp fa-solid fa-edit"></i></a>
                     <a onclick="eliminarPedido(${row.id_pedido})"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                    <a onclick="openDetalle(${row.id_pedido})"><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
                 </td>
             </tr>
         `;
@@ -118,6 +161,21 @@ async function eliminarPedido(id_pedido) {
         const JSON = await dataFetch(PEDIDO_API, 'delete', FORM);
         if (JSON.status) {
             cargarTabla();
+            sweetAlert(1, JSON.message, true);
+        } else {
+            sweetAlert(2, JSON.message, false);
+        }
+    }
+}
+
+async function BorrarDetalle(id_detalle_pedido) {
+    const RESPONSE = await confirmAction('Desea eliminar este detalle del pedido?');
+    if (RESPONSE) {
+        const FORM = new FormData();
+        FORM.append('id_detalle_pedido', id_detalle_pedido);
+        const JSON = await dataFetch(PEDIDO_API, 'deleteDT', FORM);
+        if (JSON.status) {
+            filltableDetalle(id_pedido);
             sweetAlert(1, JSON.message, true);
         } else {
             sweetAlert(2, JSON.message, false);

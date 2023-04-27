@@ -29,6 +29,7 @@ async function filltableDetalle(id_pedido) {
     FORM.append('id_pedido', id_pedido);
     const JSON = await dataFetch(PEDIDO_API, 'showDetail', FORM);
     if (JSON.status) {
+        TBODY_DT.innerHTML= '';
         JSON.dataset.forEach(row => {
             TBODY_DT.innerHTML += `
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -45,8 +46,7 @@ async function filltableDetalle(id_pedido) {
             <td class="px-6 py-3">${row.id_pedido}</td> 
             <td class="px-6 py-3">${row.nombre_producto}</td>      
             <td class=" px-5  py-3">
-              <a onclick="ActDetalle(${row.id_detalle_pedido})"><i class="fa-sharp fa-solid fa-pen"></i></a>
-              <a onclick="BorrarDetalle(${row.id_detalle_pedido})" "><i class="fa-sharp fa-solid fa-trash"></i></a>
+              <a onclick="borrarDetalle(${row.id_detalle_pedido},${row.id_pedido})"><i class="fa-sharp fa-solid fa-trash"></i></a>
             </td>
           </tr>
           `;
@@ -168,7 +168,7 @@ async function eliminarPedido(id_pedido) {
     }
 }
 
-async function BorrarDetalle(id_detalle_pedido) {
+async function borrarDetalle(id_detalle_pedido,id_pedido) {
     const RESPONSE = await confirmAction('Desea eliminar este detalle del pedido?');
     if (RESPONSE) {
         const FORM = new FormData();

@@ -63,11 +63,12 @@ class PedidoQueries
         $params = array($this->id_pedido);
         return Database::getRow($sql, $params);
     }
+
     public function readDetalle()
     {
         $sql = 'SELECT id_detalle_pedido, cantidad, precio, id_pedido, id_producto
-                FROM detalles_productos
-                WHERE id_detalle_pedido = ?';
+        FROM detalles_pedidos
+        WHERE id_detalle_pedido = ?';
         $params = array($this->id_detalle_pedido);
         return Database::getRow($sql, $params);
     }

@@ -118,7 +118,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Detalle inexistente';
                 } elseif ($pedido->BorrarDetalle()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Pedido eliminado correctamente';
+                    $result['message'] = 'Detalle eliminado correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }

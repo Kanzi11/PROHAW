@@ -8,7 +8,7 @@ const SAVE_FORM = document.getElementById('save-form');
 const MODAL_TITLE = document.getElementById('titulo-modal');
 // constante para darle un id para todos los metodos insert update delete guardar el modal
 const options = {
-    placement: 'bottom-right',
+    placement: 'center',
     backdrop: 'dynamic',
     backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
     closable: true,

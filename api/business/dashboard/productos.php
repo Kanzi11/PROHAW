@@ -15,7 +15,7 @@ if (isset($_GET['action'])) {
             case 'readAll':
                 if ($result['dataset'] = $producto->readAll()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Existen '.count($result['dataset']).' registros';
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
@@ -28,7 +28,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Ingrese un valor para buscar';
                 } elseif ($result['dataset'] =  $producto->searchRows($_POST['search'])) {
                     $result['status'] = 1;
-                    $result['message'] = 'Existen '.count($result['dataset']).' coincidencias';
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
@@ -37,40 +37,140 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = Validator::validateForm($_POST);
-                if(!$producto->setNombreProducto($_POST ['nombre'])){
+                if (!$producto->setNombreProducto($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrectos';
-                }elseif(!$producto->setDetalleProducto($_POST{})){
-
+                } elseif (!$producto->setDetalleProducto($_POST['detalle'])) {
+                    $result['exception'] = 'Descripcion incorrecta';
+                } elseif (!$producto->setPrecioProducto($_POST['precio'])) {
+                    $result['exception'] = 'Precio incorrecto';
+                } elseif (!$producto->setEstadoProducto(isset($_POST['estado']) ? 1 : 0)) {
+                    $result['exception'] = 'Estado incorrecto';
+                } elseif (!$producto->setExistenciasProducto($_POST['existencias'])) {
+                    $result['exception'] = 'existencias incorrectas';
+                } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+                    $result['exception'] = 'Seleccione una  imagen';
+                } elseif (!$producto->setImagenProducto($_FILES['archivo'])) {
+                    $result['exception'] = Validator::getFileError();
+                } elseif (!$pedido->setIdmarca($_POST['marca'])) {
+                    $result['exception'] = 'Marca incorrecta';
+                } elseif (!$pedido->setIdcategoria($_POST['categoria'])) {
+                    $result['exception'] = 'Categoria incorrecta';
+                } elseif (!$pedido->setIdusuario($_POST['usuario'])) {
+                    $result['exception'] = 'Usuario incorrecto';
+                } elseif ($producto->createRow()) {
+                    $result['status'] = 1;
+                    if (Validator::saveFile($_FILES['archivo'], $producto->getRuta(), $producto->getImagenProducto())) {
+                        $result['message'] = 'Producto creado correctamente';
+                    } else {
+                        $result['message'] = 'Producto  creado correctamente pero no se guardo imagen';
+                    }
+                } else {
+                    $result['exception'] = Database::getException();
                 }
                 break;
             case 'readOne':
-                if (!$producto->setIdProducto($_POST['id_marca'])) {
-                    $result['exception'] = 'Marca incorrecta';
+                if (!$producto->setIdProducto($_POST['id_producto'])) {
+                    $result['exception'] = 'Producto incorrecto';
                 } elseif ($result['dataset'] = $producto->readOne()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'Marca inexistente';
+                    $result['exception'] = ' inexistente';
                 }
                 break;
             case 'update':
-                
-                break;
-                case 'delete':
-                    if (!$producto->setIdProducto($_POST['id_marca'])) {
-                        $result['exception'] = 'Producto incorrecta';
-                    } elseif (!$data = $producto->readOne()) {
-                        $result['exception'] = 'Producto inexistente';
-                    } elseif ($producto->deleteRow()) {
+                $_POST = Validator::validateForm($_POST);
+                if (!$producto->setIdProducto($_POST['id_producto'])) {
+                    $result['exception'] = 'Producto incorrecto';
+                } elseif (!$data = $producto->readOne()) {
+                    $result['exception'] = 'Producto inexistente';
+                } elseif (!$producto->setNombreProducto($_POST['nombre'])) {
+                    $result['exception'] = 'Nombre incorrecto';
+                } elseif (!$producto->setDetalleProducto($_POST['detalle'])) {
+                    $result['exception'] = 'Detalle incorrecto';
+                } elseif (!$producto->setPrecioProducto($_POST['precio'])) {
+                    $result['exception'] = 'Detalle incorrecto';
+                } elseif (!$producto->setEstadoProducto(isset($_POST['estado']) ? 1 : 0)) {
+                    $result['exception'] = 'Estado incorrecto';
+                } elseif ($producto->changeStatusP()) {
+                    $result['status'] = 1;
+                } elseif (!$producto->setExistenciasProducto($_POST['existencias'])) {
+                    $result['exception'] = 'Detalle incorrecto';
+                } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+                    if ($producto->updateRow($data['imagen_producto'])) {
                         $result['status'] = 1;
-                        $result['message'] = 'Producto eliminada correctamente';
+                        $result['message'] = 'Marca actualizada correctamente';
                     } else {
                         $result['exception'] = Database::getException();
                     }
-                    break;
-                default:
-                    $result['exception'] = 'Acción no disponible dentro de la sesión';
+                } elseif (!$producto->setImagenProducto($_FILES['archivo'])) {
+                    $result['exception'] = Validator::getFileError();
+                } elseif (!$producto->setIdmarca($_POST['marca'])) {
+                    $result['exception'] = ' Marca incorrecto';
+                } elseif (!$producto->setIdcategoria($_POST['categoria'])) {
+                    $result['exception'] = ' Categoria incorrecto';
+                } elseif (!$producto->setIdusuario($_POST['usuario'])) {
+                    $result['exception'] = ' Usuario incorrecto';
+                } elseif ($producto->updateRow($data['imagen_producto'])) {
+                    $result['status'] = 1;
+                    if (Validator::saveFile($_FILES['archivo'], $producto->getRuta(), $producto->getImagenProducto())) {
+                        $result['message'] = 'Producto  actualizado correctamente';
+                    } else {
+                        $result['message'] = 'Producto actualizada correctamente pero no se guardo la imagen';
+                    }
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'cargarMarca':
+                if ($result['dataset'] = $producto->cargarCmbMarca()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen registros';
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay datos registrados';
+                }
+                break;
+            case 'cargarCategoria':
+                if ($result['dataset'] = $producto->cargarCmbCategoria ()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen registros';
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay datos registrados';
+                }
+                break;
+            case 'cargarUsuario':
+                if ($result['dataset'] = $producto->cargarCmbUsuario()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen registros';
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay datos registrados';
+                }
+                break;
+            case 'delete':
+                if (!$producto->setIdProducto($_POST['id_producto'])) {
+                    $result['exception'] = 'incorrecta';
+                } elseif (!$data = $producto->readOne()) {
+                    $result['exception'] = 'Producto  inexistente';
+                } elseif ($producto->deleteRow()) {
+                    $result['status'] = 1;
+                    if (Validator::deleteFile($producto->getRuta(), $data['imagen_producto'])) {
+                        $result['message'] = 'Producto eliminado';
+                    } else {
+                        $result['message'] = 'Producto eliminado pero no se borro la imagen';
+                    }
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            default:
+                $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
         // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
         header('content-type: application/json; charset=utf-8');

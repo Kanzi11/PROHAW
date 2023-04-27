@@ -1,5 +1,8 @@
 // Constante para completar la ruta de la API.
 const PRODUCTOS_API = 'business/dashboard/productos.php';
+const MARCA_API = 'business/dashboard/marcas.php';
+const CATEGORIA_API = 'business/dashboard/categoria.php';
+const USUARIO_API = 'business/dashboard/usuarios.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('search-form');
 // Constante para establecer el formulario de guardar.
@@ -9,22 +12,105 @@ const MODAL_TITLE = document.getElementById('modal-title');
 // Constantes para establecer el contenido de la tabla.
 const TBODY_ROWS = document.getElementById('tbody-rows');
 const RECORDS = document.getElementById('records');
+const SAVE_MODAL = new Modal(document.getElementById('agregarproducto'));
 // Constante tipo objeto para establecer las opciones del componente Modal.
-const OPTIONS = {
-    dismissible: false
+const options = {
+    placement: 'bottom-right',
+    backdrop: 'dynamic',
+    backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+    closable: true,
+    onHide: () => {
+        console.log('modal is hidden');
+    },
+    onShow: () => {
+        console.log('modal is shown');
+    },
+    onToggle: () => {
+        console.log('modal has been toggled');
+    }
+};
+
+/*
+*   Función para preparar el formulario al momento de insertar un registro.
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
+*/
+function openCreate() {
+    SAVE_MODAL.show();
+    // Se restauran los elementos del formulario.
+    SAVE_FORM.reset();
+    // Se asigna título a la caja de diálogo.
+    MODAL_TITLE.textContent = 'Crear producto';
+    document.getElementById('archivo').required = true;
+    fillSelect(MARCA_API,'cargarMarca','marca');
+    fillSelect(CATEGORIA_API,'cargarCategoria','categoria');
+    fillSelect(USUARIO_API,'cargarUsuario','usuario');
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
+
+//   metodo para encontrar los casos de create an update   
+//Evento al guardar el formulario
+SAVE_FORM.addEventListener('submit', async (event) => {
+    //se evita recargar la pagina
+    event.preventDefault();
+    //Se verifica la accion a realizar
+    (document.getElementById('id_producto').value) ? action = 'update' : action = 'create';
+    //Constante que contiene los datos del form
+    const FORM = new FormData(SAVE_FORM);
+    //peticion para guardar los datos del form
+    const JSON = await dataFetch(PRODUCTOS_API, action, FORM);
+    //se comprueba si la respuesta es satisfactoria, si no se muestra un exception
+    if (JSON.status) {
+        SAVE_MODAL.hide();
+        cargarTabla();
+        sweetAlert(1, JSON.message, true);
+    } else {
+
+        sweetAlert(2, JSON.exception, false);
+    }
+});
+
+
+
+
+
+/*
+*   Función asíncrona para eliminar un registro.
+*   Parámetros: id (identificador del registro seleccionado).
+*   Retorno: ninguno.
+*/
+async function openDelete(id_producto) {
+    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
+    const RESPONSE = await confirmAction('¿Desea eliminar el producto de forma permanente?');
+    // Se verifica la respuesta del mensaje.
+    if (RESPONSE) {
+        // Se define una constante tipo objeto con los datos del registro seleccionado.
+        const FORM = new FormData();
+        FORM.append('id_producto', id_producto);
+        // Petición para eliminar el registro seleccionado.
+        const JSON = await dataFetch(PRODUCTOS_API, 'delete', FORM);
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+        if (JSON.status) {
+            // Se carga nuevamente la tabla para visualizar los cambios.
+            cargarTabla();
+            // Se muestra un mensaje de éxito.
+            sweetAlert(1, JSON.message, true);
+        } else {
+            sweetAlert(2, JSON.exception, false);
+        }
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
     cargarTabla();
 })
 
-async function cargarTabla (form=null){
-    TBODY_ROWS.innerHTML='';
-    (form)? action='search':action='readAll';
-    const JSON=await dataFetch(PRODUCTOS_API, action, form);
-    if(JSON.status){
-        JSON.dataset.forEach(row=> {
-            TBODY_ROWS.innerHTML+=`
+async function cargarTabla(form = null) {
+    TBODY_ROWS.innerHTML = '';
+    (form) ? action = 'search' : action = 'readAll';
+    const JSON = await dataFetch(PRODUCTOS_API, action, form);
+    if (JSON.status) {
+        JSON.dataset.forEach(row => {
+            TBODY_ROWS.innerHTML += `
             <tr>
             <td class="w-4 p-4">
                 <div class="flex items-center">
@@ -44,12 +130,13 @@ async function cargarTabla (form=null){
             <td>${row.id_usuario} </td>
                 <td class="px-10 py-3">
                                 <a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
-                                <a><i class="fa-sharp fa-solid fa-trash"></i></a>
+                                <a onclick="openDelete(${row.id_producto})"<i class="fa-sharp fa-solid fa-trash"></i></a>
                 </td>
             </tr>
-        `;    
-        }) 
-    }else{
-        sweetAlert(4,JSON.exception,true)
+        `;
+        })
+    } else {
+        sweetAlert(4, JSON.exception, true)
     }
-} 
+}
+

@@ -120,7 +120,6 @@ class Producto extends ProductoQueries
     }
     // Metodo para obtener los valores de los atributos.
     // Get
- 
     public function getIdProducto()
     {
         return $this->id_producto;
@@ -151,7 +150,6 @@ class Producto extends ProductoQueries
     {
         return $this->imagen_producto;
     }
- 
     public function getIdmarca()
     {
         return $this->id_marca;

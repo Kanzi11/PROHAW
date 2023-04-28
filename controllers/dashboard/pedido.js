@@ -109,7 +109,7 @@ async function openUpdate(id_pedido) {
             document.getElementById('estado').checked = true;
         } else {
             document.getElementById('estado').checked = false;
-        }
+        } 
     } else {
         sweetAlert(2, JSON.exception, false)
     }

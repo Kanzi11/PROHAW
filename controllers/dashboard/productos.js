@@ -2,7 +2,6 @@
 const PRODUCTOS_API = 'business/dashboard/productos.php';
 const MARCA_API = 'business/dashboard/marcas.php';
 const CATEGORIA_API = 'business/dashboard/categoria.php';
-const USUARIO_API = 'business/dashboard/usuarios.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('search-form');
 // Constante para establecer el formulario de guardar.
@@ -42,9 +41,8 @@ function openCreate() {
     // Se asigna título a la caja de diálogo.
     MODAL_TITLE.textContent = 'Crear producto';
     document.getElementById('archivo').required = true;
-    fillSelect(MARCA_API,'cargarMarca','marca');
-    fillSelect(CATEGORIA_API,'cargarCategoria','categoria');
-    fillSelect(USUARIO_API,'cargarUsuario','usuario');
+    fillSelect(MARCA_API, 'readAll', 'marca');
+    fillSelect(CATEGORIA_API, 'readAll', 'categoria');
 }
 
 
@@ -100,6 +98,35 @@ async function openDelete(id_producto) {
         }
     }
 }
+
+async function openUpdate(id_producto){
+    const FORM = new FormData();
+    FORM.append('id_producto',id_producto);
+    const JSON = await dataFetch(PRODUCTOS_API, 'readOne', FORM);
+    if (JSON.status) {
+      SAVE_MODAL.show();
+      MODAL_TITLE.textContent ='Actualizar producto';  
+      document.getElementById('archivo').required = false;
+      document.getElementById('id_producto').value = JSON.dataset.id_usuario;
+      document.getElementById('nombre').value = JSON.dataset.nombre_producto;
+      document.getElementById('detalle').value = JSON.dataset.detalle_producto;
+      document.getElementById('precio').value = JSON.dataset.precio_producto;
+      if(JSON.dataset.estado_producto){
+        document.getElementById('estado').checked = true;
+      }else{
+        document.getElementById('estado').checked = false;
+      }
+      document.getElementById('existencias').value = JSON.dataset.existencias;
+      
+      fillSelect(MARCA_API, 'readAll','marca',JSON.dataset.
+      id_marca);
+      fillSelect(CATEGORIA_API, 'readAll','categoria',JSON.dataset.
+      id_categoria);
+    } else {
+      sweetAlert(2, JSON.exception, false)
+    }
+  }
+
 document.addEventListener('DOMContentLoaded', () => {
     cargarTabla();
 })
@@ -129,8 +156,8 @@ async function cargarTabla(form = null) {
             <td>${row.id_categoria} </td>
             <td>${row.id_usuario} </td>
                 <td class="px-10 py-3">
-                                <a><i class="fa-sharp fa-solid fa-clipboard-list"></i></a>
-                                <a onclick="openDelete(${row.id_producto})"<i class="fa-sharp fa-solid fa-trash"></i></a>
+                    <a onclick="openUpdate(${row.id_producto})"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                    <a onclick="openDelete(${row.id_producto})"<i class="fa-sharp fa-solid fa-trash"></i></a>
                 </td>
             </tr>
         `;

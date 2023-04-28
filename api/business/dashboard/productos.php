@@ -51,12 +51,10 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Seleccione una  imagen';
                 } elseif (!$producto->setImagenProducto($_FILES['archivo'])) {
                     $result['exception'] = Validator::getFileError();
-                } elseif (!$pedido->setIdmarca($_POST['marca'])) {
+                } elseif (!$producto->setIdmarca($_POST['marca'])) {
                     $result['exception'] = 'Marca incorrecta';
-                } elseif (!$pedido->setIdcategoria($_POST['categoria'])) {
+                } elseif (!$producto->setIdcategoria($_POST['categoria'])) {
                     $result['exception'] = 'Categoria incorrecta';
-                } elseif (!$pedido->setIdusuario($_POST['usuario'])) {
-                    $result['exception'] = 'Usuario incorrecto';
                 } elseif ($producto->createRow()) {
                     $result['status'] = 1;
                     if (Validator::saveFile($_FILES['archivo'], $producto->getRuta(), $producto->getImagenProducto())) {
@@ -90,13 +88,11 @@ if (isset($_GET['action'])) {
                 } elseif (!$producto->setDetalleProducto($_POST['detalle'])) {
                     $result['exception'] = 'Detalle incorrecto';
                 } elseif (!$producto->setPrecioProducto($_POST['precio'])) {
-                    $result['exception'] = 'Detalle incorrecto';
+                    $result['exception'] = 'Precio incorrecto';
                 } elseif (!$producto->setEstadoProducto(isset($_POST['estado']) ? 1 : 0)) {
                     $result['exception'] = 'Estado incorrecto';
-                } elseif ($producto->changeStatusP()) {
-                    $result['status'] = 1;
-                } elseif (!$producto->setExistenciasProducto($_POST['existencias'])) {
-                    $result['exception'] = 'Detalle incorrecto';
+                }elseif (!$producto->setExistenciasProducto($_POST['existencias'])) {
+                    $result['exception'] = 'existencias incorrecto';
                 } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
                     if ($producto->updateRow($data['imagen_producto'])) {
                         $result['status'] = 1;
@@ -123,36 +119,24 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            case 'cargarMarca':
-                if ($result['dataset'] = $producto->cargarCmbMarca()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Existen registros';
-                } elseif (Database::getException()) {
-                    $result['exception'] = Database::getException();
-                } else {
-                    $result['exception'] = 'No hay datos registrados';
-                }
-                break;
-            case 'cargarCategoria':
-                if ($result['dataset'] = $producto->cargarCmbCategoria ()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Existen registros';
-                } elseif (Database::getException()) {
-                    $result['exception'] = Database::getException();
-                } else {
-                    $result['exception'] = 'No hay datos registrados';
-                }
-                break;
-            case 'cargarUsuario':
-                if ($result['dataset'] = $producto->cargarCmbUsuario()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Existen registros';
-                } elseif (Database::getException()) {
-                    $result['exception'] = Database::getException();
-                } else {
-                    $result['exception'] = 'No hay datos registrados';
-                }
-                break;
+                case 'cargarCmbMarca':
+                    if ($result['dataset'] = $producto->cargarCmbMarca()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Existen registros';
+                    } elseif (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    }
+                    break;
+                case 'cargarCategoria':
+                    if ($result['dataset'] = $producto->cargarCmbCategoria ()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Existen registros';
+                    } elseif (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    } else {
+                        $result['exception'] = 'No hay datos registrados';
+                    }
+                    break;
             case 'delete':
                 if (!$producto->setIdProducto($_POST['id_producto'])) {
                     $result['exception'] = 'incorrecta';

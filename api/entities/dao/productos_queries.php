@@ -25,7 +25,7 @@ class ProductoQueries
     {
         $sql = 'INSERT INTO productos(nombre_producto, detalle_producto, precio_producto, estado_producto, existencias, imagen_producto, id_marca, id_categoria, id_usuario)
                 VALUES(?,?,?,?,?,?,?,?,?)';
-        $params = array($this->nombre_producto, $this->detalle_producto, $this->precio_producto, $this->estado_producto, $this->existencias, $this->imagen_producto, $this->id_marca, $this->id_categoria, $this->id_usuario);
+        $params = array($this->nombre_producto, $this->detalle_producto, $this->precio_producto, $this->estado_producto, $this->existencias, $this->imagen_producto, $this->id_marca, $this->id_categoria, $_SESSION['id_usuario']);
         return Database::executeRow($sql, $params);
     }
     // Metodo para leer todos los registros actuales creo
@@ -52,9 +52,9 @@ class ProductoQueries
         ($this->imagen_producto) ? Validator::deleteFile($this->getRuta(), $current_image) : $this->imagen_producto = $current_image;
         // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
         $sql = 'UPDATE productos
-                SET  nombre_producto = ? , detalle_producto = ? , precio_producto = ? , estado_producto = ? , existencias = ? , imagen_producto = ? , id_marca = ? , id_categoria = ? , id_usuario= ? 
+                SET  nombre_producto = ? , detalle_producto = ? , precio_producto = ? , estado_producto = ? , existencias = ? , imagen_producto = ? , id_marca = ? , id_categoria = ?
                 WHERE id_producto = ?';
-        $params = array($this->nombre_producto, $this->detalle_producto, $this->precio_producto, $this->estado_producto, $this->existencias, $this->imagen_producto, $this->id_marca, $this->id_categoria, $this->id_usuario, $this->id_producto);
+        $params = array($this->nombre_producto, $this->detalle_producto, $this->precio_producto, $this->estado_producto, $this->existencias, $this->imagen_producto, $this->id_marca, $this->id_categoria, $this->id_producto);
         return Database::executeRow($sql, $params);
     }
 
@@ -79,13 +79,6 @@ class ProductoQueries
     {
         $sql = 'SELECT id_categoria, nombre_categoria 
         FROM categorias';
-        return Database::getRows($sql);
-    }
-    // Metodo para cargar el cmb de categoria
-    public function cargarCmbUsuario()
-    {
-        $sql = 'SELECT id_usuario, nombre_usuario 
-        FROM usuarios';
         return Database::getRows($sql);
     }
     // Metodo para eliminar un registro

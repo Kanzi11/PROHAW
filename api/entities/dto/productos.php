@@ -83,8 +83,8 @@ class Producto extends ProductoQueries
 
     public function setImagenProducto($value)
     {
-        if (Validator::validateImageFile($value, 1, 50)) {
-            $this->imagen_producto = $value;
+        if (Validator::validateImageFile($value, 500, 500)) {
+            $this->imagen_producto = Validator::getFileName();
             return true;
         } else {
             return false;

@@ -99,33 +99,33 @@ async function openDelete(id_producto) {
     }
 }
 
-async function openUpdate(id_producto){
+async function openUpdate(id_producto) {
     const FORM = new FormData();
-    FORM.append('id_producto',id_producto);
+    FORM.append('id_producto', id_producto);
     const JSON = await dataFetch(PRODUCTOS_API, 'readOne', FORM);
     if (JSON.status) {
-      SAVE_MODAL.show();
-      MODAL_TITLE.textContent ='Actualizar producto';  
-      document.getElementById('archivo').required = false;
-      document.getElementById('id_producto').value = JSON.dataset.id_usuario;
-      document.getElementById('nombre').value = JSON.dataset.nombre_producto;
-      document.getElementById('detalle').value = JSON.dataset.detalle_producto;
-      document.getElementById('precio').value = JSON.dataset.precio_producto;
-      if(JSON.dataset.estado_producto){
-        document.getElementById('estado').checked = true;
-      }else{
-        document.getElementById('estado').checked = false;
-      }
-      document.getElementById('existencias').value = JSON.dataset.existencias;
-      
-      fillSelect(MARCA_API, 'readAll','marca',JSON.dataset.
-      id_marca);
-      fillSelect(CATEGORIA_API, 'readAll','categoria',JSON.dataset.
-      id_categoria);
+        SAVE_MODAL.show();
+        MODAL_TITLE.textContent = 'Actualizar producto';
+        document.getElementById('archivo').required = false;
+        document.getElementById('id_producto').value = JSON.dataset.id_usuario;
+        document.getElementById('nombre').value = JSON.dataset.nombre_producto;
+        document.getElementById('detalle').value = JSON.dataset.detalle_producto;
+        document.getElementById('precio').value = JSON.dataset.precio_producto;
+        if (JSON.dataset.estado_producto) {
+            document.getElementById('estado').checked = true;
+        } else {
+            document.getElementById('estado').checked = false;
+        }
+        document.getElementById('existencias').value = JSON.dataset.existencias;
+
+        fillSelect(MARCA_API, 'readAll', 'marca', JSON.dataset.
+            id_marca);
+        fillSelect(CATEGORIA_API, 'readAll', 'categoria', JSON.dataset.
+            id_categoria);
     } else {
-      sweetAlert(2, JSON.exception, false)
+        sweetAlert(2, JSON.exception, false)
     }
-  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     cargarTabla();
@@ -145,17 +145,17 @@ async function cargarTabla(form = null) {
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                     <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                 </div>
-            <td>${row.id_producto} </td>
-            <td>${row.nombre_producto}</td>
+            <td class="px-6 py-3" >${row.id_producto} </td>
+            <td class="px-6 py-3">${row.nombre_producto}</td>
             <td>${row.detalle_producto} </td>
-            <td>${row.precio_producto} </td>
-            <td>${row.estado_producto} </td>
-            <td>${row.existencias} </td>
-            <td>${row.imagen_producto} </td>
-            <td>${row.id_marca} </td>
-            <td>${row.id_categoria} </td>
-            <td>${row.id_usuario} </td>
-                <td class="px-10 py-3">
+            <td class="px-6 py-3">${row.precio_producto} </td>
+            <td class="px-6 py-3">${row.estado_producto} </td>
+            <td class="px-6 py-3">${row.existencias} </td>
+            <td><img src="${SERVER_URL}img/productos/${row.imagen_producto}" class="materialboxed" height="100"> </td> 
+            <td class="px-6 py-3">${row.id_marca} </td>
+            <td class="px-6 py-3">${row.id_categoria} </td>
+            <td class="px-6 py-3">${row.id_usuario} </td>
+                <td class="px-5 py-3">
                     <a onclick="openUpdate(${row.id_producto})"><i class="fa-sharp fa-solid fa-pen"></i></a>
                     <a onclick="openDelete(${row.id_producto})"<i class="fa-sharp fa-solid fa-trash"></i></a>
                 </td>

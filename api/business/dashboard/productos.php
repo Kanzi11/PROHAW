@@ -93,7 +93,11 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Estado incorrecto';
                 }elseif (!$producto->setExistenciasProducto($_POST['existencias'])) {
                     $result['exception'] = 'existencias incorrecto';
-                } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+                }elseif (!$producto->setIdmarca($_POST['marca'])) {
+                    $result['exception'] = ' Marca incorrecto';
+                } elseif (!$producto->setIdcategoria($_POST['categoria'])) {
+                    $result['exception'] = ' Categoria incorrecto';
+                }elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
                     if ($producto->updateRow($data['imagen_producto'])) {
                         $result['status'] = 1;
                         $result['message'] = 'Marca actualizada correctamente';
@@ -102,12 +106,6 @@ if (isset($_GET['action'])) {
                     }
                 } elseif (!$producto->setImagenProducto($_FILES['archivo'])) {
                     $result['exception'] = Validator::getFileError();
-                } elseif (!$producto->setIdmarca($_POST['marca'])) {
-                    $result['exception'] = ' Marca incorrecto';
-                } elseif (!$producto->setIdcategoria($_POST['categoria'])) {
-                    $result['exception'] = ' Categoria incorrecto';
-                } elseif (!$producto->setIdusuario($_POST['usuario'])) {
-                    $result['exception'] = ' Usuario incorrecto';
                 } elseif ($producto->updateRow($data['imagen_producto'])) {
                     $result['status'] = 1;
                     if (Validator::saveFile($_FILES['archivo'], $producto->getRuta(), $producto->getImagenProducto())) {

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../resources/css/tailwind.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../resources/css/public.css" />
+    <title>Login</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav1 border-gray-200 px-2 sm:px-4 py-2.5">
+            <div class="container flex flex-wrap items-center justify-between mx-auto">
+                <a class="flex items-center">
+                    <img src="../../resources/img/logos/logo-no-background.png" class="h-6 mr-3 sm:h-11" />
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">PROHAW™</span>
+                </a>
+                <div class="flex items-center md:order-2"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main > 
+    <div class="container flex flex-wrap justify-around items-center mx-36 h-screen font-semibold">
+        <form method="post" id="login-form">
+            <div class=" flex items-center justify-center -mt-96 "></div>
+            <div class="bg-white w-96 h-80 p-6 rounded shadow-lg">
+                <label class="text-gray-700">Correo</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c rounded-xl shadow-sm"
+                    type="text" id="campos" name="email"/>
+                <label class="text-gray-700">Contraseña</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
+                    type="password" id="campos" name="password"/>
+                <input id="remember" class="mb-4" type="checkbox" />
+                <label for="remember" class="text-gray-700 mg">Recordarme</label>
+                <button type="submit" class="w-full text-gray-100 rounded-xl hover:bg-blue-600 transition-colors h-8"
+                    id="btnIniciar">
+                    Iniciar sesión
+                </button>  
+            </div>
+        </form>
+    </div>
+
+        <!-- contenedor de inicio de sesion pero no se que hacer por que no se java xd
+        <div class="signup-container">
+            <h4>Registrar primer usuario</h4>
+            <form action="row" id="sign-form flex flex-wrap justify-around items-center mx-5 h-screen font-semibold"">
+                <div class=" flex items-center justify-center mt-12">
+                <p class="font-medium rounded-xl text-4xl">Registrarse</p>
+        </div>
+        <div class="bg-white w-96 p-6 rounded shadow-lg">
+            <label class="text-gray-700">Nombre</label>
+            <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                type="text" />
+            <label class="text-gray-700">Apellido</label>
+            <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                type="email" />
+            <label class="text-gray-700">Alias</label>
+            <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                type="email" />
+            <label class="text-gray-700">Clave</label>
+            <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                type="email" />
+            <button type=" submit" class=" w-full text-gray-100  rounded-xl hover:bg-blue-600 transition-colors h-8"
+                id="btnIniciar"><a href=".views/dashboard/registerp.html">Registrarse</a></button>
+        </div>
+            </form>
+        </div> -->
+    </main>
+
+    <footer></footer>
+
+    <!-- importacion de los archivos de js  -->
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+        <script src="../../resources/js/sweetalert.min.js"></script>
+        <script src="../../controllers/components.js"></script>
+</body>
+
+</html>

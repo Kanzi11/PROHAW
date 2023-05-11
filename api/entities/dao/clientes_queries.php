@@ -6,6 +6,61 @@ require_once('../../helpers/database.php');
 
 class ClientesQueris
 {
+     /*
+    *   Metodo para el login y el registrar 
+    */
+    // checar el ususario
+
+    public function checkUser($correo)
+    {
+        $sql = 'SELECT id_cliente, estado_cliente FROM clientes WHERE correo_cliente = ?';
+        $params = array($correo);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id_cliente = $data['id_cliente'];
+            $this->estado_cliente = $data['estado_cliente'];
+            $this->correo_cliente = $correo_cliente;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkPassword($password)
+    {
+        $sql = 'SELECT clave FROM clientes WHERE id_cliente = ?';
+        $params = array($this->id_cliente);
+        $data = Database::getRow($sql, $params);
+        if (password_verify($password, $data['clave'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function changePassword()
+    {
+        $sql = 'UPDATE clientes SET clave = ? WHERE id_cliente = ?';
+        $params = array($this->clave, $this->id_cliente);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function editProfile()
+    {
+        $sql = 'UPDATE clientes
+                SET nombre_cliente = ?, apellido_cliente = ?, dui_cliente = ?,correo_cliente = ?, telefono_cliente = ?,direccion_cliente = ?
+                WHERE id_cliente = ?';
+        $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->direccion,  $this->id_cliente);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function changeStatus()
+    {
+        $sql = 'UPDATE clientes
+                SET estado_cliente = ?
+                WHERE id_cliente = ?';
+        $params = array($this->estado, $this->id);
+        return Database::executeRow($sql, $params);
+    }
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */

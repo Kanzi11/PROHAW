@@ -5,6 +5,8 @@ const CLIENTE_API = 'business/dashboard/clientes.php';
 //const SEARCH_FORM = document.getElementById('search-form');
 // Constante para establecer el formulario de guardar.
 const SAVE_FORM = document.getElementById('save-form');
+//constante para establecer el buscador 
+const SEARCH_INPUT = document.getElementById('buscador')
 // constante para darle un id para todos los metodos insert update delete guardar el modal
 const SAVE_MODAL = new Modal(document.getElementById('agregarpedido'));
 //constrante para establecerle el titulo de el modal al momento de cambiarlo
@@ -115,7 +117,19 @@ async function openUpdate(id_pedido) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+//Metodo para buscar
+SEARCH_INPUT.addEventListener('input',(event)=>{
+    //Evitar que se recargue
+    event.preventDefault();
+    //Constante tipo objeto con los datos del form
+    const FORM = new FormData();
+    //Se lee el valor del input
+    FORM.append('value',SEARCH_INPUT.value);
+    //Carga la tabla con los valores
+    cargarTabla(FORM);   
+  })
+
+document.addEventListener('DOMContentLoaded',()=>{
     cargarTabla();
 })
 
@@ -137,7 +151,7 @@ async function cargarTabla(form = null) {
                 <td>${row.id_pedido}</td>
                 <td>${estado}</td>
                 <td>${row.fecha_pedido}</td>
-                <td>${row.id_cliente}</td>
+                <td>${row.nombre_cliente}</td>
                 <td class="px-10 py-3">
                     <a onclick="openUpdate(${row.id_pedido})"><i class="fa-sharp fa-solid fa-edit"></i></a>
                     <a onclick="eliminarPedido(${row.id_pedido})"><i class="fa-sharp fa-solid fa-trash"></i></a>

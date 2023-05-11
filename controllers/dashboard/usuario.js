@@ -1,7 +1,7 @@
 // Constante para completar la ruta de la API.
 const USUARIO_API = 'business/dashboard/usuarios.php';
 // Constante para establecer el formulario de buscar.
-const SEARCH_FORM = document.getElementById('search-form');
+const SEARCH_INPUT = document.getElementById('search-input');
 // Constante para establecer el formulario de guardar.
 const SAVE_FORM = document.getElementById('save-form');
 // Constante para establecer el título de la modal.
@@ -59,6 +59,18 @@ async function openUpdate(id_usuario){
     sweetAlert(2, JSON.exception, false)
   }
 }
+
+//Metodo para buscar
+SEARCH_INPUT.addEventListener('input',(event)=>{
+  //Evitar que se recargue
+  event.preventDefault();
+  //Constante tipo objeto con los datos del form
+  const FORM = new FormData();
+  //Se lee el valor del input
+  FORM.append('value',SEARCH_INPUT.value);
+  //Carga la tabla con los valores
+  cargarTablaUsers(FORM);   
+})
 
 document.addEventListener('DOMContentLoaded',()=>{
     cargarTablaUsers();

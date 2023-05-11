@@ -24,15 +24,18 @@ if (isset($_GET['action'])) {
                 break;
             case 'search':
                 $_POST = Validator::validateForm($_POST);
-                if ($_POST['search'] == '') {
-                    $result['exception'] = 'Ingrese un valor para buscar';
-                } elseif ($result['dataset'] =  $marca->searchRows($_POST['search'])) {
+                if ($_POST['value'] == '') {
+                    $result['status'] = 1;
+                    $result['dataset'] = $marca->readAll();
+                } elseif ($result['dataset'] =  $marca->searchRows($_POST['value'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Existen '.count($result['dataset']).' coincidencias';
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
                     $result['exception'] = 'No hay coincidencias';
+                    $result['status'] = 1;
+                    $result['dataset'] = $marca->readAll();
                 }
                 break;
             case 'create':

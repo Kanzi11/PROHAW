@@ -15,7 +15,7 @@ if (isset($_GET['action'])) {
             case 'readAll':
                 if ($result['dataset'] = $pedido->readAll()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                    $result['message'] = 'Existen '.count($result['dataset']).' registros';
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
@@ -38,15 +38,20 @@ if (isset($_GET['action'])) {
                 break;
             case 'search':
                 $_POST = Validator::validateForm($_POST);
-                if ($_POST['search'] == '') {
-                    $result['exception'] = 'Ingrese un valor para buscar';
-                } elseif ($result['dataset'] =  $pedido->searchRows($_POST['search'])) {
+                //print_r($_POST);
+                if ($_POST['value'] == '') {
                     $result['status'] = 1;
-                    $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
+                    $result['dataset'] = $pedido->readAll();
+                } elseif ($result['dataset'] =  $pedido->searchRows($_POST['value'])) {
+         
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen '.count($result['dataset']).' coincidencias';
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'No hay coincidencias';
+               
+                    $result['status'] = 1;
+                    $result['dataset'] = $pedido->readAll();
                 }
                 break;
             case 'create':

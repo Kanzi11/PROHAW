@@ -8,12 +8,24 @@ class PedidoQueries
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
-    // Metodo del buscador 
+    // Metodo del buscador para pedido
     public function searchRows($value)
+    {
+        $sql = 'SELECT a.id_pedido, a.estado_pedido, a.fecha_pedido, b.nombre_cliente
+        FROM pedidos a
+        INNER JOIN clientes b ON a.id_cliente = b.id_cliente
+        WHERE b.nombre_cliente ILIKE ?
+        ORDER BY a.id_pedido';
+        $params = array("%$value%");
+        return Database::getRows($sql, $params);
+    }
+
+    // Metodo del buscador para el
+    public function searchRowsOrder($value)
     {
         $sql = 'SELECT id_pedido, estado_pedido, fecha_pedido, id_cliente
                 FROM pedidos
-                WHERE id_cliente ILIKE ?
+                WHERE estado_pedido ILIKE ?
                 ORDER BY id_cliente';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
@@ -49,9 +61,10 @@ class PedidoQueries
     // Metodo para leer todos los registros actuales creo
     public function readAll()
     {
-        $sql = 'SELECT id_pedido, estado_pedido, fecha_pedido, id_cliente
-                FROM pedidos
-                ORDER BY id_pedido';
+        $sql = 'SELECT a.id_pedido, a.estado_pedido, a.fecha_pedido, b.nombre_cliente
+                FROM pedidos a
+                INNER JOIN clientes b ON a.id_cliente = b.id_cliente
+                ORDER BY a.id_pedido';
         return Database::getRows($sql);
     }
     // Metodo para leer un registro si no mal entiendo
@@ -72,14 +85,6 @@ class PedidoQueries
         $params = array($this->id_detalle_pedido);
         return Database::getRow($sql, $params);
     }
-
-    // metodo para leer cliente mandar a llamar a los clientes por medio de un 
-    // de un cmb
-    // public function readCliente(){
-    //     $sql='SELECT id cliente, nombre_cliente FROM clientes';
-    //     return Database::getRow($sql);
-    // }
-
 
     // Metodo para actualizar un pedido
     public function updateRow()

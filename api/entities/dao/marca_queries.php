@@ -13,7 +13,7 @@ class MarcasQueries
     // Metodo del buscador 
     public function searchRows($value)
     {
-        $sql = 'SELECT id_marca, nombre_marca
+        $sql = 'SELECT id_marca, nombre_marca, logo_marca
                 FROM marcas
                 WHERE nombre_marca ILIKE  ?
                 ORDER BY nombre_marca';

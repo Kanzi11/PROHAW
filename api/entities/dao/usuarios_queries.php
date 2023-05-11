@@ -31,13 +31,14 @@ class UsuarioQueries
             return false;
         }
     }
+    // Metodo del buscador 
     public function searchRows($value)
     {
-        $sql = 'SELECT nombre_usuario, alias_usuario, id_tipo_usuario
-                FROM usuarios
-                WHERE nombre_usuario  ILIKE ?, alias_usuario  ILIKE ?, id_tipo_usuario  ILIKE ?
-                 ORDER BY id_usuario';
-        $params = array("%$value%");
+        $sql = 'SELECT a.id_usuario, a.nombre_usuario, a.apellido_usuario, a.alias_usuario, a.clave_usuario, b.tipo_usuario
+        FROM usuarios a INNER JOIN tipos_usuarios b ON a.id_tipo_usuario = b.id_tipo_usuario
+        WHERE a.nombre_usuario ILIKE ? OR a.apellido_usuario ILIKE ? OR a.alias_usuario ILIKE ? OR b.tipo_usuario ILIKE ? 
+        ORDER BY a.nombre_usuario;';
+        $params = array("%$value%","%$value%","%$value%","%$value%");
         return Database::getRows($sql, $params);
     }
     public function createRow()
@@ -58,7 +59,8 @@ class UsuarioQueries
         return Database::executeRow($sql, $params);
     }
 
-    public function CargarCmbTipoUsuario(){
+    public function CargarCmbTipoUsuario()
+    {
         $sql = 'SELECT id_tipo_usuario, tipo_usuario 
         FROM tipos_usuarios';
         return Database::getRows($sql);

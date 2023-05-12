@@ -11,14 +11,14 @@ class ClientesQueris
     */
     // checar el ususario
 
-    public function checkUser($correo)
+    public function checkUser($usuario)
     {
-        $sql = 'SELECT id_cliente, estado_cliente FROM clientes WHERE correo_cliente = ?';
-        $params = array($correo);
+        $sql = 'SELECT id_cliente, estado_cliente FROM clientes WHERE usuario = ?';
+        $params = array($usuario);
         if ($data = Database::getRow($sql, $params)) {
             $this->id_cliente = $data['id_cliente'];
             $this->estado_cliente = $data['estado_cliente'];
-            $this->correo_cliente = $correo_cliente;
+            $this->usuario = $usuario;
             return true;
         } else {
             return false;
@@ -36,7 +36,7 @@ class ClientesQueris
             return false;
         }
     }
-
+    // cambiar la contraseña pero por ahorita no lo vamos a utilizar
     public function changePassword()
     {
         $sql = 'UPDATE clientes SET clave = ? WHERE id_cliente = ?';
@@ -44,14 +44,15 @@ class ClientesQueris
         return Database::executeRow($sql, $params);
     }
 
-    public function editProfile()
-    {
-        $sql = 'UPDATE clientes
-                SET nombre_cliente = ?, apellido_cliente = ?, dui_cliente = ?,correo_cliente = ?, telefono_cliente = ?,direccion_cliente = ?
-                WHERE id_cliente = ?';
-        $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->direccion,  $this->id_cliente);
-        return Database::executeRow($sql, $params);
-    }
+    //para editar el usuario peor por ahora no lo vamos a utilizar
+    // public function editProfile()
+    // {
+    //     $sql = 'UPDATE clientes
+    //             SET nombre_cliente = ?, apellido_cliente = ?, dui_cliente = ?,correo_cliente = ?, telefono_cliente = ?,direccion_cliente = ?
+    //             WHERE id_cliente = ?';
+    //     $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->direccion,  $this->id_cliente);
+    //     return Database::executeRow($sql, $params);
+    // }
 
     public function changeStatus()
     {

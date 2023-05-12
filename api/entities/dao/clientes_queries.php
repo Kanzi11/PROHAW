@@ -30,7 +30,7 @@ class ClientesQueris
         $sql = 'SELECT clave FROM clientes WHERE id_cliente = ?';
         $params = array($this->id_cliente);
         $data = Database::getRow($sql, $params);
-        if (password_verify($password, $data['clave'])) {
+        if ($password == $data['clave']) {
             return true;
         } else {
             return false;

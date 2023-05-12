@@ -54,6 +54,25 @@ if (isset($_GET['action'])) {
                     $result['dataset'] = $pedido->readAll();
                 }
                 break;
+            case 'search-detail':
+                    $_POST = Validator::validateForm($_POST);
+                    //print_r($_POST);
+                    if ($_POST['value'] == '') {
+                        $result['status'] = 1;
+                        $result['dataset'] = $pedido->readAll();
+                    } elseif(!$pedido->setIdPedido($_POST['id_pedido'])) {
+                        $result['exception'] = 'Pedido Incorrecto';
+                    } elseif ($result['dataset'] =  $pedido->searchRowsOrder($_POST['value'])) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Existen '.count($result['dataset']).' coincidencias';
+                    } elseif (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    } else {
+                   
+                        $result['status'] = 1;
+                        $result['dataset'] = $pedido->readAll();
+                    }
+                break;
             case 'create':
                 $_POST = Validator::validateForm($_POST);
                 if (!$pedido->setEstadoPedido(isset($_POST['estado']) ? 1 : 0)) {

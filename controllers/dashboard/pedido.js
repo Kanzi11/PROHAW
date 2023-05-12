@@ -7,6 +7,8 @@ const CLIENTE_API = 'business/dashboard/clientes.php';
 const SAVE_FORM = document.getElementById('save-form');
 //constante para establecer el buscador 
 const SEARCH_INPUT = document.getElementById('buscador')
+//Constante para buscador del detalle
+const SEARCH_INPUT_DETAIL = document.getElementById('buscardetalle')
 // constante para darle un id para todos los metodos insert update delete guardar el modal
 const SAVE_MODAL = new Modal(document.getElementById('agregarpedido'));
 //constrante para establecerle el titulo de el modal al momento de cambiarlo
@@ -24,12 +26,19 @@ const TBODY_DT = document.getElementById('tbody-detalle');
 function openDetalle(id_pedido) {
     SAVE_DT.show()
     filltableDetalle(id_pedido);
+    document.getElementById('id_pedido').value = id_pedido;
 }
 
-async function filltableDetalle(id_pedido) {
+async function filltableDetalle(id_pedido, busqueda=null) {
     const FORM = new FormData();
     FORM.append('id_pedido', id_pedido);
-    const JSON = await dataFetch(PEDIDO_API, 'showDetail', FORM);
+    if (busqueda) {
+        FORM.append('value',busqueda);
+        action = 'search-detail';
+    }else{
+        action = 'showDetail';
+    }
+    const JSON = await dataFetch(PEDIDO_API, action, FORM);
     if (JSON.status) {
         TBODY_DT.innerHTML= '';
         JSON.dataset.forEach(row => {
@@ -45,7 +54,6 @@ async function filltableDetalle(id_pedido) {
             <td class="px-6 py-3">${row.id_detalle_pedido} </td>
             <td class="px-6 py-3">${row.cantidad}</td> 
             <td class="px-6 py-3">${row.precio}</td> 
-            <td class="px-6 py-3">${row.id_pedido}</td> 
             <td class="px-6 py-3">${row.nombre_producto}</td>      
             <td class=" px-5  py-3">
               <a onclick="borrarDetalle(${row.id_detalle_pedido},${row.id_pedido})"><i class="fa-sharp fa-solid fa-trash"></i></a>
@@ -127,6 +135,16 @@ SEARCH_INPUT.addEventListener('input',(event)=>{
     FORM.append('value',SEARCH_INPUT.value);
     //Carga la tabla con los valores
     cargarTabla(FORM);   
+  })
+
+  //Metodo para buscar el detalle
+  SEARCH_INPUT_DETAIL.addEventListener('input',(event)=>{
+    //Evitar que se recargue
+    event.preventDefault();
+    //Constante para obtener el id del pedido del input oculto
+    const PEDIDO = document.getElementById('id_pedido').value;
+    //se manda los valores del id y el input de busqueda
+    filltableDetalle(PEDIDO, SEARCH_INPUT_DETAIL.value);   
   })
 
 document.addEventListener('DOMContentLoaded',()=>{

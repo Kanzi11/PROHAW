@@ -20,21 +20,20 @@ class PedidoQueries
         return Database::getRows($sql, $params);
     }
 
-    // Metodo del buscador para el
+    // Metodo del buscador para el detalle del pedido
     public function searchRowsOrder($value)
     {
-        $sql = 'SELECT id_pedido, estado_pedido, fecha_pedido, id_cliente
-                FROM pedidos
-                WHERE estado_pedido ILIKE ?
-                ORDER BY id_cliente';
-        $params = array("%$value%");
+        $sql = 'SELECT a.id_detalle_pedido,a.cantidad,a.precio,a.id_pedido,b.nombre_producto
+        FROM detalles_pedidos a INNER JOIN productos b ON a.id_producto = b.id_producto
+        WHERE id_pedido = ? AND b.nombre_producto ILIKE ? OR a.precio::varchar ILIKE ? ';
+        $params = array($this->id_pedido,"%$value%","%$value%");
         return Database::getRows($sql, $params);
     }
 
     // metodo para mostrar el detalle
     public function showdetail()
     {
-        $sql = 'SELECT a.id_detalle_pedido,a.cantidad,a.precio,a.id_pedido,b.nombre_producto
+        $sql = 'SELECT a.id_detalle_pedido,a.cantidad,a.precio,b.nombre_producto
                 FROM detalles_pedidos a INNER JOIN productos b ON a.id_producto = b.id_producto
                 WHERE id_pedido = ?';
         $params = array($this->id_pedido);

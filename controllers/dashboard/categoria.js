@@ -1,7 +1,7 @@
 // Constante para completar la ruta de la API.
 const CATEGORIA_API = 'business/dashboard/categoria.php';
 // Constante para establecer el formulario de buscar.
-const SEARCH_FORM = document.getElementById('search-form');
+const SEARCH_INPUT = document.getElementById('buscador');
 // Constante para establecer el formulario de guardar.
 const SAVE_FORM = document.getElementById('save-form');
 //constrante para establecerle el titulo de el modal al momento de cambiarlo
@@ -120,6 +120,19 @@ async function openDelete(id) {
         }
     }
 }
+
+//Metodo para buscar
+SEARCH_INPUT.addEventListener('keyup',(event)=>{
+    //Evitar que se recargue
+    event.preventDefault();
+    //Constante tipo objeto con los datos del form
+    const FORM = new FormData();
+    //Se lee el valor del input
+    FORM.append('value',SEARCH_INPUT.value);
+    //Carga la tabla con los valores
+    cargarTabla(FORM);   
+})
+    
 
 document.addEventListener('DOMContentLoaded',()=>{
     cargarTabla();

@@ -15,7 +15,7 @@ class CategoriaQueries
         $sql = 'SELECT id_categoria, nombre_categoria
                 FROM categorias
                 WHERE nombre_categoria ILIKE ?
-                ORDER BY nombre_categoria';
+                ORDER BY id_categoria';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }

@@ -15,7 +15,7 @@ if (isset($_GET['action'])) {
             case 'readAll':
                 if ($result['dataset'] = $categoria->readAll()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Existen '.count($result['dataset']).' registros';
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
@@ -24,15 +24,18 @@ if (isset($_GET['action'])) {
                 break;
             case 'search':
                 $_POST = Validator::validateForm($_POST);
-                if ($_POST['search'] == '') {
-                    $result['exception'] = 'Ingrese un valor para buscar';
-                } elseif ($result['dataset'] =  $categoriao->searchRows($_POST['search'])) {
+                if ($_POST['value'] == '') {
                     $result['status'] = 1;
-                    $result['message'] = 'Existen '.count($result['dataset']).' coincidencias';
+                    $result['dataset'] = $categoria->readAll();
+                } elseif ($result['dataset'] =  $categoria->searchRows($_POST['value'])) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
                     $result['exception'] = 'No hay coincidencias';
+                    $result['status'] = 1;
+                    $result['dataset'] = $categoria->readAll();
                 }
                 break;
             case 'create':
@@ -72,20 +75,20 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
-                case 'delete':
-                    if (!$categoria->setIdCategoria($_POST['id_categoria'])) {
-                        $result['exception'] = 'Categoría incorrecta';
-                    } elseif (!$data = $categoria->readOne()) {
-                        $result['exception'] = 'Categoría inexistente';
-                    } elseif ($categoria->deleteRow()) {
-                        $result['status'] = 1;
-                        $result['message'] = 'Categoria eliminada correctamente';
-                    } else {
-                        $result['exception'] = Database::getException();
-                    }
-                    break;
-                default:
-                    $result['exception'] = 'Acción no disponible dentro de la sesión';
+            case 'delete':
+                if (!$categoria->setIdCategoria($_POST['id_categoria'])) {
+                    $result['exception'] = 'Categoría incorrecta';
+                } elseif (!$data = $categoria->readOne()) {
+                    $result['exception'] = 'Categoría inexistente';
+                } elseif ($categoria->deleteRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Categoria eliminada correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            default:
+                $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
         // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
         header('content-type: application/json; charset=utf-8');

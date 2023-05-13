@@ -3,7 +3,7 @@ const PRODUCTOS_API = 'business/dashboard/productos.php';
 const MARCA_API = 'business/dashboard/marcas.php';
 const CATEGORIA_API = 'business/dashboard/categoria.php';
 // Constante para establecer el formulario de buscar.
-const SEARCH_FORM = document.getElementById('search-form');
+const SEARCH_INPUT = document.getElementById('buscador');
 // Constante para establecer el formulario de guardar.
 const SAVE_FORM = document.getElementById('save-form');
 // Constante para establecer el título de la modal No lo vamos  utilizar.
@@ -131,6 +131,18 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarTabla();
 })
 
+//Metodo para buscar
+SEARCH_INPUT.addEventListener('keyup',(event)=>{
+    //Evitar que se recargue
+    event.preventDefault();
+    //Constante tipo objeto con los datos del form
+    const FORM = new FormData();
+    //Se lee el valor del input
+    FORM.append('value',SEARCH_INPUT.value);
+    //Carga la tabla con los valores
+    cargarTabla(FORM);   
+})
+
 async function cargarTabla(form = null) {
     TBODY_ROWS.innerHTML = '';
     (form) ? action = 'search' : action = 'readAll';
@@ -152,9 +164,9 @@ async function cargarTabla(form = null) {
             <td class="px-6 py-3">${row.estado_producto} </td>
             <td class="px-6 py-3">${row.existencias} </td>
             <td><img src="${SERVER_URL}img/productos/${row.imagen_producto}" class="materialboxed" height="100"> </td> 
-            <td class="px-6 py-3">${row.id_marca} </td>
-            <td class="px-6 py-3">${row.id_categoria} </td>
-            <td class="px-6 py-3">${row.id_usuario} </td>
+            <td class="px-6 py-3">${row.nombre_marca} </td>
+            <td class="px-6 py-3">${row.nombre_categoria} </td>
+            <td class="px-6 py-3">${row.nombre_usuario} </td>
                 <td class="px-5 py-3">
                     <a onclick="openUpdate(${row.id_producto})"><i class="fa-sharp fa-solid fa-pen"></i></a>
                     <a onclick="openDelete(${row.id_producto})"<i class="fa-sharp fa-solid fa-trash"></i></a>

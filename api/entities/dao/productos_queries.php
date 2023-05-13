@@ -12,11 +12,14 @@ class ProductoQueries
     // Metodo del buscador 
     public function searchRows($value)
     {
-        $sql = 'SELECT id_producto, nombre_producto, estado_producto, id_categoria 
-                FROM productos
-                WHERE nombre_producto ILIKE  ? , estado_producto ILIKE  ?
-                ORDER BY nombre_producto';
-        $params = array("%$value%");
+        $sql = 'SELECT a.id_producto, a.nombre_producto, a.detalle_producto, a.precio_producto, a.estado_producto, a.existencias, a.imagen_producto, c.nombre_marca, b.nombre_categoria, d.nombre_usuario
+        FROM productos a 
+        INNER JOIN categorias b ON a.id_categoria = b.id_categoria 
+        INNER JOIN marcas c ON a.id_marca = c.id_marca 
+        INNER JOIN usuarios d ON a.id_usuario = d.id_usuario
+        WHERE a.nombre_producto ILIKE ? OR c.nombre_marca ILIKE ? OR b.nombre_categoria ILIKE ? or a.precio_producto::varchar ILIKE ? OR a.estado_producto::varchar ILIKE ? 
+        ORDER BY id_producto'; 
+        $params = array("%$value%","%$value%","%$value%","%$value%","%$value%");
         return Database::getRows($sql, $params);
     }
     // metodo para crear un registro
@@ -31,9 +34,12 @@ class ProductoQueries
     // Metodo para leer todos los registros actuales creo
     public function readAll()
     {
-        $sql = 'SELECT id_producto, nombre_producto, detalle_producto, precio_producto, estado_producto, existencias, imagen_producto, id_marca, id_categoria, id_usuario
-                FROM productos
-                ORDER BY id_producto';
+        $sql = 'SELECT a.id_producto, a.nombre_producto, a.detalle_producto, a.precio_producto, a.estado_producto, a.existencias, a.imagen_producto, c.nombre_marca, b.nombre_categoria, d.nombre_usuario
+        FROM productos a 
+        INNER JOIN categorias b ON a.id_categoria = b.id_categoria 
+        INNER JOIN marcas c ON a.id_marca = c.id_marca 
+        INNER JOIN usuarios d ON a.id_usuario = d.id_usuario
+        ORDER BY id_producto';
         return Database::getRows($sql);
     }
     // Metodo para leer un registro si no mal entiendo

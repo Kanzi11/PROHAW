@@ -1,7 +1,7 @@
 // Constante para completar la ruta de la API.
 const CLIENTE_API = 'business/dashboard/clientes.php';
 //Constante para establecer el formulario de busqueda
-const SEARCH_FROM = document.getElementById('search_form');
+const SEARCH_INPUT = document.getElementById('buscador');
 //Constante para guardar el formulario
 const SAVE_FORM = document.getElementById('save-form');
 // Constante para establecer el contenido de la tabla.
@@ -39,6 +39,18 @@ function openCreate(){
   //Se asigna un titulo al modal
   MODAL_TITLE.textContent = 'Crear cliente';
 }
+
+//Metodo para buscar
+SEARCH_INPUT.addEventListener('keyup',(event)=>{
+  //Evitar que se recargue
+  event.preventDefault();
+  //Constante tipo objeto con los datos del form
+  const FORM = new FormData();
+  //Se lee el valor del input
+  FORM.append('value',SEARCH_INPUT.value);
+  //Carga la tabla con los valores
+  cargarTabla(FORM);   
+})
 
   async function openUpdate(id_cliente){
     const FORM = new FormData();

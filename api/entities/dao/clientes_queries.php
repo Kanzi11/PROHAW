@@ -6,7 +6,7 @@ require_once('../../helpers/database.php');
 
 class ClientesQueris
 {
-     /*
+    /*
     *   Metodo para el login y el registrar 
     */
     // checar el ususario
@@ -68,11 +68,11 @@ class ClientesQueris
     // Metodo del buscador 
     public function searchRows($value)
     {
-        $sql = 'SELECT nombre_cliente,apellido_cliente,telefono_cliente,dui_cliente
-                FROM clientes
-                WHERE nombre_cliente ILIKE ? , apellido_cliente ILIKE ? , telefono_cliente ILIKE ? , dui_cliente ILIKE ?
-                ORDER BY nombre_cliente, apellido_cliente, telefono_cliente, dui_cliente';
-        $params = array("%$value%");
+        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente,dui_cliente,correo_cliente,telefono_cliente,direccion_cliente,estado_cliente,usuario,clave
+        FROM clientes
+        WHERE nombre_cliente ILIKE ? OR apellido_cliente ILIKE ? OR correo_cliente ILIKE ? OR estado_cliente::varchar ILIKE ? OR usuario ILIKE ?
+        ORDER BY id_cliente';
+        $params = array("%$value%","%$value%","%$value%","%$value%","%$value%");
         return Database::getRows($sql, $params);
     }
     // metodo para crear un registro
@@ -109,8 +109,9 @@ class ClientesQueris
         $sql = 'UPDATE clientes
                 SET  nombre_cliente = ?,apellido_cliente = ?,dui_cliente = ?,correo_cliente = ?,telefono_cliente = ?,direccion_cliente = ?,estado_cliente = ?,usuario = ?,clave = ?
                 WHERE id_cliente = ?';
-        $params = array($this->nombre_cliente, $this->apellido_cliente, $this->dui_cliente, $this->correo_cliente, $this->telefono_cliente, $this->direccion_cliente, $this->estado_cliente, $this->usuario, $this->clave, $this->id_cliente
-    );
+        $params = array(
+            $this->nombre_cliente, $this->apellido_cliente, $this->dui_cliente, $this->correo_cliente, $this->telefono_cliente, $this->direccion_cliente, $this->estado_cliente, $this->usuario, $this->clave, $this->id_cliente
+        );
         return Database::executeRow($sql, $params);
     }
     // Metodo para eliminar un registro

@@ -13,11 +13,11 @@ class ValoracionesQueries
     // Metodo del buscador 
     public function searchRows($value)
     {
-        $sql = 'SELECT id_valoraciones, valoracion_producto, comentario_prodcuto, fecha_comentario, estado_comentario, id_detalle_pedido
-                FROM valoraciones
-                WHERE valoracion_producto ILIKE  ?
-                ORDER BY valoracion_producto';
-        $params = array("%$value%");
+        $sql = 'SELECT id_valoracion, valoracion_producto, comentario_prodcuto, fecha_comentario, estado_comentario, id_detalle_pedido
+        FROM valoraciones
+        WHERE valoracion_producto::varchar ILIKE ? OR estado_comentario::varchar ILIKE ?
+        ORDER BY valoracion_producto DESC';
+        $params = array("%$value%","%$value%");
         return Database::getRows($sql, $params);
     }
     // metodo para crear un registro
@@ -30,7 +30,7 @@ class ValoracionesQueries
     //     return Database::executeRow($sql, $params);
     // }
 
-    
+
     // // Metodo para leer todos los registros actuales creo
     public function readAll()
     {
@@ -44,7 +44,7 @@ class ValoracionesQueries
     // Metodo para leer un registro si no mal entiendo
     public function readOne()
     {
-       $sql = 'SELECT id_valoracion, valoracion_producto, comentario_prodcuto, fecha_comentario, estado_comentario, id_detalle_pedido
+        $sql = 'SELECT id_valoracion, valoracion_producto, comentario_prodcuto, fecha_comentario, estado_comentario, id_detalle_pedido
        FROM valoraciones
        WHERE id_valoracion = ?';
         $params = array($this->id_valoracion);
@@ -58,7 +58,7 @@ class ValoracionesQueries
         $sql = 'UPDATE valoraciones
                 SET  estado_comentario  = ? 
                 WHERE id_valoracion = ?';
-        $params = array( $this->estado_comentario,  $this->id_valoracion);
+        $params = array($this->estado_comentario,  $this->id_valoracion);
         return Database::executeRow($sql, $params);
     }
     // Metodo para eliminar un registro

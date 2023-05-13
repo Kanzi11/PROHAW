@@ -22,19 +22,22 @@ if(isset($_GET['action'])){
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            case 'search':
-                $_POST = Validator::validateForm($_POST);
-                if ($_POST['search'] == '') {
-                    $result['exception'] = 'Ingrese un valor para buscar';
-                } elseif ($result['dataset'] =  $cliente->searchRows($_POST['search'])) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Existen '.count($result['dataset']).' coincidencias';
-                } elseif (Database::getException()) {
-                    $result['exception'] = Database::getException();
-                } else {
-                    $result['exception'] = 'No hay coincidencias';
-                }
-                break;
+                case 'search':
+                    $_POST = Validator::validateForm($_POST);
+                    if ($_POST['value'] == '') {
+                        $result['status'] = 1;
+                        $result['dataset'] = $cliente->readAll();
+                    } elseif ($result['dataset'] =  $cliente->searchRows($_POST['value'])) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Existen '.count($result['dataset']).' coincidencias';
+                    } elseif (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    } else {
+                        $result['exception'] = 'No hay coincidencias';
+                        $result['status'] = 1;
+                        $result['dataset'] = $cliente->readAll();
+                    }
+                    break;
             case 'create':
                 $_POST = Validator::validateForm($_POST);
                 if (!$cliente->setNombreCliente($_POST['nombre'])) {

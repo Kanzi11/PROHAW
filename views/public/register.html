@@ -2,77 +2,92 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../resources/css/tailwind.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../resources/css/registrarse.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../resources/css/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/css/registrarse.css">
 </head>
 
 <body>
-  <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
-    <nav class=" fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600" id="navbar">
-      <br>
-      <div class="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="" class="flex items-center">
-          <img src="../../resources/img/logos/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
-        </a>
-        <div class="flex md:order-2">
+    <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
+        <nav class=" fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600" id="navbar">
+            <br>
+            <div class="container flex flex-wrap items-center justify-between mx-auto">
+                <a href="" class="flex items-center">
+                    <img src="../../resources/img/logos/logo-no-background.png" class="h-12" id="logo"
+                        alt="Flowbite Logo">
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+                </a>
+                <div class="flex md:order-2">
 
-          <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
-            id="navbar"><img src="../../resources/img/iconos/login.png " alt="user" id="usericon"><a
-              href="../../views/public/login.html">Iniciar
-              Sesión</a>.</button>
-        </div>
+                    <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
+                        id="navbar"><img src="../../resources/img/iconos/login.png " alt="user" id="usericon"><a
+                            href="../../views/public/login.html">Iniciar
+                            Sesión</a>.</button>
+                </div>
 
-      </div>
-      </div>
-      <br>
-    </nav>
-  </header>
+            </div>
+            </div>
+            <br>
+        </nav>
+    </header>
 
-  <main class="container flex flex-wrap items-center justify-between mx-9 h-screen font-semibold">
-    <p class="font-medium rounded-xl text-5xl " id="texto-main">AQUI VA EL LOGO</p>
-    <form>
-      <div class="flex items-center justify-center mb-3">
-        <p class="font-medium rounded-xl text-4xl">Registrarse</p>
-      </div>
-      <div class="bg-white w-96 p-6 rounded shadow-lg">
-        <label class="text-gray-700">Nombre</label>
-        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
-          type="text" />
-        <label class="text-gray-700">Apellido</label>
-        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
-          type="text" />
-        <label class="text-gray-700">DUI</label>
-        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
-          type="number" />
-        <label class="text-gray-700">Correo</label>
-        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
-          type="email" />
-        <label class="text-gray-700">Telefono</label>
-        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
-          type="number" />
-        <label class="text-gray-700">Direccion</label>
-        <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
-          type="text" />
-          <label class="text-gray-700">usuario</label>
-          <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
-          type="text" />
-          <label class="text-gray-700">contraseña</label>
-          <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
-          type="password" />
+    <main class="flex flex-wrap items-center justify-center mx-9 h-screen font-semibold mt-9">
+        <form class="row" method="post" id="signup-form">
+            <div class="flex items-center justify-center mb-4 mt-7">
+                <p class="font-medium rounded-xl text-4xl">Registate como cliente</p>
+            </div>
+            <div class="bg-white w-96 p-6 rounded shadow-lg">
+                <label class="text-gray-700">Nombre</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                    type="text" id="nombre" name="nombre"/>
 
-        <button type=" submit" class=" w-full text-gray-100  rounded-xl hover:bg-blue-600 transition-colors h-8"
-          id="btnIniciar"><a href="../../views/public/index.html">Registrarse</a>.</button>
-      </div>
-    </form>
-  </main>
+                <label class="text-gray-700">Apellido</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                    type="text" id="apellido" name="apellido"/>
 
-  <footer>
+                <label class="text-gray-700">DUI</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                    type="text" id="dui" name="dui"/>
 
-  </footer>
+                <label class="text-gray-700">Correo</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                    type="email" id="correo" name="correo"/>
+
+                <label class="text-gray-700">Telefono</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4c  rounded-xl shadow-sm"
+                    type="text" id="telefono" name="telefono"/>
+
+                <label class="text-gray-700">Direccion</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
+                    type="text" id="direccion" name="direccion"/>
+
+                <label class="text-gray-700">Usuario</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
+                    type="text" id="usuario" name="usuario" />
+
+                <label class="text-gray-700">Contraseña</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
+                    type="password" id="clave" name="clave" />
+
+                <label class="text-gray-700">Confirmar contraseña</label>
+                <input class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4 rounded-xl shadow-sm"
+                    type="password" id="confirmar_clave" name="confirmar_clave" />
+
+                <button type=" submit" class=" w-full text-gray-100  rounded-xl hover:bg-blue-600 transition-colors h-8"
+                    id="btnIniciar">Registrarse</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../resources/js/sweetalert.min.js"></script>
+    <script src="../../controllers/public/acount.js"></script>
+    <script src="../../controllers/components.js"></script>
+    <script src="../../controllers/public/signup.js"></script>
 </body>
 
 </html>

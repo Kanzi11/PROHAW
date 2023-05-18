@@ -95,4 +95,14 @@ class ProductoQueries
         $params = array($this->id_producto);
         return Database::executeRow($sql, $params);
     }
+
+    public function readProductosCategoria()
+    {
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, detalle_producto, precio_producto
+                FROM productos INNER JOIN categorias USING(id_categoria)
+                WHERE id_categoria = ? AND estado_producto = true
+                ORDER BY nombre_producto';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
 }

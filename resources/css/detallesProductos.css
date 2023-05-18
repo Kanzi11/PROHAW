@@ -62,17 +62,16 @@
 
 }
 
-#tablita{
+#categorias{
     padding: 30px;
     background-color: #FFFFFF;
     margin-top: 60px;
     margin-left: 65px;
-    height: 400px;
+    height:450px;
+    scroll-behavior: smooth;
 }
 
-#texto-tabla{
-    margin-bottom: 15px;
-}
+
 
 #imagenes{
     margin-top: 10px;

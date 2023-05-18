@@ -79,9 +79,9 @@ class ClientesQueris
 
     public function createRow()
     {
-        $sql = 'INSERT INTO clientes(nombre_cliente,apellido_cliente,dui_cliente,correo_cliente,telefono_cliente,direccion_cliente,estado_cliente,usuario,clave)
-                VALUES(?,?,?,?,?,?,?,?,?)';
-        $params = array($this->nombre_cliente, $this->apellido_cliente, $this->dui_cliente, $this->correo_cliente, $this->telefono_cliente, $this->direccion_cliente, $this->estado_cliente, $this->usuario, $this->clave);
+        $sql = 'INSERT INTO clientes(nombre_cliente,apellido_cliente,dui_cliente,correo_cliente,telefono_cliente,direccion_cliente,usuario,clave)
+                VALUES(?,?,?,?,?,?,?,?)';
+        $params = array($this->nombre_cliente, $this->apellido_cliente, $this->dui_cliente, $this->correo_cliente, $this->telefono_cliente, $this->direccion_cliente,$this->usuario, $this->clave);
         return Database::executeRow($sql, $params);
     }
     // Metodo para leer todos los registros actuales 

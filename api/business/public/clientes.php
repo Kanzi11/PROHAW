@@ -75,6 +75,7 @@ if (isset($_GET['action'])) {
                 } elseif (!$cliente->setClaveCliente($_POST['clave'])) {
                     $result['exception'] = Validator::getPasswordError();
                 } elseif ($cliente->createRow()) {
+                    
                     $result['status'] = 1;
                     $result['message'] = 'Cuenta registrada correctamente';
                 } else {

@@ -100,6 +100,7 @@ async function openDelete(id_producto) {
 }
 
 async function openUpdate(id_producto) {
+    console.log(id_producto);
     const FORM = new FormData();
     FORM.append('id_producto', id_producto);
     const JSON = await dataFetch(PRODUCTOS_API, 'readOne', FORM);
@@ -107,7 +108,7 @@ async function openUpdate(id_producto) {
         SAVE_MODAL.show();
         MODAL_TITLE.textContent = 'Actualizar producto';
         document.getElementById('archivo').required = false;
-        document.getElementById('id_producto').value = JSON.dataset.id_usuario;
+        document.getElementById('id_producto').value = JSON.dataset.id_producto;
         document.getElementById('nombre').value = JSON.dataset.nombre_producto;
         document.getElementById('detalle').value = JSON.dataset.detalle_producto;
         document.getElementById('precio').value = JSON.dataset.precio_producto;

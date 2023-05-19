@@ -11,7 +11,7 @@ const PRODUCTOS = document.getElementById('productos');
 document.addEventListener('DOMContentLoaded', async () => {
     //Se define un objeto  con los datos de la categoria  seleccionada 
     const FORM = new FormData();
-    FORM.append('id_categoria', PARAMS.get('id_categoria'));
+    FORM.append('id_categoria', PARAMS.get('id'));
     //peticion para  solicitar los productos a la categoria seleccionada 
     const JSON = await dataFetch(PRODUCTO_API, 'readProductosCategoria', FORM);
     console.log(PARAMS.get('id_categoria'));
@@ -29,27 +29,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 tabindex="0" class="focus:outline-none w-full h-44" />
                 </div>
                 <div class="bg-white dark:bg-gray-800">
-                // nombre del producto
                     <div class="p-4">
                         <div class="flex items-center">
                             <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">
                             ${row.nombre_producto}
                             </h2>
                         </div>
-                        
-                        //  detalle del prducto
                         <p tabindex="0"
                             class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">${row.detalle_producto} </p>
                         <div class="flex mt-4">
                         </div>
-                        // precio del producto 
-
                         <div class="flex items-center justify-between py-4">
                             <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">
                             Precio(US$) ${row.precio_producto}</h3>
-
                             <a href="Vproducts.html?id=${row.id_producto}"class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
-                                <i class="fa-light fa-square-arrow-up-right"></i>    
+                            <i class="fa-solid fa-arrow-up"></i>
                             </a>
                         </div>
                     </div>

@@ -13,9 +13,9 @@
 
 <body>
     <header>
-        <nav class="border-gray-200 bg-indigo-300 dark:border-gray-700">
+        <nav class="border-gray-200 bg-indigo-300 dark:border-gray-700" id="top">
             <div class="max-w-screen-xl flex flex-wrap  items-center justify-between  mx-auto">
-                <a href="#" class="flex items-center">
+                <a href="index.html" class="flex items-center">
                     <img src="../../resources/img/logos/logo-no-background.png" class="h-24 p-4 w-32 mr-3"
                         alt="Flowbite Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
@@ -34,11 +34,6 @@
                 <div class="hidden w-full md:block  md:w-auto" id="navbar-dropdown">
                     <ul
                         class="flex flex-col font-medium p-4  md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-indigo-300 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="#"
-                                class="block py-2 pl-3 pr-4  text-white  rounded md:bg-transparent md:p-0  md:dark:bg-transparent"
-                                aria-current="page">Inicio</a>
-                        </li>
                         <li>
                             <button data-dropdown-toggle="dropdownNavbar"
                                 class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-white rounded  hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0 md:w-auto dark:text-white  dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Categoria<svg
@@ -85,7 +80,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="shopcart.html"
                                 class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Compras</a>
                         </li>
                     </ul>
@@ -96,7 +91,7 @@
 
     </header>
     <main>
-
+      <!--Carrousel-->
         <div id="default-carousel" class="relative" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-[100px] sm:h-[200px] lg:h-[300px] xl:h-[560px] overflow-hidden rounded-lg">
@@ -107,7 +102,7 @@
                 </div>
                 <!-- Item 4 -->
                 <div class="hidden duration-700 ease-in-out bg-black" data-carousel-item>
-                    <img src="../../resources/img/productos/gtx.png"
+                    <img src="../../resources/img/productos/1366_2000.jpeg"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 5 -->
@@ -126,12 +121,15 @@
                     data-carousel-slide-to="2"></button>
             </div>
         </div>
+        <!--Seccion de productos-->
+        <h1 class="text-3xl lg:text-4xl font-semibold mt-7 text-gray-800 dark:text-white text-center ">
+              Productos recomendados</h1>
         <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
             <!--Card 1-->
             <div class="rounded overflow-hidden shadow-lg">
-                <img class="w-full" src="/mountain.jpg" alt="Mountain">
+                <img class="w-full" src="../../resources/img/productos/1366_2000.jpeg" alt="Mountain">
                 <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Mountain</div>
+                    <div class="font-bold text-xl mb-2">nombre del producto</div>
                     <p class="text-gray-700 text-base">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
                         perferendis eaque, exercitationem praesentium nihil.
@@ -148,9 +146,9 @@
             </div>
             <!--Card 2-->
             <div class="rounded overflow-hidden shadow-lg">
-                <img class="w-full" src="/river.jpg" alt="River">
+                <img class="w-full" src="../../resources/img/productos/cases.jpg" alt="River">
                 <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">River</div>
+                    <div class="font-bold text-xl mb-2">nombre del producto</div>
                     <p class="text-gray-700 text-base">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
                         perferendis eaque, exercitationem praesentium nihil.
@@ -167,10 +165,10 @@
             </div>
 
             <!--Card 3-->
-            <div class="rounded overflow-hidden shadow-lg">
-                <img class="w-full" src="/forest.jpg" alt="Forest">
+            <div class="rounded  overflow-hidden shadow-lg">
+                <img class="w-fit" src="../../resources/img/productos/proce.jpg" alt="Forest">
                 <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Forest</div>
+                    <div class="font-bold text-xl mb-2">nombre del producto</div>
                     <p class="text-gray-700 text-base">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
                         perferendis eaque, exercitationem praesentium nihil.
@@ -186,8 +184,69 @@
                 </div>
             </div>
         </div>
+        <!--Seccion de vendidos-->
+        <h1 class="text-3xl lg:text-4xl font-semibold mt-7 text-gray-800 dark:text-white text-center ">
+          Productos mas vendidos</h1>
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+        <!--Card 1-->
+        <div class="rounded overflow-hidden shadow-lg">
+            <img class="w-full" src="../../resources/img/productos/1366_2000.jpeg" alt="Mountain">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">nombre del producto</div>
+                <p class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+                    perferendis eaque, exercitationem praesentium nihil.
+                </p>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+            </div>
+        </div>
+        <!--Card 2-->
+        <div class="rounded overflow-hidden shadow-lg">
+            <img class="w-full" src="../../resources/img/productos/cases.jpg" alt="River">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">nombre del producto</div>
+                <p class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+                    perferendis eaque, exercitationem praesentium nihil.
+                </p>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+            </div>
         </div>
 
+        <!--Card 3-->
+        <div class="rounded  overflow-hidden shadow-lg">
+            <img class="w-fit" src="../../resources/img/productos/proce.jpg" alt="Forest">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">nombre del producto</div>
+                <p class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+                    perferendis eaque, exercitationem praesentium nihil.
+                </p>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                <span
+                    class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+            </div>
+        </div>
+    </div>
     </main>
     <footer>
 

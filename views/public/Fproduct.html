@@ -2,517 +2,273 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../resources/css/tailwind.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../resources/css/Fproduct.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://flowbite.com/docs/getting-started/introduction/"></script>
-  <title>Ver Productos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../resources/css/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/css/Fproduct.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://flowbite.com/docs/getting-started/introduction/"></script>
+    <title>Ver Productos</title>
 </head>
 
 <body>
-  <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
-    <nav class="  w-full z-20 top-0 left-0 border-b static " id="navbar">
-      <br>
-      <div class="container flex flex-wrap items-center justify-around mx-28">
-        <a href="../../views/public/products.html">
-          <img src="/resources/img/logos/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
-        </a>
-        <div>
-          <input type="text" placeholder="   Ingrese su búsqueda..."
-            class="focus:ring-1 focus:ring-indigo-500 outline-none rounded-lg" id="buscar">
-        </div>
-        <div>
-          <img src="../../resources/img/iconos/buscar.png" alt="lupa" id="lupa">
-        </div>
-        <div class="flex items-center md:order-2">
-          <button type="button"
-            class="flex mr-3 text-sm bg-white rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-            id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-            data-dropdown-placement="bottom">
-            <span class="sr-only">Open user menu</span>
-            <img class="w-8 h-8 rounded-full" src="../../resources/img/iconos/leave.png" alt="user photo" />
-          </button>
-          <!-- Dropdown menu -->
-          <div
-            class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-            id="user-dropdown">
-            <div class="px-4 py-3">
-              <span class="block text-sm text-gray-900 dark:text-white">Kanzi</span>
-              <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">Administrador</span>
+    <header class="navbar navbar-expand-lg navbar-light bg-light px-0 font-semibold">
+        <nav class="  w-full z-20 top-0 left-0 border-b static " id="navbar">
+            <br>
+            <div class="container flex flex-wrap items-center justify-around mx-28">
+                <a href="../../views/public/products.html">
+                    <img src="../../resources/img/logos/logo-no-background.png" class="h-12" id="logo" alt="Flowbite Logo">
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+                </a>
+                <div>
+                    <input type="text" placeholder="   Ingrese su búsqueda..."
+                        class="focus:ring-1 focus:ring-indigo-500 outline-none rounded-lg" id="buscar">
+                </div>
+                <div>
+                    <img src="../../resources/img/iconos/buscar.png" alt="lupa" id="lupa">
+                </div>
+                <div class="flex items-center md:order-2">
+                    <button type="button"
+                        class="flex mr-3 text-sm bg-white rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                        data-dropdown-placement="bottom">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="w-8 h-8 rounded-full" src="../../resources/img/iconos/leave.png" alt="user photo" />
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                        id="user-dropdown">
+                        <div class="px-4 py-3">
+                            <span class="block text-sm text-gray-900 dark:text-white">Kanzi</span>
+                            <span
+                                class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">Administrador</span>
+                        </div>
+                        <ul class="py-2" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                    out</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button data-collapse-toggle="mobile-menu-2" type="button"
+                        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="mobile-menu-2" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div>
+                    <a href="../../views/public/shopcart.html">
+                        <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
+                            id="navbar"><img src="../../resources/img/iconos/cart.png" alt="user"
+                                id="carrito">Carrito</a></button>
+                </div>
             </div>
-            <ul class="py-2" aria-labelledby="user-menu-button">
-              <li>
-                <a href="#"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                  out</a>
-              </li>
+            <br>
+        </nav>
+    </header>
+
+    <main id="chek" class="container flex flex-wrap  justify-between mx-9  font-semibold">
+        <div class="w-72   font-semibold   bg-white border border-gray-300 rounded-lg shadow-xl text-xl  text-black"
+            id="marco">
+            <p
+                class="block w-full px-4 py-2 text-black  border-b  dark:hover:bg-gray-200 rounded-t-lg cursor-pointer  dark:border-gray-300">
+                Marca
+            </p>
+            <br>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Corsair
+                </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">MSI
+                </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">ASUS
+                </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">AORUS
+                </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cooler
+                    Master
+                </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Razer
+                </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox"
+                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alienware
+                </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nvidia
+                </label>
+            </div>
+            <div class="flex items-center mb-4 ">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Intel
+                </label>
+            </div>
+
+        </div>
+
+
+        <div tabindex="0" class="focus:outline-none">
+            <br><br>
+            <p class="font-semibold text-3xl" id="title"></p>
+            <!-- Remove py-8 -->
+            <div class="mx-auto container py-8">
+                <div class="flex flex-wrap items-center lg:justify-between justify-center" id="productos">
+                    <!-- Card 1 Inicio de la card -->
+                  
+                    <!-- fin de la carta que muestra los productos -->
+                </div>
+            </div>
+        </div>
+        <br> <br>
+        <div>
+            <p class="justify-between font-semibold text-2xl " id="popu">
+                MÁS POPULARES
+            </p>
+        </div>
+        <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"
+            id="grupocard">
+            <!--Card 1-->
+            <div class="rounded overflow-hidden shadow-lg">
+                <img class="w-full h-60" src="../../resources/img/productos/cases.jpg" alt="Mountain">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">Nombre del producto</div>
+                    <p class="text-gray-700 text-base">
+                        $12.99
+                    </p>
+                    <p class="text-gray-700 text-base">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+                        perferendis
+                        eaque, exercitationem praesentium nihil.
+                    </p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                </div>
+
+            </div>
+            <!--Card 2-->
+            <div class="rounded overflow-hidden shadow-lg">
+                <img class="w-full h-60" src="../../resources/img/productos/1366_2000.jpeg" alt="River">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">Nombre del producto</div>
+                    <p class="text-gray-700 text-base">
+                        $12.99
+                    </p>
+                    <p class="text-gray-700 text-base">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+                        perferendis
+                        eaque, exercitationem praesentium nihil.
+                    </p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+                </div>
+            </div>
+
+            <!--Card 3-->
+            <div class="rounded overflow-hidden shadow-lg">
+                <img class="w-full h-60" src="../../resources/img/productos/proce.jpg" alt="Forest">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">Nombre del producto</div>
+                    <p class="text-gray-700 text-base">
+                        $12.99
+                    </p>
+                    <p class="text-gray-700 text-base">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
+                        perferendis
+                        eaque, exercitationem praesentium nihil.
+                    </p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                    <span
+                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </main>
+    <br>
+    <footer class=" p-10  shadow md:px-6 md:py-8 dark:bg-gray-900 " id="footer">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a class="flex items-center mb-4 sm:mb-0">
+                <img src="../../resources/img/logos/logo-no-background.png" class="h-8 mr-3" />
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm text-white sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre nosotros</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Politica privada</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencia </a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contactanos</a>
+                </li>
             </ul>
-          </div>
-          <button data-collapse-toggle="mobile-menu-2" type="button"
-            class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="mobile-menu-2" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </button>
         </div>
-        <div>
-          <a href="../../views/public/shopcart.html">
-            <button type="submit" class=" w-full text-gray-100  rounded hover:bg-blue-600 transition-colors"
-              id="navbar"><img src="../../resources/img/iconos/cart.png" alt="user" id="carrito">Carrito</a></button>
-        </div>
-      </div>
-      <br>
-    </nav>
-  </header>
-
-  <main id="chek" class="container flex flex-wrap  justify-between mx-9  font-semibold">
-    <div class="w-72   font-semibold   bg-white border border-gray-300 rounded-lg shadow-xl text-xl  text-black"
-      id="marco">
-      <p
-        class="block w-full px-4 py-2 text-black  border-b  dark:hover:bg-gray-200 rounded-t-lg cursor-pointer  dark:border-gray-300">
-        Marca
-      </p>
-      <br>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Corsair
-        </label>
-      </div>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">MSI
-        </label>
-      </div>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">ASUS
-        </label>
-      </div>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">AORUS
-        </label>
-      </div>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cooler Master
-        </label>
-      </div>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Razer
-        </label>
-      </div>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alienware
-        </label>
-      </div>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nvidia
-        </label>
-      </div>
-      <div class="flex items-center mb-4 ">
-        <input id="default-checkbox" type="checkbox" value=""
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Intel
-        </label>
-      </div>
-
-    </div>
-
-
-    <div tabindex="0" class="focus:outline-none">
-      <br><br>
-      <p class="font-semibold text-3xl" id="text">Productos disponibles</p>
-      <!-- Remove py-8 -->
-      <div class="mx-auto container py-8">
-        <div class="flex flex-wrap items-center lg:justify-between justify-center">
-          <!-- Card 1 -->
-          <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-            <div>
-              <img alt="person capturing an image" src="../../resources/img/productos/proce.jpg" tabindex="0"
-                class="focus:outline-none w-full h-44" />
-            </div>
-            <div class="bg-white dark:bg-gray-800">
-
-              <div class="p-4">
-                <div class="flex items-center">
-                  <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">Nombre del producto
-                  </h2>
-
-                </div>
-                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">The Apple
-                  iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
-                <div class="flex mt-4">
-                  <div>
-                    <p tabindex="0"
-                      class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">
-                      12 months warranty</p>
-                  </div>
-
-                </div>
-                <div class="flex items-center justify-between py-4">
-
-                  <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">$350</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          
-          <!-- Card 1 Ends -->
-          <!-- Card 2 -->
-          <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-            <div>
-              <img alt="person capturing an image" src="../../resources/img/productos/proce.jpg" tabindex="0"
-                class="focus:outline-none w-full h-44" />
-            </div>
-            <div class="bg-white dark:bg-gray-800">
-
-              <div class="p-4">
-                <div class="flex items-center">
-                  <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">Nombre del producto
-                  </h2>
-
-                </div>
-                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">The Apple
-                  iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
-                <div class="flex mt-4">
-                  <div>
-                    <p tabindex="0"
-                      class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">
-                      12 months warranty</p>
-                  </div>
-
-                </div>
-                <div class="flex items-center justify-between py-4">
-
-                  <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">$350</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card 2 Ends -->
-          <!-- Card 3  -->
-          <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-            <div>
-              <img alt="person capturing an image" src="../../resources/img/productos/proce.jpg" tabindex="0"
-                class="focus:outline-none w-full h-44" />
-            </div>
-            <div class="bg-white dark:bg-gray-800">
-
-              <div class="p-4">
-                <div class="flex items-center">
-                  <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">Nombre del producto
-                  </h2>
-
-                </div>
-                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">The Apple
-                  iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
-                <div class="flex mt-4">
-                  <div>
-                    <p tabindex="0"
-                      class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">
-                      12 months warranty</p>
-                  </div>
-
-                </div>
-                <div class="flex items-center justify-between py-4">
-
-                  <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">$350</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card 3 Ends -->
-          <!-- Card 4  -->
-          <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-            <div>
-              <img alt="person capturing an image" src="../../resources/img/productos/proce.jpg" tabindex="0"
-                class="focus:outline-none w-full h-44" />
-            </div>
-            <div class="bg-white dark:bg-gray-800">
-
-              <div class="p-4">
-                <div class="flex items-center">
-                  <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">Nombre del producto
-                  </h2>
-
-                </div>
-                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">The Apple
-                  iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
-                <div class="flex mt-4">
-                  <div>
-                    <p tabindex="0"
-                      class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">
-                      12 months warranty</p>
-                  </div>
-
-                </div>
-                <div class="flex items-center justify-between py-4">
-
-                  <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">$350</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card 4 Ends -->
-        </div>
-        <div class="flex flex-wrap items-center lg:justify-between justify-center pb-10 mt-16">
-          <!-- Card 1 -->
-          <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-            <div>
-              <img alt="girl texting" src="../../resources/img/productos/proce.jpg" class="focus:outline-none w-full h-44" />
-            </div>
-            <div class="bg-white dark:bg-gray-800">
-
-              <div class="p-4">
-                <div class="flex items-center">
-                  <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">Nombre del producto
-                  </h2>
-
-                </div>
-                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">The Apple
-                  iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
-                <div class="flex mt-4">
-                  <div>
-                    <p tabindex="0"
-                      class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">
-                      12 months warranty</p>
-                  </div>
-
-                </div>
-                <div class="flex items-center justify-between py-4">
-
-                  <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">$350</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card 1 Ends -->
-          <!-- Card 2 -->
-          <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-            <div>
-              <img alt="girl texting" src="../../resources/img/productos/proce.jpg" class="focus:outline-none w-full h-44" />
-            </div>
-            <div class="bg-white dark:bg-gray-800">
-
-              <div class="p-4">
-                <div class="flex items-center">
-                  <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">Nombre del producto
-                  </h2>
-
-                </div>
-                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">The Apple
-                  iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
-                <div class="flex mt-4">
-                  <div>
-                    <p tabindex="0"
-                      class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">
-                      12 months warranty</p>
-                  </div>
-
-                </div>
-                <div class="flex items-center justify-between py-4">
-
-                  <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">$350</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card 2 Ends -->
-          <!-- Card 3  -->
-          <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-            <div>
-              <img alt="girl texting" src="../../resources/img/productos/proce.jpg" class="focus:outline-none w-full h-44" />
-            </div>
-            <div class="bg-white dark:bg-gray-800">
-
-              <div class="p-4">
-                <div class="flex items-center">
-                  <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">Nombre del producto
-                  </h2>
-
-                </div>
-                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">The Apple
-                  iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
-                <div class="flex mt-4">
-                  <div>
-                    <p tabindex="0"
-                      class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">
-                      12 months warranty</p>
-                  </div>
-
-                </div>
-                <div class="flex items-center justify-between py-4">
-
-                  <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">$350</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card 3 Ends -->
-          <!-- Card 4  -->
-          <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-            <div>
-              <img alt="girl texting" src="../../resources/img/productos/proce.jpg" class="focus:outline-none w-full h-44" />
-            </div>
-            <div class="bg-white dark:bg-gray-800">
-
-              <div class="p-4">
-                <div class="flex items-center">
-                  <h2 tabindex="0" class="focus:outline-none text-lg dark:text-white font-semibold">Nombre del producto
-                  </h2>
-
-                </div>
-                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">The Apple
-                  iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
-                <div class="flex mt-4">
-                  <div>
-                    <p tabindex="0"
-                      class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 px-2 bg-gray-200 dark:bg-gray-700 py-1">
-                      12 months warranty</p>
-                  </div>
-
-                </div>
-                <div class="flex items-center justify-between py-4">
-
-                  <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold">$350</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Card 4 Ends -->
-        </div>
-      </div>
-    </div>
-    <div>
-      <br> <br>
-      <div>
-        <p class="justify-between font-semibold text-2xl " id="popu">
-          MÁS POPULARES
-        </p>
-      </div>
-      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"
-        id="grupocard">
-        <!--Card 1-->
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full h-60" src="../../resources/img/productos/cases.jpg" alt="Mountain">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Nombre del producto</div>
-            <p class="text-gray-700 text-base">
-              $12.99
-            </p>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-              eaque, exercitationem praesentium nihil.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-          </div>
-
-        </div>
-        <!--Card 2-->
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full h-60" src="../../resources/img/productos/1366_2000.jpeg" alt="River">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Nombre del producto</div>
-            <p class="text-gray-700 text-base">
-              $12.99
-            </p>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-              eaque, exercitationem praesentium nihil.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
-          </div>
-        </div>
-
-        <!--Card 3-->
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full h-60" src="../../resources/img/productos/proce.jpg" alt="Forest">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Nombre del producto</div>
-            <p class="text-gray-700 text-base">
-              $12.99
-            </p>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-              eaque, exercitationem praesentium nihil.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-  <br>
-  <footer class=" p-10  shadow md:px-6 md:py-8 dark:bg-gray-900 " id="footer">
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <a class="flex items-center mb-4 sm:mb-0">
-        <img src="../../resources/img/logos/logo-no-background.png" class="h-8 mr-3" />
-      </a>
-      <ul class="flex flex-wrap items-center mb-6 text-sm text-white sm:mb-0 dark:text-gray-400">
-        <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre nosotros</a>
-        </li>
-        <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6">Politica privada</a>
-        </li>
-        <li>
-          <a href="#" class="mr-4 hover:underline md:mr-6 ">Licencia </a>
-        </li>
-        <li>
-          <a href="#" class="hover:underline">Contactanos</a>
-        </li>
-      </ul>
-    </div>
-    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <span class="block text-sm text-white sm:text-center dark:text-gray-400"> <a class="hover:underline">PROHAW™</a>.
-      Todos los derechos reservados.
-    </span>
-  </footer>
-  <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-white sm:text-center dark:text-gray-400"> <a
+                class="hover:underline">PROHAW™</a>.
+            Todos los derechos reservados.
+        </span>
+    </footer>
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+    <script src="../../controllers/components.js"></script>
+    <script src="../../resources/js/sweetalert.min.js"></script>
+    <script src="../../controllers/public/articles.js"></script>
+    
 </body>
 
 </html>

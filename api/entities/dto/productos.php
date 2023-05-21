@@ -35,7 +35,7 @@ class Producto extends ProductoQueries
     
     public function setNombreProducto($value)
     {
-        if (Validator::validateAlphanumeric($value, 1, 100)) {
+        if (Validator::validateBoolean($value, 1, 100)) {
             $this->nombre_producto = $value;
             return true;
         } else {
@@ -44,7 +44,7 @@ class Producto extends ProductoQueries
     }
     public function setDetalleProducto($value)
     {
-        if (Validator::validateAlphanumeric($value, 1, 1000)) {
+        if (Validator::validateBoolean($value, 1, 1000)) {
             $this->detalle_producto = $value;
             return true;
         } else {
@@ -83,7 +83,7 @@ class Producto extends ProductoQueries
 
     public function setImagenProducto($value)
     {
-        if (Validator::validateImageFile($value, 800, 800)) {
+        if (Validator::validateImageFile($value, 1000, 1000)) {
             $this->imagen_producto = Validator::getFileName();
             return true;
         } else {

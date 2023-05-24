@@ -1,6 +1,6 @@
 //Constantes para completar la ruta de la API
 const PRODUCTO_API = 'business/public/producto.php';
-//const PEDIDO_API = 'business/public/pedido.php';
+const PEDIDO_API = 'business/public/pedido.php';
 //Contante tipo objeto para obtener los paramentros disponibles en la URL.
 const PARAMS = new URLSearchParams(location.search);
 //Constante para establer el formulario  de agregar un producto al carrito de compras 
@@ -27,5 +27,24 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         document.getElementById('title').textContent = JSON.exception;
         // Se limpia el contenido cuando no hay datos para mostrar.
         document.getElementById('detalle').innerHTML = ''; 
+    }
+});
+
+
+// Método manejador de eventos para cuando se envía el formulario de agregar un producto al carrito.
+SHOPPING_FORM.addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Constante tipo objeto con los datos del formulario.
+    const FORM = new FormData(SHOPPING_FORM);
+    // Petición para guardar los datos del formulario.
+    const JSON = await dataFetch(PEDIDO_API, 'createDetail', FORM);
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.\
+    if(JSON.status) {
+        sweetAlert(1, JSON.message, true, 'shopcart.html');
+    } else if (JSON.session) {
+        sweetAlert(2, JSON.exception, false);
+    } else {
+        sweetAlert(3, JSON.exception, true, 'login.html');
     }
 });

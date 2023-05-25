@@ -236,6 +236,13 @@
                     <!-- form para las cosas que tengo que meter aqui del id invisible todo el pedo pra agregar al carrito tambien xd -->
                     <form class="row" method="post" id="shopping-form">
                         <input type="hidden" id="id_producto" name="id_producto" class=" invisible">
+                        <div class="flex ml-6 items-center">
+                            <span class="mr-3">Existencia</span>
+                            <div class="relative">
+                                <input type="number" id="existencia" name="existencia" disabled
+                                    class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 ">
+                            </div>
+                        </div>
                         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                             <div class="flex ml-6 items-center">
                                 <span class="mr-3">Cantidad</span>

@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     const JSON = await dataFetch(PRODUCTO_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if(JSON.status){
-        console.log(JSON);
          // Se colocan los datos en la página web de acuerdo con el producto seleccionado previamente.
         document.getElementById('imagen').src = SERVER_URL.concat('img/productos/', JSON.dataset.imagen_producto);
         document.getElementById('nombre').textContent = JSON.dataset.nombre_producto;

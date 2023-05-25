@@ -13,6 +13,7 @@
 
 <body>
     <header>
+         <!-- Encabezado del documento!-->
         <nav class="border-gray-200 bg-indigo-300 dark:border-gray-700" id="top">
             <div class="max-w-screen-xl flex flex-wrap  items-center justify-between  mx-auto">
                 <a href="index.html" class="flex items-center">
@@ -72,7 +73,7 @@
                                             de la cuenta</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="#" onclick="logOut()"
                                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cerrar
                                             Sesión</a>
                                     </li>
@@ -90,6 +91,7 @@
 
 
     </header>
+     <!-- Contenido del documento!-->
     <main>
       <!--Carrousel-->
         <div id="default-carousel" class="relative" data-carousel="slide">
@@ -248,9 +250,9 @@
         </div>
     </div>
     </main>
-    <footer>
-
-    </footer>
+    <!-- Pie del documento!-->
+    <footer></footer>
+    <!--  linkeo del archivo de js para una carga optimizada  !-->
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
     <script src="../../controllers/components.js"></script>
     <script src="../../resources/js/sweetalert.min.js"></script>

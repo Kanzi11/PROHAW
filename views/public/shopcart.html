@@ -186,6 +186,7 @@
         </nav>
     </header>
     
+
     <main> 
         <div class="h-screen bg-gray-100 pt-20" >
             <h1 class="mb-10 text-center text-2xl font-bold">Carrito de compras</h1>
@@ -217,7 +218,20 @@
                 </div>
             </div>
         </div>
-
+        <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative w-full max-w-md max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <form id="item-form" method="post" >
+                      <input type="text" id="id_detalle_pedido" name="id_detalle_pedido"  class="invisible" >
+  
+                      <div class="input">
+                          <input type="number" id="cantidad" name="cantidad" min="1" required> 
+                      </div>
+                      <button type="submit">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         
     </main>
 

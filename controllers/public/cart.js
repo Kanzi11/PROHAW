@@ -57,9 +57,10 @@ async function readOrderDetail() {
                 </div>
                 <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <div class="flex items-center border-gray-100">
-                        <button onclick="openUpdate(${row.id_detalle_pedido}, ${row.cantidad})" type="submit" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                        <button onclick="openUpdate(${row.id_detalle_pedido}, ${row.cantidad})" type="submit"
                             class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Cantidad</button>
-                        <div class="flex items-center border-gray-100">
+            
+                            <div class="flex items-center border-gray-100">
                             <input class="h-8 w-8 border bg-white text-center text-xs outline-none" disabled="true"
                                 type="number" min="1" /> ${row.cantidad}
                         </div>
@@ -92,6 +93,9 @@ async function readOrderDetail() {
 */
 
 function openUpdate(id_detalle_pedido, quantity) {
+    const $targetEl = document.getElementById('popup-modal');
+    const modal=new Modal($targetEl);
+    modal.show();
     document.getElementById('id_detalle_pedido').value = id_detalle_pedido;
     document.getElementById('cantidad').value = quantity;
 }

@@ -122,7 +122,7 @@ class PedidoQueries
     {
         $sql = 'SELECT id_pedido
                 FROM pedidos
-                WHERE estado_pedido = 0 AND id_cliente = ?';
+                WHERE estado_pedido = true AND id_cliente = ?';
         $params = array($_SESSION['id_cliente']);
         if ($data = Database::getRow($sql, $params)) {
             $this->id_pedido = $data['id_pedido'];
@@ -154,7 +154,7 @@ class PedidoQueries
     // Método para obtener los productos que se encuentran en el carrito de compras.
     public function readOrderDetail()
     {
-        $sql = 'SELECT id_detalles_pedidos, nombre_producto, detalles_pedidos.precio_producto, detalles_pedidos.cantidad_producto
+        $sql = 'SELECT id_detalle_pedido, nombre_producto, detalles_pedidos.precio, detalles_pedidos.cantidad
         FROM pedidos INNER JOIN detalles_pedidos USING(id_pedido) INNER JOIN productos USING(id_producto)
         WHERE id_pedido = ?';
         $params = array($this->id_pedido);
@@ -168,7 +168,7 @@ class PedidoQueries
         // Se establece la zona horaria local para obtener la fecha del servidor.
         date_default_timezone_set('America/El_Salvador');
         $date = date('Y-m-d');
-        $this->estado_pedido = 1;
+        $this->estado_pedido = 'false';
         $sql = 'UPDATE pedidos
                 SET estado_pedido = ?, fecha_pedido = ?
                 WHERE id_pedido = ?';

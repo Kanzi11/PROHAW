@@ -37,9 +37,7 @@ if (isset($_GET['action'])) {
                     $_SESSION['id_pedido'] = $pedido->getIdPedido();
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
-                } else {
-                    $result['exception'] = 'No tiene productos en el carrito';
-                }
+                } 
                 break;
             case 'updateDetail':
                 $_POST = Validator::validateForm($_POST);

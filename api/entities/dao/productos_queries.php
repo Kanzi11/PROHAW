@@ -105,4 +105,25 @@ class ProductoQueries
         $params = array($this->id_categoria);
         return Database::getRows($sql, $params);
     }
+
+     /*
+    *   Métodos para generar gráficas.
+    */
+    public function cantidadProductosCategoria()
+    {
+        $sql = 'SELECT nombre_categoria, COUNT(id_producto) cantidad
+                FROM producto
+                INNER JOIN categorias USING(id_categoria)
+                GROUP BY nombre_categoria ORDER BY cantidad DESC';
+        return Database::getRows($sql);
+    }
+
+    public function porcentajeProductosCategoria()
+    {
+        $sql = 'SELECT nombre_categoria, ROUND((COUNT(id_producto) * 100.0 / (SELECT COUNT(id_producto) FROM productos)), 2) porcentaje
+                FROM producto
+                INNER JOIN categorias USING(id_categoria)
+                GROUP BY nombre_categoria ORDER BY porcentaje DESC';
+        return Database::getRows($sql);
+    }
 }

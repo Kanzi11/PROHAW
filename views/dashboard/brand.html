@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="../../resources/css/tailwind.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../resources/css/costumers.css" />
+  <link rel="stylesheet" href="../../resources/css/brand.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
   <title>Marca</title>
 </head>
@@ -101,9 +101,15 @@
     <div class="titulo text-center mt-7 text-4xl">
       <h1>Marcas</h1>
     </div>
-    <div class="flex justify-end px-9 mt-5 mb-6">
+    <div class="flex justify-end px-9 mt-5 ">
       <button
-        class="flex justify-end px-5 py-2.5 font-medium bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm"
+        class="flex justify-end px-5 py-2.5 mr-5 font-medium bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm"
+        data-modal-toggle="agregarmarca" type="button" onclick="openCreate()">
+        <i class="fa-solid fa-chart-line"></i>
+      </button>
+
+      <button
+        class="flex justify-end px-5 py-2.5 mr-5 font-medium bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm"
         data-modal-toggle="agregarmarca" type="button" onclick="openCreate()">
         Añadir Marca
       </button>

@@ -104,19 +104,29 @@
         <h3 class="text-center mt-4 font-semibold text-4xl">Bienvenido Perro wachack</h3>
         <!-- Contenido del buenos dias  -->
         <div>
-            <h4 class="text-center font-light text-2xl" id="greeting"></h4>  
+            <h4 class="text-center font-light text-2xl" id="greeting"></h4>
         </div>
-        <div class="graf">
-            <div class=" flex items-center">
-                <!-- Se muestra un gráfico de barra con la cantidad de productos por categoría -->
-                <canvas id="chart1"></canvas>
+        <div class="firstgraph flex justify-evenly">
+            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class=" " > 
+                    <div class="graf">
+                        <div class="">
+                            <!-- Se muestra un gráfico de barra con la cantidad de productos por categoría -->
+                            <canvas id="chart1"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center">
-                <!-- Se muestra un gráfico de barra con la cantidad de productos por categoría -->
-                <canvas id="chart2"></canvas>
+    
+            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="graf">
+                        <div class="flex">
+                            <!-- Se muestra un gráfico de barra con la cantidad de productos por categoría -->
+                            <canvas id="chart2"></canvas>
+                        </div>
+                    </div>
             </div>
         </div>
-
     </main>
 
 
@@ -156,7 +166,7 @@
     <script src="../../resources/js/sweetalert.min.js"></script>
     <script src="../../controllers/components.js"></script>
     <script src="../../controllers/dashboard/acount.js"></script>
-    <script src="../../controllers/dashboard/main.js" ></script>
+    <script src="../../controllers/dashboard/main.js"></script>
 </body>
 
 </html>

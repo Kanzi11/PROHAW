@@ -103,11 +103,17 @@
     </div>
     <!--contenedor boton y tabla-->
     <div id="table">
-      <div class="flex justify-end px-9 mt-5 mb-6 ">
+      <div class="flex justify-end px-9 mb-6 ">
         <button
           class="flex justify-end px-5 py-2.5 font-medium bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm"
           onclick="openCreate()" type="button">
           Agregar cliente
+        </button>
+
+        <button
+          class="flex justify-end py-2.5 px-5 ml-5 font-medium bg-blue-50 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm"
+          onclick="openCreate()" type="button">
+          <i class="fa-solid fa-chart-line"></i>
         </button>
 
         <!-- Main modal -->
@@ -117,7 +123,7 @@
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
               <form method="post" id="save-form">
-                <input class="invisible" type="text" name="id" id="id"/>
+                <input class="invisible" type="text" name="id" id="id" />
                 <!-- Modal header -->
                 <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                   <h3 class="text-xl font-semibold text-gray-900 dark:text-white " id="titulo-modal">
@@ -195,9 +201,9 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                  <button  type="submit"
+                  <button type="submit"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar</button>
-                  <button  type="button"
+                  <button type="button"
                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cerrar</button>
                 </div>
               </form>

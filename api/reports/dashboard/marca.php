@@ -7,17 +7,19 @@ require_once('../../entities/dto/marcas.php');
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se inicia el reporte con el encabezado del documento.
-$pdf->startReport('Marcas');
+$pdf->startReport('Cantidad de productos por marca');
 // Se instancia el módelo Categoría para obtener los datos.
 $marcas = new Marcas;
 // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
-if ($dataMarca = $marcas->readAll()) {
+if ($dataMarca = $marcas->reportMarcas()) {
     // Se establece un color de relleno para los encabezados.
     $pdf->setFillColor(175);
     // Se establece la fuente para los encabezados.
     $pdf->setFont('Times', 'B', 11);
     // Se imprimen las celdas con los encabezados.
-    $pdf->cell(30, 10, 'Marca', 1, 1, 'C');
+    $pdf->cell(40);
+    $pdf->cell(46, 10, 'Marca', 1, 0, 'C');
+    $pdf->cell(60, 10, 'Cantidad de productos', 1, 1, 'C');
     // Se establece un color de relleno para mostrar el nombre de la categoría.
     $pdf->setFillColor(225);
     // Se establece la fuente para los datos de los productos.
@@ -25,21 +27,11 @@ if ($dataMarca = $marcas->readAll()) {
 
     // Se recorren los registros fila por fila.
     foreach ($dataMarca as $rowMarcas) {
-        // Se establece la categoría para obtener sus productos, de lo contrario se imprime un mensaje de error.
-        if ($marcas->setIdMarca($rowMarcas['id_marca'])) {
-            // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
-            if ($dataMarca = $marcas->ReportMarcas()) {
-                // Se recorren los registros fila por fila.
-                foreach($dataMarca as $rowMarcas) {
-                    // Se imprimen las celdas con los datos de los productos.
-                    $pdf->cell(60, 10, $pdf->encodeString($rowMarcas['nombre_marca']), 1, 1);
-                }
-            } else {
-                $pdf->cell(0, 10, $pdf->encodeString('No hay marcas que mostrar'), 1, 1);
-            }
-        } else {
-            $pdf->cell(0, 10, $pdf->encodeString('Marca incorrecta o inexistente'), 1, 1);
-        }
+
+        // Se imprimen las celdas con los datos de los productos.
+        $pdf->cell(40);
+        $pdf->cell(46, 10, $pdf->encodeString($rowMarcas['nombre_marca']), 1, 0,'C');
+        $pdf->cell(60, 10, $pdf->encodeString($rowMarcas['cantidad_producto']), 1, 1,'C');
     }
 } else {
     $pdf->cell(0, 10, $pdf->encodeString('No hay categorías para mostrar'), 1, 1);

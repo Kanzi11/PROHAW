@@ -66,10 +66,12 @@ class MarcasQueries
         return Database::executeRow($sql, $params);
     }
     //Metodos para generar un reporte
-    public function ReportMarcas()
+    public function reportMarcas()
     {
-        $sql = 'SELECT id_marca, nombre_marca
-                FROM marcas';
+        $sql = 'SELECT nombre_marca , count (id_producto) AS cantidad_producto
+        FROM marcas 
+		INNER JOIN productos USING (id_marca) GROUP BY nombre_marca
+        ';
         return Database::getRows($sql);
     }
 

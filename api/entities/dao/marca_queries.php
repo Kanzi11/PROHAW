@@ -65,4 +65,12 @@ class MarcasQueries
         $params = array($this->id_marca);
         return Database::executeRow($sql, $params);
     }
+    //Metodos para generar un reporte
+    public function ReportMarcas()
+    {
+        $sql = 'SELECT id_marca, nombre_marca
+                FROM marcas';
+        return Database::getRows($sql);
+    }
+
 }

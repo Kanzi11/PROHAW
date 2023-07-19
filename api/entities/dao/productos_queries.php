@@ -126,4 +126,12 @@ class ProductoQueries
                 GROUP BY nombre_categoria ORDER BY porcentaje DESC';
         return Database::getRows($sql);
     }
+
+    public function productosMasComprados(){
+        $sql = 'SELECT b.nombre_producto, SUM(a.cantidad) as total_vendidos
+        FROM detalles_pedidos a INNER JOIN productos b USING (id_producto)
+        group by b.nombre_producto ORDER BY total_vendidos DESC
+        LIMIT 5';
+        return Database::getRows($sql);
+    }
 }

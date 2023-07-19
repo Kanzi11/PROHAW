@@ -117,7 +117,7 @@ async function fillSelect(filename, action, select, selected = null) {
 *   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
 *   Retorno: ninguno.
 */
-function barGraph(canvas, xAxis, yAxis, legend, title) {
+function barLineGraph(canvas, xAxis, yAxis, legend, title, type) {
     // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
     let colors = [];
     // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
@@ -128,7 +128,7 @@ function barGraph(canvas, xAxis, yAxis, legend, title) {
     const context = document.getElementById(canvas).getContext('2d');
     // Se crea una instancia para generar el gráfico con los datos recibidos. Requiere la librería chart.js para funcionar.
     const chart = new Chart(context, {
-        type: 'bar',
+        type: type,
         data: {
             labels: xAxis,
             datasets: [{
@@ -141,7 +141,7 @@ function barGraph(canvas, xAxis, yAxis, legend, title) {
             }]
         },
         options: {
-            aspectRatio: 1,
+            aspectRatio: 1, 
             plugins: {
                 title: {
                     display: true,

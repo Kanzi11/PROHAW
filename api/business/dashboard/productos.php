@@ -139,19 +139,26 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'cantidadProductosCategoria':
-                if($result ['dataset'] = $producto->cantidadProductosCategoria()){
+                if ($result['dataset'] = $producto->cantidadProductosCategoria()) {
                     $result['status'] = 1;
-                }else{
+                } else {
                     $result['exception'] = 'No hay datos disponibles';
                 }
                 break;
-                case 'porcentajeProductosCategoria':
-                    if ($result['dataset'] = $producto->porcentajeProductosCategoria()) {
-                        $result['status'] = 1;
-                    } else {
-                        $result['exception'] = 'No hay datos disponibles';
-                    }
-                    break;
+            case 'porcentajeProductosCategoria':
+                if ($result['dataset'] = $producto->porcentajeProductosCategoria()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
+            case 'lineaProductosMasComprados':
+                if ($result['dataset'] = $producto->productosMasComprados()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
             case 'delete':
                 if (!$producto->setIdProducto($_POST['id_producto'])) {
                     $result['exception'] = 'incorrecta';

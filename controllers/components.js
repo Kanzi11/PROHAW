@@ -117,7 +117,7 @@ async function fillSelect(filename, action, select, selected = null) {
 *   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
 *   Retorno: ninguno.
 */
-function barLineGraph(canvas, xAxis, yAxis, legend, title, type) {
+function barLineGraph(canvas, xAxis, yAxis, legend, title, type, ratio=false) {
     // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
     let colors = [];
     // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
@@ -134,6 +134,7 @@ function barLineGraph(canvas, xAxis, yAxis, legend, title, type) {
             datasets: [{
                 label: legend,
                 data: yAxis,
+                pointStyle: 'rectRot',
                 borderColor: '#000000',
                 borderWidth: 1,
                 backgroundColor: colors,
@@ -141,14 +142,14 @@ function barLineGraph(canvas, xAxis, yAxis, legend, title, type) {
             }]
         },
         options: {
-            aspectRatio: 1, 
+            aspectRatio: ratio, 
             plugins: {
                 title: {
                     display: true,
                     text: title
                 },
                 legend: {
-                    display: false
+                    display: true
                 }
             },
             scales: {

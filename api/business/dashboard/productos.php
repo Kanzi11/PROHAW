@@ -159,13 +159,20 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos disponibles';
                 }
                 break;
-             case 'lineaProductosMejorValorados':
-                    if ($result['dataset'] = $producto->productosMejorValorados()) {
-                        $result['status'] = 1;
-                    } else {
-                        $result['exception'] = 'No hay datos disponibles';
-                    }
-                    break;
+            case 'lineaProductosMejorValorados':
+                if ($result['dataset'] = $producto->productosMejorValorados()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
+            case 'cantidadProductosMarcas':
+                if ($result['dataset'] = $producto->cantidadProductosMarcas()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
             case 'delete':
                 if (!$producto->setIdProducto($_POST['id_producto'])) {
                     $result['exception'] = 'incorrecta';

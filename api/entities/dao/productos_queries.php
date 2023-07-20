@@ -137,12 +137,21 @@ class ProductoQueries
 
     
     public function productosMejorValorados(){
-        $sql = 'SELECT p.nombre_producto,v.valoracion_producto 
-        FROM productos p
-        INNER JOIN detalles_pedidos dp ON p.id_producto = dp.id_producto
-        INNER JOIN valoraciones v ON dp.id_detalle_pedido = v.id_detalle_pedido
-        WHERE valoracion_producto = 5
-        GROUP BY  p.nombre_producto,v.valoracion_producto';
+        $sql = 'SELECT p.nombre_producto, ROUND(AVG (v.valoracion_producto),2) AS promedio
+                FROM productos p
+                INNER JOIN detalles_pedidos dp ON p.id_producto = dp.id_producto
+                INNER JOIN valoraciones v ON dp.id_detalle_pedido = v.id_detalle_pedido
+                GROUP BY p.nombre_producto
+                ORDER BY promedio DESC LIMIT 5';
+        return Database::getRows($sql);
+    }
+
+    public function cantidadProductosMarcas()
+    {
+        $sql = 'SELECT nombre_marca, COUNT(id_producto) AS total
+            FROM productos
+            INNER JOIN marcas USING(id_marca)
+            GROUP BY nombre_marca ORDER BY total DESC';
         return Database::getRows($sql);
     }
 

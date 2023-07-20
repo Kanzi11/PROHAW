@@ -149,8 +149,7 @@ class ProductoQueries
     // Metodo para traer el nombre de los productos
     public function reportNombresProductos()
     {
-        $sql = 'SELECT nombre_productos FROM productos
-        ';
+        $sql = 'SELECT nombre_productos FROM productos';
         return Database::getRows($sql);
     }
 }

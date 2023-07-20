@@ -13,15 +13,13 @@ $marcas = new Marcas;
 // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
 if ($dataMarca = $marcas->reportMarcas()) {
     // Se establece un color de relleno para los encabezados.
-    $pdf->setFillColor(175);
+    $pdf->setFillColor(204, 229, 255);
     // Se establece la fuente para los encabezados.
     $pdf->setFont('Times', 'B', 11);
     // Se imprimen las celdas con los encabezados.
     $pdf->cell(40);
-    $pdf->cell(46, 10, 'Marca', 1, 0, 'C');
-    $pdf->cell(60, 10, 'Cantidad de productos', 1, 1, 'C');
-    // Se establece un color de relleno para mostrar el nombre de la categoría.
-    $pdf->setFillColor(225);
+    $pdf->cell(46, 10, 'Marca', 1, 0, 'C',1);
+    $pdf->cell(60, 10, 'Cantidad de productos', 1, 1, 'C',1);
     // Se establece la fuente para los datos de los productos.
     $pdf->setFont('Times', 'I', 12);
 
@@ -34,7 +32,7 @@ if ($dataMarca = $marcas->reportMarcas()) {
         $pdf->cell(60, 10, $pdf->encodeString($rowMarcas['cantidad_producto']), 1, 1,'C');
     }
 } else {
-    $pdf->cell(0, 10, $pdf->encodeString('No hay categorías para mostrar'), 1, 1);
+    $pdf->cell(0, 10, $pdf->encodeString('No hay marcas para mostrar'), 1, 1);
 }
 // Se llama implícitamente al método footer() y se envía el documento al navegador web.
 $pdf->output('I', 'marcas.pdf');

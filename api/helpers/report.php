@@ -31,7 +31,7 @@ class Report extends FPDF
             // Se establece el título del documento (true = utf-8).
             $this->setTitle('Dashboard - Reporte', true);
             // Se establecen los margenes del documento (izquierdo, superior y derecho).
-            $this->setMargins(15, 15, 15);
+            $this->setMargins(15, 20, 15);
             // Se añade una nueva página al documento con orientación vertical y formato carta, llamando implícitamente al método header()
             $this->addPage('p', 'letter');
             // Se define un alias para el número total de páginas que se muestra en el pie del documento.
@@ -57,12 +57,14 @@ class Report extends FPDF
     */
     public function header()
     {
-        // Se establece el logo.
-        $this->image('../../img/logo.png', 15, 15, 20);
+        // Se establece el fondo.
+        $this->image('../../img/header.png', 0, 0, 216, 40 );
+        // Se indica el color del texto.
+        $this->SetTextColor(0);
         // Se ubica el título.
         $this->cell(20);
         $this->setFont('Arial', 'B', 15);
-        $this->cell(166, 10, $this->encodeString($this->title), 0, 1, 'C');
+        $this->cell(170, 10, $this->encodeString($this->title), 0, 1, 'C');
         // Se ubica el usuario loggeado jijiji
         $this->cell(20);
         $this->setFont('Arial', 'B', 10);
@@ -85,6 +87,10 @@ class Report extends FPDF
         $this->setY(-15);
         // Se establece la fuente para el número de página.
         $this->setFont('Arial', 'I', 8);
+        // Se establece la img de fondo del footer
+        $this->image('../../img/footer.png', 0, 210, 216, 70);
+        //
+        $this->SetTextColor(255);
         // Se imprime una celda con el número de página.
         $this->cell(0, 10, $this->encodeString('Página ') . $this->pageNo() . '/{nb}', 0, 0, 'C');
     }

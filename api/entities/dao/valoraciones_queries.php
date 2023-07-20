@@ -69,4 +69,12 @@ class ValoracionesQueries
         $params = array($this->id_valoracion);
         return Database::executeRow($sql, $params);
     }
+    // Metodo para traer los comentarios de valoraciones
+    public function reportComentario()
+    {
+        $sql = 'SELECT comentario_prodcuto FROM valoraciones
+        ';
+        return Database::getRows($sql);
+    }
+
 }

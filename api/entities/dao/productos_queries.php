@@ -145,4 +145,12 @@ class ProductoQueries
         GROUP BY  p.nombre_producto,v.valoracion_producto';
         return Database::getRows($sql);
     }
+
+    // Metodo para traer el nombre de los productos
+    public function reportNombresProductos()
+    {
+        $sql = 'SELECT nombre_productos FROM productos
+        ';
+        return Database::getRows($sql);
+    }
 }

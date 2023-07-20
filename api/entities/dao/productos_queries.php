@@ -149,7 +149,7 @@ class ProductoQueries
     // Metodo para traer el nombre de los productos
     public function reportNombresProductos()
     {
-        $sql = 'SELECT nombre_productos FROM productos';
+        $sql = 'SELECT id_producto,nombre_producto FROM productos INNER JOIN detalles_pedidos USING (id_producto)';
         return Database::getRows($sql);
     }
 }

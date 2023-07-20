@@ -70,11 +70,13 @@ class ValoracionesQueries
         return Database::executeRow($sql, $params);
     }
     // Metodo para traer los comentarios de valoraciones
-    public function reportComentario()
+    public function reportComentario($id_producto)
     {
-        $sql = 'SELECT comentario_prodcuto FROM valoraciones
-        ';
-        return Database::getRows($sql);
+        $sql = 'SELECT comentario_prodcuto FROM valoraciones INNER JOIN detalles_pedidos 
+        USING (id_detalle_pedido) WHERE id_producto = ?';
+        $params = array($id_producto);
+        return Database::getRows($sql,$params);
+        
     }
 
 }

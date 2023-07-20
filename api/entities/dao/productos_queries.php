@@ -128,10 +128,21 @@ class ProductoQueries
     }
 
     public function productosMasComprados(){
-        $sql = 'SELECT b.nombre_producto, SUM(a.cantidad) as total_vendidos
+        $sql = 'SELECT b.nombre_producto, SUM(a.cantidad) AS total_vendidos
         FROM detalles_pedidos a INNER JOIN productos b USING (id_producto)
-        group by b.nombre_producto ORDER BY total_vendidos DESC
+        GROUP BY b.nombre_producto ORDER BY total_vendidos ASC
         LIMIT 5';
+        return Database::getRows($sql);
+    }
+
+    
+    public function productosMejorValorados(){
+        $sql = 'SELECT p.nombre_producto,v.valoracion_producto 
+        FROM productos p
+        INNER JOIN detalles_pedidos dp ON p.id_producto = dp.id_producto
+        INNER JOIN valoraciones v ON dp.id_detalle_pedido = v.id_detalle_pedido
+        WHERE valoracion_producto = 5
+        GROUP BY  p.nombre_producto,v.valoracion_producto';
         return Database::getRows($sql);
     }
 }

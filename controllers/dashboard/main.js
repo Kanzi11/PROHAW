@@ -104,4 +104,30 @@ async function graficoLinealProductos() {
         document.getElementById('chart2').remove();
         console.log(DATA.exception);
     }
+
+    /*
+*   Función asíncrona para mostrar en un gráfico de linea los productos 5 productos mas comprados
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
+*/
+async function graficoLinealProductosMejoresValorados() {
+    // Petición para obtener los datos del gráfico.
+    const DATA = await dataFetch(PRODUCTO_API, 'lineaProductosMejorValorados');
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+    if (DATA.status) {
+        // Se declaran los arreglos para guardar los datos a gráficar.
+        let productos = [];
+        let valoraciones = [];
+        // Se recorre el conjunto de registros fila por fila a través del objeto row.
+        DATA.dataset.forEach(row => {
+            // Se agregan los datos a los arreglos.
+            productos.push(row.nombre_producto);
+            cantidades.push(row.total_vendidos);
+        });
+        // Llamada a la función que genera y muestra un gráfico de pastel. Se encuentra en el archivo components.js productos eje x cantidades eje y unidades vendidas lo que va aparecer cuando seleccionen los puntos y el titulo del grafico lineal.
+        barLineGraph('chart777', productos, cantidades, 'Unidades venidas', 'Top 5 productos mas vendidos', 'line');
+    } else {
+        document.getElementById('chart231`2').remove();
+        console.log(DATA.exception);
+    }
 }

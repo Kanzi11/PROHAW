@@ -57,9 +57,6 @@ class Report extends FPDF
     */
     public function header()
     {
-        // Se establece el fondo.
-        //primer 0 x segundo 0 cordanada en y ancho 216 alto 40 por que 216 por que es el anchho de una pagina tamaño carta
-        $this->image('../../img/header.png', 0, 0, 216, 40 );
         // Se indica el color del texto.
         $this->SetTextColor(0);
         // Se ubica el título.
@@ -88,14 +85,9 @@ class Report extends FPDF
         $this->setY(-15);
         // Se establece la fuente para el número de página.
         $this->setFont('Arial', 'I', 8);
-        // Se establece la img de fondo del footer
-        $this->image('../../img/footer.png', 0, 210, 216, 70);
         //
         $this->SetTextColor(255);
         // Se imprime una celda con el número de página.
         $this->cell(0, 10, $this->encodeString('Página ') . $this->pageNo() . '/{nb}', 0, 0, 'C');
     }
-
-
-    
 }

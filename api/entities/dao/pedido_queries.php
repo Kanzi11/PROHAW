@@ -154,7 +154,7 @@ class PedidoQueries
     // Método para obtener los productos que se encuentran en el carrito de compras.
     public function readOrderDetail()
     {
-        $sql = 'SELECT id_detalle_pedido, nombre_producto, detalles_pedidos.precio, detalles_pedidos.cantidad
+        $sql = 'SELECT id_detalle_pedido, nombre_producto,imagen_producto , detalles_pedidos.precio, detalles_pedidos.cantidad
         FROM pedidos INNER JOIN detalles_pedidos USING(id_pedido) INNER JOIN productos USING(id_producto)
         WHERE id_pedido = ?';
         $params = array($this->id_pedido);
@@ -192,5 +192,17 @@ class PedidoQueries
                 WHERE id_detalle_pedido = ? AND id_pedido = ?';
         $params = array($this->id_detalle_pedido, $_SESSION['id_pedido']);
         return Database::executeRow($sql, $params);
+    }
+
+    //Metodo para devolver el pedido que se a realizado Para el reporte 
+    public function  readDetail()
+    {
+        $sql = 'SELECT  cantidad, precio, nombre_producto 
+        FROM detalles_pedidos 
+        INNER JOIN productos 
+        USING (id_producto) 
+        WHERE id_pedido = ?';
+        $params = array ( $_SESSION['id_pedido']);
+        return Database::getRows($sql, $params);
     }
 }

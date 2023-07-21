@@ -1,4 +1,4 @@
-//Constantes para completar la ruta de la API
+ //Constantes para completar la ruta de la API
 const PRODUCTO_API = 'business/public/producto.php';
 const PEDIDO_API = 'business/public/pedido.php';
 //Contante tipo objeto para obtener los paramentros disponibles en la URL.

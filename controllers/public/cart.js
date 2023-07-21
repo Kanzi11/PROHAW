@@ -49,7 +49,7 @@ async function readOrderDetail() {
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             ITEM_SHOW.innerHTML += `
             <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            <img src="${SERVER_URL.concat('img/productos/', row.imagen_producto)}"
                 alt="product-image" class="w-full rounded-lg sm:w-40" />
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                 <div class="mt-5 sm:mt-0">
@@ -112,7 +112,7 @@ async function finishOrder() {
         const JSON = await dataFetch(PEDIDO_API, 'finishOrder');
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (JSON.status) {
-            sweetAlert(1, JSON.message, true, 'index.html');
+            sweetAlert(1, JSON.message, false, `${SERVER_URL}reports/public/detalle_pedido.php`);
         } else {
             sweetAlert(2, JSON.exception, false);
         }

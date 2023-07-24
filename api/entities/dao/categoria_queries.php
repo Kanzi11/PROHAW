@@ -64,4 +64,13 @@ class CategoriaQueries
         $params = array($this->id_categoria);
         return Database::executeRow($sql, $params);
     }
+
+    public function reportCategorias()
+    {
+        $sql = 'SELECT nombre_categoria , count (id_producto) AS cantidad_producto
+        FROM categorias
+		INNER JOIN productos USING (id_categoria) GROUP BY nombre_categoria
+        ';
+        return Database::getRows($sql);
+    }
 }

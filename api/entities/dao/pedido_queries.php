@@ -128,9 +128,9 @@ class PedidoQueries
             $this->id_pedido = $data['id_pedido'];
             return true;
         } else {
-            $sql = 'INSERT INTO pedidos(direccion_pedido, id_cliente,estado_pedido)
-                    VALUES((SELECT direccion_cliente FROM clientes WHERE id_cliente = ?), ?,?)';
-            $params = array($_SESSION['id_cliente'], $_SESSION['id_cliente'],true);
+            $sql = 'INSERT INTO pedidos(direccion_pedido, id_cliente)
+                    VALUES((SELECT direccion_cliente FROM clientes WHERE id_cliente = ?), ?)';
+            $params = array($_SESSION['id_cliente'], $_SESSION['id_cliente']);
             // Se obtiene el ultimo valor insertado en la llave primaria de la tabla pedidos.
             if ($this->id_pedido = Database::getLastRow($sql, $params)) {
                 return true;
@@ -154,9 +154,9 @@ class PedidoQueries
     // Método para obtener los productos que se encuentran en el carrito de compras.
     public function readOrderDetail()
     {
-        $sql = 'SELECT a.id_detalle_pedido, c.nombre_producto,c.imagen_producto , a.precio, a.cantidad
-        FROM detalles_pedidos a INNER JOIN pedidos b USING(id_pedido) INNER JOIN productos c USING(id_producto)
-        WHERE id_pedido=?';
+        $sql = 'SELECT id_detalle_pedido, nombre_producto,imagen_producto , detalles_pedidos.precio, detalles_pedidos.cantidad
+        FROM pedidos INNER JOIN detalles_pedidos USING(id_pedido) INNER JOIN productos USING(id_producto)
+        WHERE id_pedido = ?';
         $params = array($this->id_pedido);
         return Database::getRows($sql, $params);
     }
@@ -171,7 +171,7 @@ class PedidoQueries
         $this->estado_pedido = 'false';
         $sql = 'UPDATE pedidos
                 SET estado_pedido = ?, fecha_pedido = ?
-                WHERE id_pedido = ?';   
+                WHERE id_pedido = ?';
         $params = array($this->estado_pedido, $date, $_SESSION['id_pedido']);
         return Database::executeRow($sql, $params);
     }

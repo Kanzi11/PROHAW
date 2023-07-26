@@ -161,4 +161,12 @@ class ProductoQueries
         $sql = 'SELECT id_producto,nombre_producto FROM productos INNER JOIN detalles_pedidos USING (id_producto)';
         return Database::getRows($sql);
     }
+
+    public function reportEstadoProducto()
+    {
+        $sql = 'SELECT p.nombre_producto , p.estado_producto, c.nombre_categoria, m.nombre_marca FROM productos p
+		INNER JOIN categorias c USING (id_categoria) INNER JOIN marcas m USING (id_marca) ORDER BY p.estado_producto
+        ';
+        return Database::getRows($sql);
+    }
 }

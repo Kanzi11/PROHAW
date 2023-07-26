@@ -45,6 +45,13 @@ function openCreate() {
     fillSelect(CATEGORIA_API, 'readAll', 'categoria');
 }
 
+function openReport() {
+    // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
+    const PATH = new URL(`${SERVER_URL}reports/dashboard/productos.php`);
+    // Se abre el reporte en una nueva pestaña del navegador web.
+    window.open(PATH.href);
+}
+
 
 //   metodo para encontrar los casos de create an update   
 //Evento al guardar el formulario

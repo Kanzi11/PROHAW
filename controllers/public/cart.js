@@ -112,7 +112,8 @@ async function finishOrder() {
         const JSON = await dataFetch(PEDIDO_API, 'finishOrder');
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (JSON.status) {
-            sweetAlert(1, JSON.message, false, `${SERVER_URL}reports/public/detalle_pedido.php`);
+            window.open(`${SERVER_URL}reports/public/detalle_pedido.php`)
+            sweetAlert(1, JSON.message, false, 'index.html');
         } else {
             sweetAlert(2, JSON.exception, false);
         }

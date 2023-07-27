@@ -9,7 +9,7 @@ require_once('../../libraries/fpdf185/fpdf.php');
 class Report extends FPDF
 {
     // Constante para definir la ruta de las vistas del sitio privado.
-    const CLIENT_URL = 'http://localhost/PROHAW/views/dashboard/';
+    const CLIENT_URL = 'http://localhost/PROHAW/views/public/';
     // Propiedad para guardar el título del reporte.
     private $title = null;
 
@@ -25,7 +25,7 @@ class Report extends FPDF
         // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en los reportes.
         session_start();
         // Se verifica si un administrador ha iniciado sesión para generar el documento, de lo contrario se direcciona a la página web principal.
-        if (isset($_SESSION['id_usuario'])) {
+        if (isset($_SESSION['id_cliente'])) {
             // Se asigna el título del documento a la propiedad de la clase.
             $this->title = $title;
             // Se establece el título del documento (true = utf-8).
@@ -66,7 +66,7 @@ class Report extends FPDF
         // Se ubica el usuario loggeado jijiji
         $this->cell(20);
         $this->setFont('Arial', 'B', 10);
-        $this->cell(166, 5, 'Usuario: '. $_SESSION['alias_usuario'], 0, 1, 'C');
+        $this->cell(166, 5, 'Usuario: '. $_SESSION['usuario'], 0, 1, 'C');
         // Se ubica la fecha y hora del servidor.
         $this->cell(20);
         $this->setFont('Arial', '', 10);

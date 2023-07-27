@@ -89,4 +89,14 @@ class UsuarioQueries
         $params = array($this->id_usuario);
         return Database::executeRow($sql, $params);
     }
+
+    // para el reporte
+    public function reportUsuariosPorTipos()
+    {
+         $sql = 'SELECT tipos_usuarios ,COUNT(id_tipo_usuario) AS cantidad_usuarios
+        FROM usuarios INNER JOIN tipos_usuarios USING (id_tipo_usuario)
+        GROUP BY tipos_usuarios 
+        ';
+        return Database::getRows($sql);
+    }
 }

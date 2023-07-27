@@ -145,7 +145,7 @@ class ProductoQueries
                 ORDER BY promedio DESC LIMIT 5';
         return Database::getRows($sql);
     }
-
+    //para graficos 
     public function cantidadProductosMarcas()
     {
         $sql = 'SELECT nombre_marca, COUNT(id_producto) AS total
